@@ -16,6 +16,8 @@ end
 
 group :development do
   gem 'web-console',           '3.5.1'
+  gem 'guard',                '2.13.0'
+  gem 'guard-minitest',         '2.4.4'
   gem 'listen',                '3.1.5'
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
