@@ -14,6 +14,8 @@ gem 'therubyracer'
 gem 'less-rails-bootstrap'
 gem 'jquery-easing-rails'
 gem "font-awesome-rails"
+gem 'sprockets', '3.6.3'
+gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 
 
 group :development, :test do
@@ -23,8 +25,8 @@ end
 
 group :development do
   gem 'web-console',           '3.5.1'
-  gem 'guard',                '2.13.0'
-  gem 'guard-minitest',         '2.4.4'
+ # gem 'guard',                '2.13.0'
+ # gem 'guard-minitest',         '2.4.4'
   gem 'listen',                '3.1.5'
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'

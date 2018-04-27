@@ -12,4 +12,93 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "Franchise", primary_key: "franchiseID", id: :serial, force: :cascade do |t|
+    t.string "franchiseName", limit: 100
+    t.text "description"
+    t.string "picture", limit: 300
+  end
+
+  create_table "IComments", primary_key: "commentId", id: :serial, force: :cascade do |t|
+    t.string "displayName", limit: 100
+    t.text "body"
+    t.date "date", default: -> { "('now'::text)::date" }, null: false
+  end
+
+  create_table "IRating", primary_key: "ratingID", id: :serial, force: :cascade do |t|
+    t.integer "overallRating"
+    t.integer "individualRating"
+    t.integer "issueID"
+  end
+
+  create_table "Issue", primary_key: "issueID", id: :serial, force: :cascade do |t|
+    t.string "issueName", limit: 100
+    t.integer "seriesID"
+    t.integer "volumeID"
+    t.string "cover", limit: 100
+    t.string "author", limit: 100
+    t.string "editor", limit: 100
+    t.string "synopsis", limit: 100
+    t.string "summary", limit: 100
+    t.string "tags", limit: 100, array: true
+    t.string "characters", limit: 100, array: true
+    t.string "artist", limit: 100
+  end
+
+  create_table "Publisher", primary_key: "publisherID", id: :serial, force: :cascade do |t|
+    t.string "publisherName", limit: 100
+    t.text "description"
+    t.string "picture", limit: 300
+  end
+
+  create_table "SComments", primary_key: "commentId", id: :serial, force: :cascade do |t|
+    t.string "displayName", limit: 100
+    t.text "body"
+    t.date "date", default: -> { "('now'::text)::date" }, null: false
+  end
+
+  create_table "SRating", primary_key: "ratingID", id: :serial, force: :cascade do |t|
+    t.integer "overallRating"
+    t.integer "individualRating"
+    t.integer "seriesID"
+  end
+
+  create_table "Series", primary_key: "seriesID", id: :serial, force: :cascade do |t|
+    t.string "seriesName", limit: 100
+    t.string "volumeName", limit: 100
+    t.string "picture", limit: 300
+    t.integer "publisherID"
+    t.integer "franchiseID"
+  end
+
+  create_table "User", primary_key: "userID", id: :serial, force: :cascade do |t|
+    t.string "username", limit: 100
+    t.string "password", limit: 100
+    t.string "displayName", limit: 100
+    t.string "profilePic", limit: 100
+    t.string "personalBio", limit: 100
+    t.string "privilege", limit: 100
+    t.string "friendList", limit: 100
+  end
+
+  create_table "VComments", primary_key: "commentId", id: :serial, force: :cascade do |t|
+    t.string "displayName", limit: 100
+    t.text "body"
+    t.date "date", default: -> { "('now'::text)::date" }, null: false
+  end
+
+  create_table "VRating", primary_key: "ratingID", id: :serial, force: :cascade do |t|
+    t.integer "overallRating"
+    t.integer "individualRating"
+    t.integer "volumeID"
+  end
+
+  create_table "Volume", primary_key: "volumeID", id: :serial, force: :cascade do |t|
+    t.string "volumeName", limit: 100
+    t.string "issueName", limit: 100
+    t.integer "seriesID"
+  end
+
 end

@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+  #%=userID.each do render username%>
   end
 
   def help
