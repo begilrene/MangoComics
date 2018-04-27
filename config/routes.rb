@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources:schema #mangoDB
+   resources:schema #mangoDB
   
   get 'static_pages/home'
   get 'static_pages/help'
