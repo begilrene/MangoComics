@@ -23,6 +23,7 @@ default: &default
 
 development:
   <<: *default
+  timeout: 5000
   database: mangoDB
   username: mangoadmin
   password: mangopassword
