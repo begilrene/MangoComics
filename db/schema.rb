@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "username", limit: 100
     t.string "password", limit: 100
     t.string "displayName", limit: 100
-    t.string "profilePic", limit: 100
+    t.string "profilePic", limit: 300
     t.string "personalBio", limit: 100
     t.string "privilege", limit: 100
     t.string "friendList", limit: 100

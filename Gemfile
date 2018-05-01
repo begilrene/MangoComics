@@ -14,7 +14,7 @@ gem 'therubyracer'
 gem 'less-rails-bootstrap'
 gem 'jquery-easing-rails'
 gem "font-awesome-rails"
-gem 'sprockets', '3.6.3'
+gem 'sprockets', '>=3.6.3'
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 
 
