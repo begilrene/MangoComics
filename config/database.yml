@@ -83,6 +83,9 @@ test:
 #
 production:
   <<: *default
-  database: dbtest_production
-  username: dbtest
-  password: <%= ENV['DBTEST_DATABASE_PASSWORD'] %>
+  timeout: 5000
+  database: mangoDB
+  username: mangoadmin
+  password: mangopassword
+  host: mangodb.chz3lyjccdyc.us-east-2.rds.amazonaws.com
+  port: 5432
