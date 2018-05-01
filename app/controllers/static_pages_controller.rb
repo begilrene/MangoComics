@@ -8,6 +8,7 @@ class StaticPagesController < ApplicationController
  
  
   def help
+    @users = User.all
     #render html: "layouts/parti#partial: 'layouts/front',layouts: 'layouts/front'
   end
   
