@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "cover", limit: 100
     t.string "author", limit: 100
     t.string "editor", limit: 100
-    t.string "synopsis", limit: 100
-    t.string "summary", limit: 100
+    t.text "synopsis"
+    t.text "summary"
     t.string "tags", limit: 100, array: true
     t.string "characters", limit: 100, array: true
     t.string "artist", limit: 100
