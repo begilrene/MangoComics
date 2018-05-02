@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "tags", limit: 100, array: true
     t.string "characters", limit: 100, array: true
     t.string "artist", limit: 100
+    t.json "data"
   end
 
   create_table "Publisher", primary_key: "publisherID", id: :serial, force: :cascade do |t|
