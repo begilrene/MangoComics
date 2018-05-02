@@ -81,7 +81,7 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-development:
+production:
   <<: *default
   timeout: 5000
   database: mangoDB
