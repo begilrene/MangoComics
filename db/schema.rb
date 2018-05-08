@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20180504220041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "cover", limit: 100
     t.string "author", limit: 100
     t.string "editor", limit: 100
-    t.text "synopsis"
-    t.text "summary"
+    t.string "synopsis", limit: 100
+    t.string "summary", limit: 100
     t.string "tags", limit: 100, array: true
     t.string "characters", limit: 100, array: true
     t.string "artist", limit: 100
@@ -82,6 +82,9 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "personalBio", limit: 100
     t.string "privilege", limit: 100
     t.string "friendList", limit: 100
+    t.string "passwordConfirm", limit: 100
+    t.string "email", limit: 150
+    t.string "password_digest", limit: 300
   end
 
   create_table "VComments", primary_key: "commentId", id: :serial, force: :cascade do |t|
