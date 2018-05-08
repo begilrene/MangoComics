@@ -57,6 +57,28 @@ div.ex1 {
   font-size: 1rem;
 }
 
+.box{
+  position: absolute;
+  margin: auto;
+  width: 50%;
+  border-color: #17a2b8;
+  border: 2px;
+}
+
+#news{
+  margin: auto;
+  width: 50%;
+  padding: 2rem 2rem;
+  
+  
+}
+
+#change
+{
+padding-top:10rem;
+ margin-top: 2rem; 
+}
+
 #rss
 {
   padding: 10rem 10rem;
