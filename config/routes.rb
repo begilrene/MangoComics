@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get 'users/new'
 
-get 'layouts/front'
   get 'sessions/new'
 
   get 'static_pages/home'
