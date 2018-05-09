@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      redirect_to static_pages_help_url
       # Handle a successful save.
     else
       render 'new'
