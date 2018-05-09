@@ -21,7 +21,7 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-development:
+production:
   <<: *default
   timeout: 5000
   database: mangoDB
@@ -81,7 +81,7 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production: 
+development:
   <<: *default
   timeout: 5000
   database: mangoDB
