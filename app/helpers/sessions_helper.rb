@@ -1,6 +1,6 @@
 module SessionsHelper
   def log_in(user)
-    session[:userID] = user.userID
+    session[:userID] = @users.userID#user.userID
   end
   def current_user
    @current_user ||= @users.find_by(userID: session[:userID])#user.find_by(userID: session[:userID])
