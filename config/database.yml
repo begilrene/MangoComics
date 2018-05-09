@@ -74,7 +74,7 @@ test:
 # On Heroku and other platform providers, you may have a full connection URL
 # available as an environment variable. For example:
 #
-#   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
+  #DATABASE_URL="postgres://mangoadmin:mangopassword@mangodb.chz3lyjccdyc.us-east-2.rds.amazonaws.com/mangoDB"
 #
 # You can use this database configuration with:
 #
