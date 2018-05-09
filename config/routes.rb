@@ -1,19 +1,16 @@
 Rails.application.routes.draw do
+  resources:schema
+  resources:issues
+  resources:users
   get 'users/new'
 
   get 'sessions/new'
 
   get 'static_pages/home'
-
-  get 'static_pages/help'
-
-  resources:schema
-  resources:issues
-  #resources:users
-  get 'static_pages/home'
   get 'static_pages/help'
   get 'static_pages/about'
   get 'static_pages/contact'
+  
   get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
