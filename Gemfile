@@ -18,6 +18,7 @@ gem 'sprockets', '3.6.3'
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'pg', '0.18.4'
 gem 'bcrypt-ruby'
+
 group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
@@ -40,7 +41,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.18.4'
+  #gem 'pg', '0.18.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

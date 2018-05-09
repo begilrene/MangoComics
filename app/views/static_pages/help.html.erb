@@ -19,10 +19,6 @@
     <!-- Custom styles for this template -->
     <link href="/assets/stylesheets/heroic-features.css" rel="stylesheet">
     
-    
-        <h1 class="display-3">Welcome<% if logged_in? %>, <%=@current_user.displayName%><% end %> ! <!-- calls userID--> </h1>
-        <p class="lead">
-        </font></p>
         <!--<a href="#" class="btn btn-primary btn-lg">Call to action!</a>-->
 
   </head>
@@ -49,15 +45,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Sign Up</a>
             </li>
-            <li class="nav-item">
-              <% if logged_in? %>
-                <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
-                </li>
-              <% else %>
-                  <a><%= link_to "Log in", login_path %></>
-              <% end %>
-            </li>
+            
           </ul>
         </div>
       </div>
