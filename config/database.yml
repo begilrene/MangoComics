@@ -81,8 +81,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:  
-adapter: postgresql
+production: 
+  <<: *default
   timeout: 5000
   database: mangoDB
   username: mangoadmin
