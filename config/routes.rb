@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources:schema
   resources:issues
   resources:users
+  get 'issues/new'
+
   get 'users/new'
 
   get 'sessions/new'
