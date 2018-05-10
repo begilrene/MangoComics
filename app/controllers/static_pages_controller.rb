@@ -1,12 +1,18 @@
 class StaticPagesController < ApplicationController
   def home
+    @users = User.all
+    @comics = Issue.all
    # p = User.new
    # String hmm = ('a'..'z').to_a.shuffle[0..7].join
    # p.username = hmm
    # render html: p.username
- end
+  end
  
- 
+  def comiclist
+    @users = User.all
+    @comics = Issue.all
+    #render html: "layouts/parti#partial: 'layouts/front',layouts: 'layouts/front'
+  end
   def help
     @users = User.all
     @comics = Issue.all
