@@ -1,3 +1,27 @@
+<!DOCTYPE html>
+<p id="special_content">
+  <%= yield :special_content %>
+</p>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mango Comics</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/heroic-features.css" rel="stylesheet">
+
+  </head>
+
+  <body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -9,17 +33,23 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/">Home
+              <a class="nav-link" href="#">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Comic List</a>
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
             </li>
             <li class="nav-item">
               <% if logged_in? %>
                 <li>
-                <%= link_to "Log out", logout_path, method: :delete%>
+                <%= link_to "Log out", logout_path, method: :delete %>
                 </li>
               <% else %>
                   <a><%= link_to "Log in", login_path %></>
@@ -36,6 +66,9 @@
       <!-- Jumbotron Header -->
       <header class="jumbotron my-4">
         <h1 class="display-3">Welcome<% if logged_in? %>, <%=@current_user.displayName%><% end %> ! <!-- calls userID--> </h1>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid
+        similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</font></p>
         <!--<a href="#" class="btn btn-primary btn-lg">Call to action!</a>-->
       </header>
 
@@ -62,9 +95,9 @@
     <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="bg-dark">
-      <div id="footer">
-        <p class="text-center text-white">Copyright &copy; MangoSoft LLC</p>
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; MangoSoft LLC</p>
       </div>
       <!-- /.container -->
     </footer>
