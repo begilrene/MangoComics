@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180508181229) do
+ActiveRecord::Schema.define(version: 20180504220041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,15 +37,15 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.string "issueName", limit: 100
     t.integer "seriesID"
     t.integer "volumeID"
-    t.string "cover", limit: 400
-    t.text "synopsis"
-    t.text "summary"
+    t.string "cover", limit: 100
+    t.string "author", limit: 100
+    t.string "editor", limit: 100
+    t.string "synopsis", limit: 100
+    t.string "summary", limit: 100
     t.string "tags", limit: 100, array: true
     t.string "characters", limit: 100, array: true
+    t.string "artist", limit: 100
     t.json "data"
-    t.string "editor", limit: 100, array: true
-    t.string "author", limit: 100, array: true
-    t.string "artist", limit: 100, array: true
   end
 
   create_table "Publisher", primary_key: "publisherID", id: :serial, force: :cascade do |t|
@@ -103,13 +103,6 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.string "volumeName", limit: 100
     t.string "issueName", limit: 100
     t.integer "seriesID"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

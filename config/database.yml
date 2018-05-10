@@ -19,7 +19,7 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
@@ -86,7 +86,6 @@ production:
   timeout: 5000
   database: mangoDB
   username: mangoadmin
-  url: postgres://mangoadmin:mangopassword@mangodb.chz3lyjccdyc.us-east-2.rds.amazonaws.com/mangoDB
   password: mangopassword
   host: mangodb.chz3lyjccdyc.us-east-2.rds.amazonaws.com
   port: 5432
