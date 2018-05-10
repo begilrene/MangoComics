@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'static_pages/home'
-
+  get 'static_pages/comiclist'
   get 'static_pages/help'
 
   resources:schema #mangoDB
@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'static_pages#help'
+  root 'static_pages#home'
 end

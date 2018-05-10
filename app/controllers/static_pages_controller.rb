@@ -8,7 +8,11 @@ class StaticPagesController < ApplicationController
    # render html: p.username
   end
  
- 
+  def comiclist
+    @users = User.all
+    @comics = Issue.all
+    #render html: "layouts/parti#partial: 'layouts/front',layouts: 'layouts/front'
+  end
   def help
     @users = User.all
     @comics = Issue.all
