@@ -1,6 +1,27 @@
-<h1>Editing User</h1>
+<% provide(:title, "Edit user") %>
+<h1>Update your profile</h1>
 
-<%= render 'form', user: @user %>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+      <%= f.label :displayName %>
+      <%= f.text_field :displayName %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirm Password" %>
+      <%= f.password_field :password_confirmation %>
+      
+      <%= f.label :personalBio, "personalBio" %>
+      <%= f.password_field :personalBio %>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
