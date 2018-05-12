@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to static_pages_help_url
+      redirect_to static_pages_home_url
       # Handle a successful save.
     else
       render 'new'
@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
+      redirect_to static_pages_home_url
       # Handle a successful update.
     else
       render 'edit'
@@ -32,6 +33,6 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:displayName, :email, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :personalBio)
     end
 end
