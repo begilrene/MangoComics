@@ -1,29 +1,41 @@
 <% provide(:title, @user.displayName) %>
-<h1>
-  <img src=<%=@user.profilePic%> width="80" height="80" alt="">
-  <%= @user.displayName %>
-   
-</h1>
-<p>
-  <strong>firstname:</strong>
-  <%= @user.firstname %>
-</p>
-<p>
-  <strong>lastname:</strong>
-  <%= @user.lastname %>
-</p>
-<p>
-  <strong>personalBio:</strong>
-  <%= @user.personalBio %>
-</p>
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>email:</strong>
-  <%= @user.email %>
-</p>
+<%= render 'layouts/navbar' %>
+<html lang="en">
+
+  <body>
+   <header class="jumbotron my-4">
+   <h1 class="display-3">Account Information</h1>
+   </header>
+    <div class = 'container'>
+      <h1>
+        <img src=<%=@user.profilePic%> width="80" height="80" alt="">
+        <%= @user.displayName %>
+      </h1>
+      <p>
+        <strong>firstname:</strong>
+        <%= @user.firstname %>
+      </p>
+      <p>
+        <strong>lastname:</strong>
+        <%= @user.lastname %>
+      </p>
+      <p>
+        <strong>personalBio:</strong>
+        <%= @user.personalBio %>
+      </p>
+      <p id="notice"><%= notice %></p>
+      <p>
+      <strong>email:</strong>
+        <%= @user.email %>
+      </p>
+    </div>
+      <% if logged_in? && @current_user.displayName == @user.displayName %>
+      <%= link_to 'Edit', edit_user_path(@user) %>
+      <% end %>
+
+    <%=render 'layouts/footer' %>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
 
 
-<% if logged_in? && @current_user.displayName == @user.displayName %>
-<%= link_to 'Edit', edit_user_path(@user) %>
-<% end %>|
-<%= link_to 'Back', users_path %>

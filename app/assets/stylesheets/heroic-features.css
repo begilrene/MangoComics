@@ -108,7 +108,7 @@ body {
 }
 
 #footer {
-  position: bottom, relative;
+  position: absolute;
   bottom: 0;
   left: 0;
   
