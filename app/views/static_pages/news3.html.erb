@@ -17,7 +17,7 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/assets/stylesheets/heroic-features.css" rel="stylesheet">
+    <link href="css/heroic-features.css" rel="stylesheet">
 
   </head>
 
@@ -71,87 +71,32 @@
         <h1 class="display-3">Welcome<% if logged_in? %>, <%=@current_user.displayName%><% end %> ! <!-- calls userID--> </h1>
         <!--<a href="#" class="btn btn-primary btn-lg">Call to action!</a>-->
       </header>
-  
-  <body>
-    <!--
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-      <h3>Track</h3>
-      <p>Sign up and keep track of your favorite comic series as well those you want to avoid</p>
-      <p></p>
-      </div>
-      <div class="col-sm-4">
-      <h3>Community</h3>
-      <p>Befriend other users and keep up to date whenever they post a review</p>
-      </div>
-      <div class="col-sm-4">
-      <h3>Review</h3>
-      <p>Give ratings and reviews on your favorite or your least favorite comics/series/franchises</p>
-      </div>
-    </div>
-  </div>
-  -->
-  <div class="container">
-    <div class="span12" style="border: 2px solid black">  
-      <div class="row">
-       <div class="col-sm-4">
-        <img src="https://img.purch.com/o/aHR0cDovL3d3dy5uZXdzYXJhbWEuY29tL2ltYWdlcy9pLzAwMC8yMjYvNjE5L2kwMi9NYWtlQVdpc2hfSW5maW5pdHlXYXJQcmVtaWVyZS5KUEc=" class="img-fluid" alt="Responsive image" >
-        </div>
-        <div class="col-sm-6">
-        <h2>MARVEL STUDIOS Donates $1.25m to MAKE-A-WISH and STARLIGHT CHILDREN's FOUNDATION</h2>
-        <p><a href="/static_pages/news1">Click here to read more </a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br />
-  <div class="container">
-    <div class="span12" style="border: 2px solid black">  
-      <div class="row">
-       <div class="col-sm-4">
-        <img src="https://news.marvel.com/wp-content/uploads/2018/03/russo_master.jpg" class="img-fluid" alt="Responsive image">
-        </div>
-        <div class="col-sm-6">
-        <h2>THE RUSSO BROTHERS GIVE US AN INSIDER LOOK ON HOW THEY TACKLED 'AVENGERS: INFINITY WAR'</h2>
-        <p><a href="/static_pages/news2"> Click here to read more </a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br />
-  <div class="container">
-    <div class="span12" style="border: 2px solid black">  
-      <div class="row">
-       <div class="col-sm-4">
-        <img src="https://img.purch.com/o/aHR0cDovL3d3dy5uZXdzYXJhbWEuY29tL2ltYWdlcy9pLzAwMC8yMjYvMzc0L2lGRi9JTVRPTlkyMDE4MDAxX1hYX0lyb25NYW4yMDIwLmpwZw=="  class="img-fluid" alt="Responsive image">
-        </div>
-        <div class="col-sm-6">
-        <h2>TONY STARK IRON MAN #1's 'The Many Armors (20!) of Iron Man Variant Covers</h2>
-        <p><a href="/static_pages/news3"> Click here to read more </a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    
-    <!-- /.container -->
 
-</html>
+    <body>
+   
+       <div class="container">
+           <img id = "headerimage" src="https://img.purch.com/o/aHR0cDovL3d3dy5uZXdzYXJhbWEuY29tL2ltYWdlcy9pLzAwMC8yMjYvNjE5L2kwMi9NYWtlQVdpc2hfSW5maW5pdHlXYXJQcmVtaWVyZS5KUEc=">   
+           </div>
+       </div>
         
+    <div class = "container">
+        <div class="row">
+            <div class="col-sm-12">
+                <p id = "author"> Author: Donald Bui </p>
+                <p>Marvel has put in another giant effort of generosity by donating $800,000 to the Make-A-Wish® foundation and $450,000 to the Starlight Children's Foundation for a net total of $1.25 million. This is another in Marvel's long list of generosity to the younger audience with numerous hospital and school visits. This time particularly Chris Evans (Captain America) and Tom Holland (Spiderman) were sent out to help in a premier for childrens' hospitals. </p>
+            </div>
+        </div>
+    </div>    
+    
+    <div class = "container">
+        <div class="span10-12"> 
+        <p id = "link">Check out the source for more!</a><a href="https://www.newsarama.com/39879-marvel-studios-donates-1-25m-to-make-a-wish-and-starlight-children-s-fondation.html"> source</p>
+        </div>
+    </div>
+    </body>
 
-  <h2><h2 id = "change" > 
-      Change Logs:
-  </h2>
-  
-  
-  <div class = "ex1">
-    ver. 0.3 sign up and sign in complete <br />
-    ver. 0.2 10 comic entries added <br />
-    ver. 0.1 website online <br />
-  </div>
 
-   <!-- Footer -->
+<!-- Footer -->
     <footer class="bg-dark">
       <div id="footer">
         <p class="text-center text-white">Copyright &copy; MangoSoft LLC</p>
