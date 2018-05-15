@@ -1,22 +1,28 @@
 <% provide(:title, @user.displayName) %>
 <h1>
+  <img src=<%=@user.profilePic%> width="80" height="80" alt="">
   <%= @user.displayName %>
+   
 </h1>
-<p id="notice"><%= notice %></p>
 <p>
-  <strong>Password:</strong>
-  <%= @user.password %>
+  <strong>firstname:</strong>
+  <%= @user.firstname %>
 </p>
-
+<p>
+  <strong>lastname:</strong>
+  <%= @user.lastname %>
+</p>
+<p>
+  <strong>personalBio:</strong>
+  <%= @user.personalBio %>
+</p>
+<p id="notice"><%= notice %></p>
 <p>
   <strong>email:</strong>
   <%= @user.email %>
 </p>
 
-<p>
-  <strong>personalBio:</strong>
-  <%= @user.personalBio %>
-</p>
+
 <% if logged_in? && @current_user.displayName == @user.displayName %>
 <%= link_to 'Edit', edit_user_path(@user) %>
 <% end %>|
