@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require jquery
 //= require bootstrap-sprockets
+//= require bootstrap.bundle.min
 //= require jquery.min
 //= require twitter/bootstrap
 //= require jquery.easing
