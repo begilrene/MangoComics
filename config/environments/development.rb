@@ -8,7 +8,7 @@ Rails.application.configure do
   config.web_console.whitelisted_ips = '47.145.192.42'
   # Do not eager load code on boot.
   config.eager_load = true
-  config.serve_static_assets = true
+  
 
   # Show full error reports.
   config.consider_all_requests_local = true
