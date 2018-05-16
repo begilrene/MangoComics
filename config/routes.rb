@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   resources:schema
   resources:issues
   resources:users
+  resources:volumes
+  
   get 'issues/new'
+  
+  get 'volume/new'
 
   get 'users/new'
 
