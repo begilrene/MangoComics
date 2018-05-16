@@ -1,10 +1,11 @@
+   <% provide(:title, @iss.issueID) %>
     <div class = "container">
       <div class = "row">
         <div id: "comments">
           <div class="col-sm-12">
-            <% IComment.where(issueID: '11' ).each do |iComments| %>
-            <p> <%=IComments.displayName%> Date: <%=mComment.date%> <br /></p>
-            <p id = "comments"> <%=IComments.body%></p>
+            <% IComment.where(issueID: @iss.issueID ).each do |iComments| %>
+            <p> <%=iComments.displayName%> Date: <%=iComments.date%> <br /></p>
+            <p id = "comments"> <%=iComments.body%></p>
             <% end %>
           </div>
         </div>
