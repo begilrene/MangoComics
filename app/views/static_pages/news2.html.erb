@@ -95,11 +95,23 @@
     
     <div class = "container">
         <div class="span10-12"> 
-        <p id = "link">Check out the source for more!</a><a href="https://news.marvel.com/movies/86277/russo-brothers-give-us-insider-look-tackled-avengers-infinity-war/"> source</p>
+        <p id = "link">Check out the source for more!<a href="https://news.marvel.com/movies/86277/russo-brothers-give-us-insider-look-tackled-avengers-infinity-war/"> source </a></p>
         </div>
     </div>
     </body>
-
+    
+    <div class = "container">
+      <div class = "row">
+        <div id: "comments">
+          <div class="col-sm-12">
+            <% MComments.where(pageIndex: '2').each do |mComment| %>
+            <p> <%=mComment.displayName%> Date: <%=mComment.date%> <br /></p>
+            <p id = "comments"> <%=mComment.body%></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
 
 <!-- Footer -->
     <footer class="bg-dark">

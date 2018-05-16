@@ -90,17 +90,23 @@
     
     <div class = "container">
         <div class="span10-12"> 
-        <p id = "link">Check out the source for more!</a><a href="https://www.newsarama.com/39879-marvel-studios-donates-1-25m-to-make-a-wish-and-starlight-children-s-fondation.html"> source</p>
+        <p id = "link">Check out the source for more!<a href="https://www.newsarama.com/39879-marvel-studios-donates-1-25m-to-make-a-wish-and-starlight-children-s-fondation.html"> source </a></p>
         </div>
     </div>
     
-    <div>
-      
-      
-      
-      
+    <div class = "container">
+      <div class = "row">
+        <div id: "comments">
+          <div class="col-sm-12">
+            <% MComments.where(pageIndex: '1').each do |mComment| %>
+            <p> <%=mComment.displayName%> Date: <%=mComment.date%> <br /></p>
+            <p id = "comments"> <%=mComment.body%></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-    
+      
     </body>
 
 

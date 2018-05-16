@@ -22,9 +22,10 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   end
 
   create_table "IComments", primary_key: "commentId", id: :serial, force: :cascade do |t|
-    t.string "displayName", limit: 100
     t.text "body"
     t.date "date", default: -> { "('now'::text)::date" }, null: false
+    t.integer "userID", null: false
+    t.integer "issueID", null: false
   end
 
   create_table "IRating", primary_key: "ratingID", id: :serial, force: :cascade do |t|
@@ -46,6 +47,13 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.string "editor", limit: 100, array: true
     t.string "author", limit: 100, array: true
     t.string "artist", limit: 100, array: true
+  end
+
+  create_table "MComments", primary_key: "commentId", id: :integer, default: -> { "nextval('\"SComments_commentId_seq\"'::regclass)" }, force: :cascade do |t|
+    t.string "displayName", limit: 100
+    t.text "body"
+    t.date "date", default: -> { "('now'::text)::date" }, null: false
+    t.integer "pageIndex"
   end
 
   create_table "Publisher", primary_key: "publisherID", id: :serial, force: :cascade do |t|
@@ -75,13 +83,13 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   end
 
   create_table "User", primary_key: "userID", id: :serial, force: :cascade do |t|
-    t.string "username", limit: 100
+    t.string "firstname", limit: 100
     t.string "password", limit: 100
     t.string "displayName", limit: 100
-    t.string "profilePic", limit: 300
+    t.string "profilePic", limit: 300, default: "https://cdn.discordapp.com/attachments/431136930013511681/431613336887492618/mango.png"
     t.string "personalBio", limit: 100
     t.string "privilege", limit: 100
-    t.string "friendList", limit: 100
+    t.string "lastname", limit: 100
     t.string "passwordConfirm", limit: 100
     t.string "email", limit: 150
     t.string "password_digest", limit: 300

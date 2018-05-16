@@ -75,7 +75,7 @@
     <body>
    
        <div class="container">
-           <img id = "headerimage" src="https://img.purch.com/o/aHR0cDovL3d3dy5uZXdzYXJhbWEuY29tL2ltYWdlcy9pLzAwMC8yMjYvNjE5L2kwMi9NYWtlQVdpc2hfSW5maW5pdHlXYXJQcmVtaWVyZS5KUEc=">   
+           <img id = "headerimage" src="https://static0.cbrimages.com/wp-content/uploads/2018/05/cable-deadpool-social.jpg">   
            </div>
        </div>
         
@@ -83,18 +83,31 @@
         <div class="row">
             <div class="col-sm-12">
                 <p id = "author"> Author: Donald Bui </p>
-                <p>Marvel has put in another giant effort of generosity by donating $800,000 to the Make-A-Wish® foundation and $450,000 to the Starlight Children's Foundation for a net total of $1.25 million. This is another in Marvel's long list of generosity to the younger audience with numerous hospital and school visits. This time particularly Chris Evans (Captain America) and Tom Holland (Spiderman) were sent out to help in a premier for childrens' hospitals. </p>
+                <p>Seemingly timed with the soon to be released Deadpool movie a reintroduction of a comic series that will involve the beloved characters Deadpool and Cable. Going to be written by Dadid F. Walker and drawn by Paco Diaz this comics seems to play towards Deadpool's strength by making it a story focused around time-travelling attackers. This new comic series is slated to come out around August and has provided the current cover page for their new adventures. </p>
             </div>
         </div>
     </div>    
     
     <div class = "container">
         <div class="span10-12"> 
-        <p id = "link">Check out the source for more!</a><a href="https://www.newsarama.com/39879-marvel-studios-donates-1-25m-to-make-a-wish-and-starlight-children-s-fondation.html"> source</p>
+        <p id = "link">https://www.cbr.com/cable-deadpool-annual-august-2018/"> source</a></p>
         </div>
     </div>
     </body>
 
+    <div class = "container">
+      <div class = "row">
+        <div id: "comments">
+          <div class="col-sm-12">
+            <% MComments.where(pageIndex: '3').each do |mComment| %>
+            <p> <%=mComment.displayName%> Date: <%=mComment.date%> <br /></p>
+            <p id = "comments"> <%=mComment.body%></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    
 
 <!-- Footer -->
     <footer class="bg-dark">
