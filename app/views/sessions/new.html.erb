@@ -1,7 +1,12 @@
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
-
-<div class="row">
+<html lang="en">
+  <%= render 'layouts/navbar' %>
+  <body>
+   <header class="jumbotron my-4">
+   <h1 class="display-3">Log in</h1>
+   </header>
+   <div class="container">
+    <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path) do |f| %>
 
@@ -17,3 +22,8 @@
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 </div>
+</div>
+  <%=render 'layouts/footer' %>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>

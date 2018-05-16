@@ -1,12 +1,18 @@
 <% provide(:title, 'Sign up') %>
 <%= render 'layouts/navbar' %>
-<h1>Sign up</h1>
+<html lang="en">
 
+  <body>
+   <header class="jumbotron my-4">
+   <h1 class="display-3">Sign up</h1>
+   </header>
+ 
+  <div class="container">
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages' %>
-      <%= f.label :displayName %>
+      <%= f.label :displayName, "Username" %>
       <%= f.text_field :displayName, class: 'form-control' %>
 
       <%= f.label :email %>
@@ -15,10 +21,16 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, "Confirm password" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
+</div>
+  <%=render 'layouts/footer' %>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+<html lang="en">
