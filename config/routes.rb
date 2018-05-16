@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   get 'static_pages/about'
   get 'static_pages/contact'
   get 'static_pages/issues'
+  get 'static_pages/news1'
+  get 'static_pages/news2'
+  get 'static_pages/news3'
 
   
   get    '/signup',  to: 'users#new'
