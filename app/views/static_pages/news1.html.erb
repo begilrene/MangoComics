@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<p id="special_content">
+  <%= yield :special_content %>
+</p>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mango Comics</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/heroic-features.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">MangoComics</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/static_pages/comiclist">Comic List</a>
+            </li>
+            <li class="nav-item">
+              <% if logged_in? %>
+                <li>
+                <%= link_to "Log out", logout_path, method: :delete%>
+                </li>
+              <% else %>
+                  <a><%= link_to "Log in", login_path %></>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+    <title>Mango Comics</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/assets/stylesheets/heroic-features.css" rel="stylesheet">
+    
+    
+     <div class="container">
+
+      <!-- Jumbotron Header -->
+      <header class="jumbotron my-4">
+        <h1 class="display-3">Welcome<% if logged_in? %>, <%=@current_user.displayName%><% end %> ! <!-- calls userID--> </h1>
+        <!--<a href="#" class="btn btn-primary btn-lg">Call to action!</a>-->
+      </header>
+
+    <body>
+   
+       <div class="container">
+           <img id = "headerimage" src="https://img.purch.com/o/aHR0cDovL3d3dy5uZXdzYXJhbWEuY29tL2ltYWdlcy9pLzAwMC8yMjYvNjE5L2kwMi9NYWtlQVdpc2hfSW5maW5pdHlXYXJQcmVtaWVyZS5KUEc=">   
+           </div>
+       </div>
+        
+    <div class = "container">
+        <div class="row">
+            <div class="col-sm-12">
+                <p id = "author"> Author: Donald Bui </p>
+                <p>Marvel has put in another giant effort of generosity by donating $800,000 to the Make-A-Wish® foundation and $450,000 to the Starlight Children's Foundation for a net total of $1.25 million. This is another in Marvel's long list of generosity to the younger audience with numerous hospital and school visits. This time particularly Chris Evans (Captain America) and Tom Holland (Spiderman) were sent out to help in a premier for childrens' hospitals. </p>
+            </div>
+        </div>
+    </div>    
+    
+    <div class = "container">
+        <div class="span10-12"> 
+        <p id = "link">Check out the source for more!<a href="https://www.newsarama.com/39879-marvel-studios-donates-1-25m-to-make-a-wish-and-starlight-children-s-fondation.html"> source </a></p>
+        </div>
+    </div>
+    
+    <div class = "container">
+      <div class = "row">
+        <div id: "comments">
+          <div class="col-sm-12">
+            <% MComment.where(pageIndex: '1').each do |mComment| %>
+            <p> <%=mComment.displayName%> Date: <%=mComment.date%> <br /></p>
+            <p id = "comments"> <%=mComment.body%></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    </body>
+
+
+<!-- Footer -->
+    <footer class="bg-dark">
+      <div id="footer">
+        <p class="text-center text-white">Copyright &copy; MangoSoft LLC</p>
+      </div>
+    <footer />
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

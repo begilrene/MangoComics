@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<p id="special_content">
+  <%= yield :special_content %>
+</p>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mango Comics</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/heroic-features.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">MangoComics</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/static_pages/comiclist">Comic List</a>
+            </li>
+            <li class="nav-item">
+              <% if logged_in? %>
+                <li>
+                <%= link_to "Log out", logout_path, method: :delete%>
+                </li>
+              <% else %>
+                  <a><%= link_to "Log in", login_path %></>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+    <title>Mango Comics</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/assets/stylesheets/heroic-features.css" rel="stylesheet">
+    
+    
+     <div class="container">
+
+      <!-- Jumbotron Header -->
+      <header class="jumbotron my-4">
+        <h1 class="display-3">Welcome<% if logged_in? %>, <%=@current_user.displayName%><% end %> ! <!-- calls userID--> </h1>
+        <!--<a href="#" class="btn btn-primary btn-lg">Call to action!</a>-->
+      </header>
+
+    <body>
+   
+       <div class="container">
+           <img id = "headerimage" src="https://static0.cbrimages.com/wp-content/uploads/2018/05/cable-deadpool-social.jpg">   
+           </div>
+       </div>
+        
+    <div class = "container">
+        <div class="row">
+            <div class="col-sm-12">
+                <p id = "author"> Author: Donald Bui </p>
+                <p>Seemingly timed with the soon to be released Deadpool movie a reintroduction of a comic series that will involve the beloved characters Deadpool and Cable. Going to be written by Dadid F. Walker and drawn by Paco Diaz this comics seems to play towards Deadpool's strength by making it a story focused around time-travelling attackers. This new comic series is slated to come out around August and has provided the current cover page for their new adventures. </p>
+            </div>
+        </div>
+    </div>    
+    
+    <div class = "container">
+        <div class="span10-12"> 
+        <p id = "link">https://www.cbr.com/cable-deadpool-annual-august-2018/"> source</a></p>
+        </div>
+    </div>
+    </body>
+
+    <div class = "container">
+      <div class = "row">
+        <div id: "comments">
+          <div class="col-sm-12">
+            <% MComment.where(pageIndex: '3').each do |mComment| %>
+            <p> <%=mComment.displayName%> Date: <%=mComment.date%> <br /></p>
+            <p id = "comments"> <%=mComment.body%></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+<!-- Footer -->
+    <footer class="bg-dark">
+      <div id="footer">
+        <p class="text-center text-white">Copyright &copy; MangoSoft LLC</p>
+      </div>
+    <footer />
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
