@@ -4,7 +4,7 @@
         <div id: "comments">
           <div class="col-sm-12">
             <% IComment.where(issueID: @iss.issueID ).each do |iComments| %>
-            <p> <%=iComments.displayName%> Date: <%=iComments.date%> <br /></p>
+            <p> <%=iComments.display%> Date: <%=iComments.date%> <br /></p>
             <p id = "comments"> <%=iComments.body%></p>
             <% end %>
           </div>
