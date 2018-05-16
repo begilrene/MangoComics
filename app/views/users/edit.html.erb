@@ -1,27 +1,51 @@
 <% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
+<%= render 'layouts/navbar' %>
+<p id="special_content">
+  <%= yield :special_content %>
+</p>
+<html lang="en">
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
+  <body>
+   <header class="jumbotron my-4">
+   <h1 class="display-3">Update your profile</h1>
+   </header>
+ 
+  <div class="container">
+    <div class="row">
+      <div class="span6 offset3">
+        <%= form_for(@user) do |f| %>
+          <%= render 'shared/error_messages' %>
 
-      <%= f.label :displayName %>
-      <%= f.text_field :displayName %>
-
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Confirm Password" %>
-      <%= f.password_field :password_confirmation %>
+          <%= f.label :profilePic, "Profile Picture url" %>
+          <%= f.text_field :profilePic %>
       
-      <%= f.label :personalBio, "personalBio" %>
-      <%= f.password_field :personalBio %>
+          <%= f.label :displayName %>
+          <%= f.text_field :displayName %>
 
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-    <% end %>
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+
+          <%= f.label :password_confirmation, "Confirm Password" %>
+          <%= f.password_field :password_confirmation %>
+          <%= f.label :personalBio, "About You" %>
+          <%= f.text_area :personalBio %>
+          <%= f.label :firstname, "First name" %>
+          <%= f.text_field :firstname %>
+        
+          <%= f.label :lastname, "Last name" %>
+          <%= f.text_field :lastname %>
+
+          <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+        <% end %>
+
+      </div>
+    </div>
   </div>
-</div>
+  <%=render 'layouts/footer' %>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+<html lang="en">
