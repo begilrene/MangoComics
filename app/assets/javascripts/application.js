@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require jquery.min
+
 //= require twitter/bootstrap
 //= require jquery.easing
 //= require jqBootstrapValidation
@@ -19,3 +19,4 @@
 //= require agency
 //= require turbolinks
 //= require_tree .
+import "jquery.min";
