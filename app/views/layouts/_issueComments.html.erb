@@ -1,0 +1,12 @@
+    <div class = "container">
+      <div class = "row">
+        <div id: "comments">
+          <div class="col-sm-12">
+            <% IComment.where(issueID: '11' ).each do |iComments| %>
+            <p> <%=IComments.displayName%> Date: <%=mComment.date%> <br /></p>
+            <p id = "comments"> <%=IComments.body%></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
