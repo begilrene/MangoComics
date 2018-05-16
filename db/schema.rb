@@ -49,11 +49,12 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.string "artist", limit: 100, array: true
   end
 
-  create_table "MComments", primary_key: "commentId", id: :integer, default: -> { "nextval('\"SComments_commentId_seq\"'::regclass)" }, force: :cascade do |t|
+  create_table "MComment", primary_key: "commentId", id: :integer, default: -> { "nextval('\"SComments_commentId_seq\"'::regclass)" }, force: :cascade do |t|
     t.string "displayName", limit: 100
     t.text "body"
     t.date "date", default: -> { "('now'::text)::date" }, null: false
     t.integer "pageIndex"
+    t.integer "userID"
   end
 
   create_table "Publisher", primary_key: "publisherID", id: :serial, force: :cascade do |t|

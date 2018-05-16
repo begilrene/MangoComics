@@ -98,7 +98,7 @@
       <div class = "row">
         <div id: "comments">
           <div class="col-sm-12">
-            <% MComments.where(pageIndex: '1').each do |mComment| %>
+            <% MComment.where(pageIndex: '1').each do |mComment| %>
             <p> <%=mComment.displayName%> Date: <%=mComment.date%> <br /></p>
             <p id = "comments"> <%=mComment.body%></p>
             <% end %>
