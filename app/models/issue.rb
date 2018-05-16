@@ -1,11 +1,9 @@
 class Issue < ActiveRecord::Base
     self.table_name = 'Issue'
-    self.primary_key = :issueName
+    self.primary_key = :issueID
 
     def self.search(search)
-    if search
-      losearch = search.downcase
-      where("lower(issueName) LIKE ?", "%#{search.to_s.downcase}%")
-    end
+      iss = 'issueName Like ?'
+      where("CAST(issueName AS CHAR) Like ?" , "%#{search}%") 
     end
 end

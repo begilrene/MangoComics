@@ -5,9 +5,9 @@
     <%= submit_tag "Search", :name => nil %>
   </p>
   
-  <% @iss.each do |Issue| %> #to display but "capital" letter error
-  <%=Issue.issueName%>
-  <%=Issue.summary%>
+  <% @iss.each do |i| %>
+  <%=i.issueName%>
+  <%=i.summary%>
 <% end %>
   
   <div id=issueName > <%= render partial: 'issues/show', collection:@show %></div>
