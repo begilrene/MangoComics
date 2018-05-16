@@ -50,6 +50,26 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
+.shadowbox {
+  position: relative;
+  top: -35px;
+  right: -350px;
+  width: 15em;
+  border: 1px solid #333;
+  box-shadow: 4px 4px 3px #444;
+  padding: 15px 13px;
+  background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
+}
+.shadowboxN {
+  position: relative;
+  top: 0px;
+  right: 0px;
+  width: 15em;
+  border: 1px solid #333;
+  padding: 5px -3px;
+  background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
+}
+
 @-ms-viewport {
   width: device-width;
 }
@@ -554,6 +574,7 @@ pre code {
 }
 
 .container {
+  position:relative;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;

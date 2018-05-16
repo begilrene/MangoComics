@@ -105,7 +105,12 @@
         <div id: "comments">
           <div class="col-sm-12">
             <% MComment.where(pageIndex: '2').each do |mComment| %>
-            <p> <%=mComment.displayName%> Date: <%=mComment.date%> <br /></p>
+            <p> 
+            <div class = shadowboxN>
+              <%=mComment.displayName%> Date: <%=mComment.date%> 
+              <br />
+              </div>
+              </p>
             <p id = "comments"> <%=mComment.body%></p>
             <% end %>
           </div>

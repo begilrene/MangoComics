@@ -7,31 +7,35 @@
    <h1 class="display-3">Account Information</h1>
    </header>
     <div class = 'container'>
+      <div class = shadowbox>
       <h1>
         <img src=<%=@user.profilePic%> width="80" height="80" alt="">
         <%= @user.displayName %>
       </h1>
       <p>
-        <strong>firstname:</strong>
+        <strong>First Name:</strong>
         <%= @user.firstname %>
       </p>
       <p>
-        <strong>lastname:</strong>
+        <strong>Last Name:</strong>
         <%= @user.lastname %>
       </p>
       <p>
-        <strong>personalBio:</strong>
+        <strong>Biography:</strong>
         <%= @user.personalBio %>
       </p>
       <p id="notice"><%= notice %></p>
       <p>
-      <strong>email:</strong>
+      <strong>E-mail:</strong>
         <%= @user.email %>
       </p>
     </div>
+    <div align = middle class = shadowbox>
       <% if logged_in? && @current_user.displayName == @user.displayName %>
       <%= link_to 'Edit', edit_user_path(@user) %>
       <% end %>
+      </div>
+      </div>
 
     <%=render 'layouts/footer' %>
     <script src="vendor/jquery/jquery.min.js"></script>
