@@ -31,8 +31,9 @@
       </p>
     </div>
     <div align = middle class = shadowbox>
+      
       <% if logged_in? && @current_user.displayName == @user.displayName %>
-      <%= link_to 'Edit', edit_user_path(@user) %>
+    <%= link_to 'Edit', edit_user_path(@user) %>
       <% end %>
       </div>
       </div>
