@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources:schema
-  resources:issues
+  resources:issues do
+    resources:i_comments
+  end
   resources:users
   
   resources:issues do

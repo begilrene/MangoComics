@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   create_table "IComments", primary_key: "commentId", id: :serial, force: :cascade do |t|
     t.text "body"
     t.date "date", default: -> { "('now'::text)::date" }, null: false
-    t.integer "userID", null: false
-    t.integer "issueID", null: false
+    t.integer "userid"
+    t.integer "issueID"
+    t.integer "user_id"
+    t.integer "issue_id"
   end
 
   create_table "IRating", primary_key: "ratingID", id: :serial, force: :cascade do |t|
@@ -114,6 +116,10 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.integer "seriesID"
   end
 
+  create_table "flist", primary_key: "userid", id: :integer, default: nil, force: :cascade do |t|
+    t.integer "followid", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -121,4 +127,6 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "IComments", "\"Issue\"", column: "issue_id", primary_key: "issueID", name: "IComments_location_fkey"
+  add_foreign_key "IComments", "\"User\"", column: "user_id", primary_key: "userID", name: "IComments_commenter_fkey"
 end

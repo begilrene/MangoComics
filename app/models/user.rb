@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+    has_many :IComments
     before_save { self.email = email.downcase }
     self.table_name = 'User'
     self.primary_key = :userID
