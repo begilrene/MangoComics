@@ -1,12 +1,21 @@
-   <% provide(:title, @iss.issueID) %>
+   <% provide(:title,  @iss.issueID) %>
+  <% provide(:title, @iss.display) %>
     <div class = "container">
       <div class = "row">
         <div id: "comments">
           <div class="col-sm-12">
             <% @iss.IComments.each do |iComments| %>
+              <% User.all.each do |user| %>
+               <% if(user.userID == iComments.user_id)%>
+                  <p>
+                    <img src = <%=user.profilePic%> width="80" height = "80" alt"">  <%=user.displayName%>
+                  </p>
+                  <%end%>
+                <%end%>
+            <p>
             
-            <p> <%=User.find(iComments.user_id).displayName%> <img src=<%=User.find(iComments.user_id).profilePic%> width="80" height="80" alt=""></p>
-            <p> Date: <%=iComments.date%></p>
+            </p>
+            <p>  Date: <%=iComments.date%> <br /></p>
             <p id = "comments"> <%=iComments.body%></p>
             <% end %>
           </div>
