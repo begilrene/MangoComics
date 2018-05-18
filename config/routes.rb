@@ -1,19 +1,22 @@
 Rails.application.routes.draw do
   resources:schema
-  resources:issues
+  resources:issues do
+    resources:i_comments
+    collection do
+      get:search
   resources:users
   
-  resources:issues do
-    collection do
-      get :search
-    end
+#  resources:issues do
+ #   collection do
+  #    get :search
+   # end
   
   #resources:issues do
    # member do
     #  get 'preview'
     #end
   
-  end
+  #end
   
   get 'issues/new'
 
@@ -23,7 +26,6 @@ Rails.application.routes.draw do
 
   get 'static_pages/comiclist'
   get 'static_pages/home'
-  #get 'static_pages/help'
   get 'static_pages/about'
   get 'static_pages/contact'
   get 'static_pages/issues'
@@ -34,7 +36,7 @@ Rails.application.routes.draw do
   
   get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'
-  get '/logout', to: 'sessions#destroy'
+  get    '/logout',  to: 'sessions#destroy'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   
