@@ -2,20 +2,17 @@ Rails.application.routes.draw do
   resources:schema
   resources:issues do
     resources:i_comments
+    collection do
+        get :search
+    end
   end
   resources:users
-  
-  resources:issues do
-    collection do
-      get :search
-    end
-  
+
   #resources:issues do
    # member do
     #  get 'preview'
     #end
   
-  end
   
   get 'issues/new'
 
