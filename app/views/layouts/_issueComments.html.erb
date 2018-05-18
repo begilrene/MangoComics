@@ -4,7 +4,9 @@
         <div id: "comments">
           <div class="col-sm-12">
             <% @iss.IComments.each do |iComments| %>
-            <p> <%=iComments.display%> Date: <%=iComments.date%> <br /></p>
+            
+            <p> <%=User.find(iComments.user_id).displayName%> <img src=<%=User.find(iComments.user_id).profilePic%> width="80" height="80" alt=""></p>
+            <p> Date: <%=iComments.date%></p>
             <p id = "comments"> <%=iComments.body%></p>
             <% end %>
           </div>
