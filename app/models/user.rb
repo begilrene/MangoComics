@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+    has_many :IComments
     before_save { self.email = email.downcase }
     self.table_name = 'User'
     self.primary_key = :userID
@@ -9,7 +10,7 @@ class User < ActiveRecord::Base
     format: { with: VALID_EMAIL_REGEX },
     uniqueness: true
     has_secure_password
-    validates :password, presence: true, length: { minimum: 6 }
+    validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
     def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost

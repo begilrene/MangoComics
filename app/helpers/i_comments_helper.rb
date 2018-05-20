@@ -1,0 +1,2 @@
+module ICommentsHelper
+end

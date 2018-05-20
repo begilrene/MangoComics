@@ -22,9 +22,12 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   end
 
   create_table "IComments", primary_key: "commentId", id: :serial, force: :cascade do |t|
-    t.string "displayName", limit: 100
     t.text "body"
     t.date "date", default: -> { "('now'::text)::date" }, null: false
+    t.integer "userid"
+    t.integer "issueID"
+    t.integer "user_id"
+    t.integer "issue_id"
   end
 
   create_table "IRating", primary_key: "ratingID", id: :serial, force: :cascade do |t|
@@ -46,6 +49,14 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.string "editor", limit: 100, array: true
     t.string "author", limit: 100, array: true
     t.string "artist", limit: 100, array: true
+  end
+
+  create_table "MComment", primary_key: "commentId", id: :integer, default: -> { "nextval('\"SComments_commentId_seq\"'::regclass)" }, force: :cascade do |t|
+    t.string "displayName", limit: 100
+    t.text "body"
+    t.date "date", default: -> { "('now'::text)::date" }, null: false
+    t.integer "pageIndex"
+    t.integer "userID"
   end
 
   create_table "Publisher", primary_key: "publisherID", id: :serial, force: :cascade do |t|
@@ -75,13 +86,13 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   end
 
   create_table "User", primary_key: "userID", id: :serial, force: :cascade do |t|
-    t.string "username", limit: 100
+    t.string "firstname", limit: 100
     t.string "password", limit: 100
     t.string "displayName", limit: 100
-    t.string "profilePic", limit: 300
+    t.string "profilePic", limit: 300, default: "https://cdn.discordapp.com/attachments/431136930013511681/431613336887492618/mango.png"
     t.string "personalBio", limit: 100
     t.string "privilege", limit: 100
-    t.string "friendList", limit: 100
+    t.string "lastname", limit: 100
     t.string "passwordConfirm", limit: 100
     t.string "email", limit: 150
     t.string "password_digest", limit: 300
@@ -105,6 +116,10 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.integer "seriesID"
   end
 
+  create_table "flist", primary_key: "userid", id: :integer, default: nil, force: :cascade do |t|
+    t.integer "followid", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -112,4 +127,6 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "IComments", "\"Issue\"", column: "issue_id", primary_key: "issueID", name: "IComments_location_fkey"
+  add_foreign_key "IComments", "\"User\"", column: "user_id", primary_key: "userID", name: "IComments_commenter_fkey"
 end
