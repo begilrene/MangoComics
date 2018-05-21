@@ -30,7 +30,36 @@
         <%= @user.email %>
       </p>
     </div>
-    <div align = middle class = shadowbox>
+    <div align = right>
+      
+      <div class = "container">
+      <div class = "row">
+        <div id: "comments">
+          <div class="col-sm-12">
+            <% Issue.all.each do |issues| %>
+              <% issues.IComments.each do |iComments| %>
+                <% User.all.each do |user| %>
+                 <% if(user.userID == iComments.user_id && user.displayName == @user.displayName)%>
+                  <p>
+                    <img src = <%=user.profilePic%> width="80" height = "80" alt"">  <%=user.displayName%>
+                  </p>
+                  <p>
+                      Date: <%=iComments.date%> <br />
+                  </p>
+                  <p id = "comments">
+                     <%=iComments.body%>
+                  </p>
+                  <p>
+                    From Location:  <a href="/issues/<%= issues.issueID %>" class="btn btn-primary">Here</a>
+                  </p>
+                  <%end%>
+                <%end%>
+              <% end %>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
       
       <% if logged_in? && @current_user.displayName == @user.displayName %>
     <%= link_to 'Edit', edit_user_path(@user) %>
@@ -42,5 +71,3 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>
-
-
