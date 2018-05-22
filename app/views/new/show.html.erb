@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<p id="special_content">
+  <%= yield :special_content %>
+</p>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mango Comics</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/heroic-features.css" rel="stylesheet">
+
+  </head>
+
+    <!-- Navigation -->
+    <%= render 'layouts/navbar' %>
+
+    
+    <title>Mango Comics</title>
+
+     <div class="container">
+
+      <!-- Jumbotron Header -->
+      <header class="jumbotron my-4">
+        <h1 class="display-3">Welcome<% if logged_in? %>, <%=@current_user.displayName%><% end %> ! <!-- calls userID--> </h1>
+        <!--<a href="#" class="btn btn-primary btn-lg">Call to action!</a>-->
+      </header>
+
+    <body>
+   
+       <div class="container">
+           <img id = "headerimage" src="<%=@new.image %>">   
+           </div>
+       </div>
+        
+    <div class = "container">
+        <div class="row">
+            <div class="col-sm-12">
+                <p id = "author"> Author: <%=@new.author %></p>
+                <p><%=@new.body %> </p>
+            </div>
+        </div>
+    </div>    
+    
+    <div class = "container">
+        <div class="span10-12"> 
+        <p id = "link">Check out the source for more!<a href="<%=@new.link%>"> source </a></p>
+        </div>
+    </div>
+
+<!--
+    <div class = "container">
+        <div class = "row">
+          <div id: "comments">
+            <div class="col-sm-12">
+              <% MComment.where(pageIndex: '1').each do |mComment| %>
+              <p> 
+              <div class = "shadowboxN">
+                <%=mComment.displayName%> Date: <%=mComment.date%>
+                <br />
+              </p>
+              </div>
+              <p id = "comments"> <%=mComment.body%></p>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+-->  
+    </body>
+
+
+<!-- Footer -->
+    <footer class="bg-dark">
+      <div id="footer">
+        <p class="text-center text-white">Copyright &copy; MangoSoft LLC</p>
+      </div>
+    <footer />
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+</html>

@@ -58,6 +58,26 @@
     </div>
   </div>
   -->
+
+  <% New.all.each do |new| %>
+    <div class="container">
+      <div class="span12" style="border: 2px solid black">  
+        <div class="row">
+         <div class="col-sm-4">
+          <img src="<%= new.image %>" class="img-fluid" alt="Responsive image" >
+          </div>
+          <div class="col-sm-6">
+          <h2><%= new.title %></h2>
+          <p><a href="/new/<%= new.newsId %>">Click here to read more </a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </br>
+  <% end %>
+  
+  
+  <!--
   <div class="container">
     <div class="span12" style="border: 2px solid black">  
       <div class="row">
@@ -100,7 +120,7 @@
     </div>
   </div>
   </div>
-    
+  -->
     <!-- /.container -->
 
         
