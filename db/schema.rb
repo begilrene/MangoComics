@@ -59,6 +59,14 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.integer "userID"
   end
 
+  create_table "New", primary_key: "newsId", id: :integer, default: -> { "nextval('\"new_newsId_seq\"'::regclass)" }, force: :cascade do |t|
+    t.text "author", default: "Donald Bui"
+    t.text "body"
+    t.text "image"
+    t.text "link"
+    t.text "title"
+  end
+
   create_table "Publisher", primary_key: "publisherID", id: :serial, force: :cascade do |t|
     t.string "publisherName", limit: 100
     t.text "description"
