@@ -13,12 +13,13 @@ Rails.application.routes.draw do
   #    get :search
    # end
   
-
   get 'issues/new'
 
   get 'users/new'
 
   get 'sessions/new'
+  
+  get 'issues/search'
 
   get 'static_pages/comiclist'
   get 'static_pages/home'
@@ -29,7 +30,8 @@ Rails.application.routes.draw do
   get 'static_pages/news2'
   get 'static_pages/news3'
 
-  
+  get    '/index',   to: 'issues#search'
+  get    '/search',  to: 'issues#search'
   get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'
   get    '/logout',  to: 'sessions#destroy'

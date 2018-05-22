@@ -26,6 +26,7 @@ class StaticPagesController < ApplicationController
   end
   
   def index
+    @iss = Issue.all
   if params[:search]
     @iss = Issue.search(params[:search])
   else  

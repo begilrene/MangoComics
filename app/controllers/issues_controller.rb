@@ -1,5 +1,4 @@
 class IssuesController < ApplicationController
-    @iss = Issue.all
   def new
   end
   def show
