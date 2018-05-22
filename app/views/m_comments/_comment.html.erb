@@ -1,0 +1,24 @@
+   <% provide(:title,  @newpage.newsId) %>
+  <% provide(:title, @iss.display) %>
+    <div class = "container">
+      <div class = "row">
+        <div id: "comments">
+          <div class="col-sm-12">
+            <% @newpage.MComments.each do |mComments| %>
+              <% User.all.each do |user| %>
+               <% if(user.userID == mComments.user_id)%>
+                  <p>
+                    <img src = <%=user.profilePic%> width="80" height = "80" alt"">  <%=user.displayName%>
+                  </p>
+                  <%end%>
+                <%end%>
+            <p>
+            
+            </p>
+            <p>  Date: <%=mComments.date%> <br /></p>
+            <p id = "comments"> <%=mComments.body%></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>

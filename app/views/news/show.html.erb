@@ -38,25 +38,26 @@
     <body>
    
        <div class="container">
-           <img id = "headerimage" src="<%=@new.image %>">   
+           <img id = "headerimage" src="<%=@newpage.image %>">   
            </div>
        </div>
         
     <div class = "container">
         <div class="row">
             <div class="col-sm-12">
-                <p id = "author"> Author: <%=@new.author %></p>
-                <p><%=@new.body %> </p>
+                <p id = "author"> Author: <%=@newpage.author %></p>
+                <p><%=@newpage.body %> </p>
             </div>
         </div>
     </div>    
     
     <div class = "container">
         <div class="span10-12"> 
-        <p id = "link">Check out the source for more!<a href="<%=@new.link%>"> source </a></p>
+        <p id = "link">Check out the source for more!<a href="<%=@newpage.link%>"> source </a></p>
         </div>
     </div>
-
+    <%= render 'm_comments/comment'%>
+    <%= render 'm_comments/form' %>
 <!--
     <div class = "container">
         <div class = "row">

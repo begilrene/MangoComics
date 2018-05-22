@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     end
   end
   resources:users
-  resources:new
+  resources:news do
+      resources:m_comments
+  end
   
 #  resources:issues do
  #   collection do
