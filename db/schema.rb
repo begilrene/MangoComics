@@ -57,6 +57,16 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.date "date", default: -> { "('now'::text)::date" }, null: false
     t.integer "pageIndex"
     t.integer "userID"
+    t.integer "user_id"
+    t.integer "new_id"
+  end
+
+  create_table "New", primary_key: "newsId", id: :integer, default: -> { "nextval('\"new_newsId_seq\"'::regclass)" }, force: :cascade do |t|
+    t.text "author", default: "Donald Bui"
+    t.text "body"
+    t.text "image"
+    t.text "link"
+    t.text "title"
   end
 
   create_table "Publisher", primary_key: "publisherID", id: :serial, force: :cascade do |t|
@@ -129,4 +139,6 @@ ActiveRecord::Schema.define(version: 20180508181229) do
 
   add_foreign_key "IComments", "\"Issue\"", column: "issue_id", primary_key: "issueID", name: "IComments_location_fkey"
   add_foreign_key "IComments", "\"User\"", column: "user_id", primary_key: "userID", name: "IComments_commenter_fkey"
+  add_foreign_key "MComment", "\"New\"", column: "new_id", primary_key: "newsId", name: "MComment_new_id_fkey"
+  add_foreign_key "MComment", "\"User\"", column: "user_id", primary_key: "userID", name: "MComment_user_id_fkey"
 end
