@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources:users
   resources:volume
   resources:series
+  resources:publisher
   
   resources:issues do
     collection do
