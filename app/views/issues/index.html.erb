@@ -1,16 +1,14 @@
-
 <%= form_tag issues_path, :method => 'get', :class => "search-form" do %>
   <p>
-    <%= text_field_tag :search, params[:search], placeholder: "Search for previous entries..", class: "form-control" %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for Issues", class: "form-control" %>
     <%= submit_tag "Search", :name => nil %>
   </p>
   
-  <% @iss.each do |Issue| %> #to display but "capital" letter error
-  <%=Issue.issueName%>
-  <%=Issue.summary%>
-<% end %>
   
-  <div id=issueName > <%= render partial: 'issues/show', collection:@show %></div>
+  <% @iss.each do |i| %>
+  <%=i.issueName%>
+  <%=i.summary%>
+<% end %>
 <% end %>
 
 <% if @iss.blank? %>

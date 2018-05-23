@@ -8,10 +8,6 @@ Rails.application.routes.draw do
   end
   resources:users
   
-#  resources:issues do
- #   collection do
-  #    get :search
-   # end
   
   get 'issues/new'
 
