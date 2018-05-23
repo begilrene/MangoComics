@@ -3,8 +3,7 @@ class Issue < ActiveRecord::Base
     self.primary_key = :issueID
 
     def self.search(search)
-      iss = 'issueName Like ?'
-      where("CAST(issueName AS CHAR) Like ?" , "%#{search}%") 
+      where("'issueID' Like ?" , "%#{search}%") 
     end
     has_many :IComments
 end
