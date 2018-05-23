@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources:schema
+  
   resources:issues do
     resources:i_comments
     collection do
@@ -12,13 +13,9 @@ Rails.application.routes.draw do
   end
 
   get 'new/new'
-
   get 'issues/new'
-
   get 'users/new'
-
   get 'sessions/new'
-  
   get 'issues/search'
 
   get 'static_pages/comiclist'

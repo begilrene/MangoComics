@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.string "franchiseName", limit: 100
     t.text "description"
     t.string "picture", limit: 300
+    t.integer "publisher_id"
   end
 
   create_table "IComments", primary_key: "commentId", id: :serial, force: :cascade do |t|
@@ -38,8 +39,6 @@ ActiveRecord::Schema.define(version: 20180508181229) do
 
   create_table "Issue", primary_key: "issueID", id: :serial, force: :cascade do |t|
     t.string "issueName", limit: 100
-    t.integer "seriesID"
-    t.integer "volumeID"
     t.string "cover", limit: 400
     t.text "synopsis"
     t.text "summary"
@@ -49,6 +48,10 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.string "editor", limit: 100, array: true
     t.string "author", limit: 100, array: true
     t.string "artist", limit: 100, array: true
+    t.integer "volume_id"
+    t.integer "series_id"
+    t.integer "franchise_id"
+    t.integer "publisher_id"
   end
 
   create_table "MComment", primary_key: "commentId", id: :integer, default: -> { "nextval('\"SComments_commentId_seq\"'::regclass)" }, force: :cascade do |t|
@@ -89,10 +92,9 @@ ActiveRecord::Schema.define(version: 20180508181229) do
 
   create_table "Series", primary_key: "seriesID", id: :serial, force: :cascade do |t|
     t.string "seriesName", limit: 100
-    t.string "volumeName", limit: 100
     t.string "picture", limit: 300
-    t.integer "publisherID"
-    t.integer "franchiseID"
+    t.integer "franchise_id"
+    t.integer "publisher_id"
   end
 
   create_table "User", primary_key: "userID", id: :serial, force: :cascade do |t|
@@ -122,8 +124,9 @@ ActiveRecord::Schema.define(version: 20180508181229) do
 
   create_table "Volume", primary_key: "volumeID", id: :serial, force: :cascade do |t|
     t.string "volumeName", limit: 100
-    t.string "issueName", limit: 100
-    t.integer "seriesID"
+    t.integer "series_id"
+    t.integer "franchise_id"
+    t.integer "publisher_id"
   end
 
   create_table "flist", primary_key: "userid", id: :integer, default: nil, force: :cascade do |t|
@@ -137,8 +140,18 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "Franchise", "\"Publisher\"", column: "publisher_id", primary_key: "publisherID", name: "Franchise_publisher_id_fkey"
   add_foreign_key "IComments", "\"Issue\"", column: "issue_id", primary_key: "issueID", name: "IComments_location_fkey"
   add_foreign_key "IComments", "\"User\"", column: "user_id", primary_key: "userID", name: "IComments_commenter_fkey"
+  add_foreign_key "Issue", "\"Franchise\"", column: "franchise_id", primary_key: "franchiseID", name: "Issue_franchise_id_fkey"
+  add_foreign_key "Issue", "\"Publisher\"", column: "publisher_id", primary_key: "publisherID", name: "Issue_publisher_id_fkey"
+  add_foreign_key "Issue", "\"Series\"", column: "series_id", primary_key: "seriesID", name: "Issue_series_id_fkey"
+  add_foreign_key "Issue", "\"Volume\"", column: "volume_id", primary_key: "volumeID", name: "Issue_volume_id_fkey"
   add_foreign_key "MComment", "\"New\"", column: "new_id", primary_key: "newsId", name: "MComment_new_id_fkey"
   add_foreign_key "MComment", "\"User\"", column: "user_id", primary_key: "userID", name: "MComment_user_id_fkey"
+  add_foreign_key "Series", "\"Franchise\"", column: "franchise_id", primary_key: "franchiseID", name: "Series_franchise_id_fkey"
+  add_foreign_key "Series", "\"Publisher\"", column: "publisher_id", primary_key: "publisherID", name: "Series_publisher_id_fkey"
+  add_foreign_key "Volume", "\"Franchise\"", column: "franchise_id", primary_key: "franchiseID", name: "Volume_franchise_id_fkey"
+  add_foreign_key "Volume", "\"Publisher\"", column: "publisher_id", primary_key: "publisherID", name: "Volume_publisher_id_fkey"
+  add_foreign_key "Volume", "\"Series\"", column: "series_id", primary_key: "seriesID", name: "Volume_series_id_fkey"
 end
