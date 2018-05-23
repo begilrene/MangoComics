@@ -107,9 +107,11 @@ body {
 }
 
 #footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  position: relative;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
 }
 
 #link
@@ -141,4 +143,10 @@ body {
   border-color: green;
   padding: .7rem;
   
+}
+
+#i-comments
+{
+   position: relative;
+  right: -500px;
 }

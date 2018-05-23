@@ -2,12 +2,14 @@
 <%= render 'layouts/navbar' %>
 <html lang="en">
 
-  <body>
+<body>
+   <div class= container>
    <header class="jumbotron my-4">
-   <h1 class="display-3">Account Information</h1>
-   </header>
+        <h1 class="display-3">User Info</h1>
+        <p class="lead"></font></p>
+        </header>
+        </div>
     <div class = "container">
-      <div class = shadowbox>
       <h1>
         <img class ="mx-auto rounded-circle"src=<%=@user.profilePic%> width="80" height="80" alt="">
         <%= @user.displayName %>
@@ -34,45 +36,50 @@
         <%= link_to 'Edit', edit_user_path(@user) %>
       <% end %>
       </div>
-    </div>
-    
-    <div class = container>
-      <div class = "row-right">
-        <div id: "comments">
-            <% Issue.all.each do |issues| %>
-              <% User.all.each do |user| %>
-                <% my_array = issues.IComments.all %>
-                 <% my_array.sort_by(&:date).each do |iComments| %>
-                 <% if(user.userID == iComments.user_id && user.displayName == @user.displayName) %>
-                   <div class = row>
+  
+  <% Issue.all.each do |issues| %>
+   <% User.all.each do |user| %>
+     <% my_array = issues.IComments.all %>
+       <% my_array.sort_by(&:date).each do |iComments| %>
+          <% if(user.userID == iComments.user_id && user.displayName == @user.displayName) %>
+                    
+          <div class = container align = left>
+            <div class = "row" >
                    <p>
-                      <img class="mx-auto rounded-circle" src=<%=user.profilePic%> width="125" height="125" alt=""> </img>
-                  </p>
-                  <p>
-                    <a href="/issues/<%=issues.issueID%>"><img class="mx-auto rounded-circle" src=<%=issues.cover%> width="95" height="95" position= 105px alt=""></a>
-                    </div>
-                    </p>
-                    <div class = row-right>
-                    <p>Date: <%=iComments.date%> <br>
-                  </p>
-                  <p id = "comments">
+                    <img class="mx-auto rounded-circle" src=<%=user.profilePic%> width="125" height="125" alt=""> </img>
+                   </p>
+                   <p>
+                   <a href="/issues/<%=issues.issueID%>"><img class="mx-auto rounded-circle" src=<%=issues.cover%> width="95" height="95" position= 105px alt=""></a>
+                   </p>
+                   <p>
+                     </div>
+                     <div class = container>
+                       
+                    Date: <%=iComments.date%> <br>
+                   </p>
+                   <p id = "comments">
                      <%=iComments.body%>
-                  </p>
+                   </p>
+                   </div>
+                   </div>
+                  <%end%>
+                  <%end%>
+                  <%end%>
+                  <%end%>
                   </div>
-                  <%end%>
-                  <%end%>
-                  <%end%>
-                  <%end%>
+    </div>
     </div>
     </div>
     </div>
 
+
+
+<%= render 'layouts/footer' %>
 </body>
+
+
+
+
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    
-<footer>
-      <%= render 'layouts/footer' %>
-</footer>
-  
