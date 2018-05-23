@@ -6,10 +6,10 @@
    <header class="jumbotron my-4">
    <h1 class="display-3">Account Information</h1>
    </header>
-    <div class = 'container'>
+    <div class = "container">
       <div class = shadowbox>
       <h1>
-        <img src=<%=@user.profilePic%> width="80" height="80" alt="">
+        <img class ="mx-auto rounded-circle"src=<%=@user.profilePic%> width="80" height="80" alt="">
         <%= @user.displayName %>
       </h1>
       <p>
@@ -29,45 +29,50 @@
       <strong>E-mail:</strong>
         <%= @user.email %>
       </p>
+            
+      <% if logged_in? && @current_user.displayName == @user.displayName %>
+        <%= link_to 'Edit', edit_user_path(@user) %>
+      <% end %>
+      </div>
     </div>
-    <div align = right>
-      
-      <div class = "container">
-      <div class = "row">
+    
+    <div class = container>
+      <div class = "row-right">
         <div id: "comments">
-          <div class="col-sm-12">
             <% Issue.all.each do |issues| %>
-              <% issues.IComments.each do |iComments| %>
-                <% User.all.each do |user| %>
-                 <% if(user.userID == iComments.user_id && user.displayName == @user.displayName)%>
-                  <p>
-                    <img src = <%=user.profilePic%> width="80" height = "80" alt"">  <%=user.displayName%>
+              <% User.all.each do |user| %>
+                <% my_array = issues.IComments.all %>
+                 <% my_array.sort_by(&:date).each do |iComments| %>
+                 <% if(user.userID == iComments.user_id && user.displayName == @user.displayName) %>
+                   <div class = row>
+                   <p>
+                      <img class="mx-auto rounded-circle" src=<%=user.profilePic%> width="125" height="125" alt=""> </img>
                   </p>
                   <p>
-                      Date: <%=iComments.date%> <br />
+                    <a href="/issues/<%=issues.issueID%>"><img class="mx-auto rounded-circle" src=<%=issues.cover%> width="95" height="95" position= 105px alt=""></a>
+                    </div>
+                    </p>
+                    <div class = row-right>
+                    <p>Date: <%=iComments.date%> <br>
                   </p>
                   <p id = "comments">
                      <%=iComments.body%>
                   </p>
-                  <p>
-                    From Location:  <a href="/issues/<%= issues.issueID %>" class="btn btn-primary">Here</a>
-                  </p>
+                  </div>
                   <%end%>
-                <%end%>
-              <% end %>
-            <%end%>
-          </div>
-        </div>
-      </div>
+                  <%end%>
+                  <%end%>
+                  <%end%>
     </div>
-      
-      <% if logged_in? && @current_user.displayName == @user.displayName %>
-    <%= link_to 'Edit', edit_user_path(@user) %>
-      <% end %>
-      </div>
-      </div>
+    </div>
+    </div>
 
-    <%=render 'layouts/footer' %>
+</body>
+
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  </body>
+    
+<footer>
+      <%= render 'layouts/footer' %>
+</footer>
+  

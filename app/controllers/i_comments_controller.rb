@@ -9,6 +9,6 @@ class ICommentsController < ApplicationController
     end
   end
   def comment_params
-    params.require(:i_comment).permit(:body, :user_id)
+    params.require(:i_comment).permit(:body, :user_id, :date)
   end
 end

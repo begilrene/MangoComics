@@ -137,7 +137,8 @@ body {
   border-radius: 25px;
   position: relative;
   border-style: solid;
+  background-color: white;
   border-color: green;
-  padding: .5rem;
+  padding: .7rem;
   
 }
