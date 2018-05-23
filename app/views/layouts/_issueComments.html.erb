@@ -12,13 +12,13 @@
                   </p>
                   <%end%>
                 <%end%>
-            <p>
+
+            <p>  Date: <%=iComments.date%> <% if logged_in? && @current_user.userID == iComments.user_id %>
+                <%= link_to "Delete", [iComments.issue, iComments], method: :delete %>
+                <%= link_to "Edit", edit_issue_i_comment_path(iComments.issue, iComments) %>
+              <% end %><br /></p>
+            <p id = "comments"> <%=iComments.body%></p>
             
-            </p>
-            <p>  Date: <%=iComments.date%> <br /></p>
-            <p id = "comments">
-              <%=iComments.body%>
-            </p>
             <% end %>
           </div>
         </div>

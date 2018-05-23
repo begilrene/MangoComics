@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-    has_many :IComments
+    has_many :IComments, dependent: :destroy
+    has_many :MComments, dependent: :destroy
     before_save { self.email = email.downcase }
     self.table_name = 'User'
     self.primary_key = :userID

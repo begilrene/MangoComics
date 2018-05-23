@@ -7,12 +7,16 @@ Rails.application.routes.draw do
     end
   end
   resources:users
+  resources:news do
+      resources:m_comments
+  end
   
 #  resources:issues do
  #   collection do
   #    get :search
    # end
   
+  get 'new/new'
 
   get 'issues/new'
 
