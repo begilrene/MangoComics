@@ -3,8 +3,21 @@
       <div class="container">
         <a class="navbar-brand" href="/">MangoComics</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon">
+          </span>
         </button>
+        <div class ="row" id="i-comments">
+        <div class="index_search">
+        <%= form_tag(issues_url, :method => "get", class: "navbar-form", id: "search-form") do %>
+        </div>
+        <div class="input-append">
+        <%= text_field_tag :search, params[:search], class: "span2  form-control", placeholder: "Search Issues" %>
+        </div>
+        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+        <% end %>
+        </div>
+        </div>   
+        </div> 
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
