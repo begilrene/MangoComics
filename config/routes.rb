@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources:schema
   resources:issues
   resources:users
+  resources:volume
   
   resources:issues do
     collection do
