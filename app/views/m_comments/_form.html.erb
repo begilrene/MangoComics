@@ -1,0 +1,15 @@
+<%= form_for MComments.new do |f| %>
+  
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_field :body, id: :mcomment_body %>
+  </div>
+  <div class="field">
+    <%= f.label :pageIndex %>
+    <%= f.text_field :pageIndex, id: :mcomment_pageIndex %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

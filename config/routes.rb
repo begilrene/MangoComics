@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
   resources:schema
+  resources:users
+  
+  resources:issues do
+    collection do
+      get :search
+    end
+  
+  #resources:issues do
+   # member do
+    #  get 'preview'
+    #end
+  
+  end
+  
   resources:issues do
     resources:i_comments
     collection do
@@ -7,8 +21,7 @@ Rails.application.routes.draw do
     end
   end
   resources:users
-  
-  
+
   get 'issues/new'
 
   get 'users/new'
@@ -22,6 +35,7 @@ Rails.application.routes.draw do
   get 'static_pages/about'
   get 'static_pages/contact'
   get 'static_pages/issues'
+
   get 'static_pages/news1'
   get 'static_pages/news2'
   get 'static_pages/news3'
