@@ -1,28 +1,12 @@
-  <% if logged_in? %>
-      
+<% if logged_in? %>
+
         <%= form_for ([@newpage,@newpage.MComments.build]) do |f| %>
           <%= render 'shared/error_messages' %>
 
           <%= f.label :body, "Message" %>
           <%= f.text_area :body %>
-          
+
 
           <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
         <% end %>
       <% end %>
-
-<%= form_for MComments.new do |f| %>
-  
-  <div class="field">
-    <%= f.label :body %>
-    <%= f.text_field :body, id: :mcomment_body %>
-  </div>
-  <div class="field">
-    <%= f.label :pageIndex %>
-    <%= f.text_field :pageIndex, id: :mcomment_pageIndex %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
