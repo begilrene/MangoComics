@@ -9,12 +9,14 @@
         <p class="lead"></font></p>
         </header>
         </div>
-    <div class = "container">
+    <div class = "container" id=news>
+      <div class = text-center>
       <h1>
         <img class ="mx-auto rounded-circle"src=<%=@user.profilePic%> width="80" height="80" alt="">
         <%= @user.displayName %>
       </h1>
       <p>
+        </div>
         <strong>First Name:</strong>
         <%= @user.firstname %>
       </p>
