@@ -2,17 +2,17 @@
 
 <%= render 'layouts/navbar' %>
 
-<h3>
+<div class="container alert-warning text-centered">
  <div class="card">
-            <img class = card-img-scale src=<%=@iss.cover%> >
-            </div>
-</h3>
+   <img src=<%=@iss.cover%>>
+   </div>
 <h1>
-  <%= @iss.issueName %>
+  <%= @iss.issueName %> : <br>
 </h1>
-<h1>
+<h3>
     <%= @iss.summary%>
-</h1>
+</h3>
+</div>
 <%= render 'i_comments/form' %>
 <%= render 'layouts/issueComments' %>
 </body>
