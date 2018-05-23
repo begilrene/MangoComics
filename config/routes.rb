@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources:schema
-  
+  resources:volume
+resources:series
+resources:publisher
+resources:franchise
   resources:issues do
     resources:i_comments
     collection do
@@ -11,6 +14,8 @@ Rails.application.routes.draw do
   resources:news do
       resources:m_comments
   end
+  
+  
 
   get 'new/new'
   get 'issues/new'
