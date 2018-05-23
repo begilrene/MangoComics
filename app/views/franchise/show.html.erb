@@ -1,0 +1,19 @@
+<% provide(:title, @fran.franchiseName) %>
+
+<%= render 'layouts/navbar' %>
+
+
+<h3>
+ <div class="card">
+            <img class = card-img-scale src=<%=@fran.picture%> >
+            </div>
+</h3>
+<h1>
+  <%= @fran.franchiseName %>
+</h1>
+<h1>
+  <%= @fran.description %>
+</h1>
+
+
+<%= render 'layouts/footer'%>

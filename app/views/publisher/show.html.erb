@@ -1,0 +1,19 @@
+<% provide(:title, @pub.publisherName) %>
+
+<%= render 'layouts/navbar' %>
+
+
+<h3>
+ <div class="card">
+            <img class = card-img-scale src=<%=@pub.picture%> >
+            </div>
+</h3>
+<h1>
+  <%= @pub.publisherName %>
+</h1>
+<h1>
+  <%= @pub.description %>
+</h1>
+
+
+<%= render 'layouts/footer'%>

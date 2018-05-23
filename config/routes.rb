@@ -17,6 +17,7 @@ resources:franchise
   
   
 
+
   get 'new/new'
   get 'issues/new'
   get 'users/new'
