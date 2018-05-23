@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources:volume
   resources:series
   resources:publisher
+  resources:franchise
   
   resources:issues do
     collection do
