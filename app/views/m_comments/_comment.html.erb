@@ -12,11 +12,16 @@
                   </p>
                   <%end%>
                 <%end%>
-            <p>
             
+            <p>  Date: <%=mComments.date%>
+            <% if logged_in? && @current_user.userID == mComments.user_id %>
+                <%= link_to "Delete", [mComments.new, mComments], method: :delete %>
+                <%= link_to "Edit", edit_news_m_comment_path(mComments.new, mComments) %>
+            <% end %>
+            <br />
             </p>
-            <p>  Date: <%=mComments.date%> <br /></p>
             <p id = "comments"> <%=mComments.body%></p>
+            
             <% end %>
           </div>
         </div>
