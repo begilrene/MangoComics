@@ -1,19 +1,20 @@
 <% provide(:title, @pub.publisherName) %>
-
 <%= render 'layouts/navbar' %>
 
-
-<h3>
+<div class="container alert-warning modal-content">
  <div class="card">
-            <img class = card-img-scale src=<%=@pub.picture%> >
-            </div>
-</h3>
+   <div align="center">
+   <img class="card-img card-scale" src=<%=@pub.picture%> style="">
+   </div>
+   </div>
 <h1>
   <%= @pub.publisherName %>
 </h1>
-<h1>
+<h3>
   <%= @pub.description %>
-</h1>
+</h3>
 
+</div>
+</div>
 
 <%= render 'layouts/footer'%>

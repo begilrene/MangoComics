@@ -22,6 +22,7 @@ resources:franchise
   get 'issues/new'
   get 'users/new'
   get 'sessions/new'
+  get 'franchise/show'
   get 'issues/search'
 
   get 'static_pages/comiclist'

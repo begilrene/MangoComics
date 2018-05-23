@@ -3,10 +3,22 @@
 <%= render 'layouts/navbar' %>
 
 
+<%= render 'layouts/navbar' %>
+
+<div class="container alert-warning modal-content">
+ <div class="card">
+   <div align="center">
+   <img class="card-img card-scale" src=<%=@ser.picture%> style="">
+   </div>
+   </div>
 <h1>
   <%= @ser.seriesName %>
-  
 </h1>
+<h3>
+  <!--description goes here-->
+</h3>
 
+</div>
+</div>
 
 <%= render 'layouts/footer'%>
