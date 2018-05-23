@@ -24,4 +24,20 @@ class StaticPagesController < ApplicationController
   
   def contact
   end
+  
+  def index
+    @iss = Issue.all
+  if params[:search]
+    @iss = Issue.search(params[:search])
+  else  
+    @iss = Issue.paginate(:page => params[:page], :per_page => 50).order("created_at DESC")
+  end  
+
+
+  respond_to do |format|
+    format.html # index.html.erb
+    format.json { render json: @iss }
+    # format.js
+  end
+  end
 end

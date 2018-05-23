@@ -1,0 +1,40 @@
+<% provide(:title, @iss.issueName) %>
+<<<<<<< HEAD:app/views/issues/_show.html.erb
+<%= render 'layouts/navbar' %>
+=======
+
+<%= render 'layouts/navbar' %>
+
+<<<<<<< HEAD:app/views/issues/show.html.erb
+<body>
+<div class="container align-items-stretch align-left">
+<div class="card">
+    <img  src=<%=@iss.cover%>>
+<h1>
+  <%= @iss.issueName %>
+  : <br>
+  </h1>
+  <h3>
+  <%= @iss.summary%>
+  </h3>
+
+</div>
+</div>
+=======
+<h3>
+ <div class="card">
+            <img class = card-img-scale src=<%=@iss.cover%> >
+            </div>
+</h3>
+>>>>>>> origin/master:app/views/issues/show.html.erb
+<h1>
+  <%= @iss.issueName %>
+</h1>
+<h1>
+    <%= @iss.summary%>
+</h1>
+>>>>>>> scottsbranch:app/views/issues/_show.html.erb
+<%= render 'i_comments/form' %>
+<%= render 'layouts/issueComments' %>
+</body>
+<%= render 'layouts/footer'%>
