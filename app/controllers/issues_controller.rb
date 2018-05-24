@@ -10,7 +10,7 @@ class IssuesController < ApplicationController
   def index
   @iss = Issue.all
   if params[:search]
-    @iss = Issue.where(:issueName => params[:search])
+    @iss = Issue.search(params[:search])
   else
     @iss = Issue.all.order("created_at DESC")
   end
