@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   resources:schema
-  resources:volume
-resources:series
-resources:publisher
-resources:franchise
+  resources:volume do
+    resources:vreviews
+  end
+  resources:series do
+    resources:sreviews
+  end
+  resources:publisher
+  resources:franchise
   resources:issues do
     resources:i_comments
+    resources:reviews
     collection do
       get:search
     end
