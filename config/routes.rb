@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
   
   
-
+  get 'users/:id/icomments' => 'users#icomments', :as => :user_icomments
 
   get 'new/new'
   get 'issues/new'

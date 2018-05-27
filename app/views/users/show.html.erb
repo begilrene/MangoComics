@@ -1,4 +1,5 @@
 <% provide(:title, @user.displayName) %>
+<% provide(:title, @icomments)%>
 <%= render 'layouts/navbar' %>
 <html lang="en">
 
@@ -38,37 +39,8 @@
         <%= link_to 'Edit', edit_user_path(@user) %>
       <% end %>
       </div>
-  
-  <% Issue.all.each do |issues| %>
-   <% User.all.each do |user| %>
-     <% my_array = issues.IComments.all %>
-       <% my_array.sort_by(&:date).each do |iComments| %>
-          <% if(user.userID == iComments.user_id && user.displayName == @user.displayName) %>
-                    
-          <div class = container align = left>
-            <div class = "row" >
-                   <p>
-                    <img class="mx-auto rounded-circle" src=<%=user.profilePic%> width="125" height="125" alt=""> </img>
-                   </p>
-                   <p>
-                   <a href="/issues/<%=issues.issueID%>"><img class="mx-auto rounded-circle" src=<%=issues.cover%> width="95" height="95" position= 105px alt=""></a>
-                   </p>
-                   <p>
-                     </div>
-                     <div class = container>
-                       
-                    Date: <%=iComments.date%> <br>
-                   </p>
-                   <p id = "comments">
-                     <%=iComments.body%>
-                   </p>
-                   </div>
-                   </div>
-                  <%end%>
-                  <%end%>
-                  <%end%>
-                  <%end%>
-                  </div>
+      <%= render :file => 'users/icomments' %>
+      </div>
     </div>
     </div>
     </div>
@@ -78,10 +50,3 @@
 
 <%= render 'layouts/footer' %>
 </body>
-
-
-
-
-
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
