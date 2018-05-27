@@ -3,5 +3,6 @@ class SeriesController < ApplicationController
   end
   def show
     @ser = Series.find(params[:id])
+    store_location
   end
 end

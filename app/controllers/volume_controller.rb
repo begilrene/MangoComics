@@ -3,5 +3,6 @@ class VolumeController < ApplicationController
   end
   def show
     @vol = Volume.find(params[:id])
+    store_location
   end
 end

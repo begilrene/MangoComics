@@ -1,0 +1,12 @@
+      <% if logged_in? %>
+      
+        <%= form_for ([@ser,@ser.sreviews.build]) do |f| %>
+          <%= render 'shared/error_messages' %>
+
+          <%= f.label :body, "Review" %>
+          <%= f.text_area :body %>
+          
+
+          <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+        <% end %>
+      <% end %>

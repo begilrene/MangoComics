@@ -75,6 +75,15 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.string "picture", limit: 300
   end
 
+  create_table "Review", primary_key: "reviewid", id: :serial, force: :cascade do |t|
+    t.text "body"
+    t.integer "volume_id"
+    t.integer "issue_id"
+    t.integer "series_id"
+    t.integer "user_id"
+    t.datetime "created_at", default: -> { "timezone('utc'::text, now())" }
+  end
+
   create_table "SComments", primary_key: "commentId", id: :serial, force: :cascade do |t|
     t.string "displayName", limit: 100
     t.text "body"
@@ -140,6 +149,10 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   add_foreign_key "Issue", "\"Volume\"", column: "volume_id", primary_key: "volumeID", name: "Issue_volume_id_fkey"
   add_foreign_key "MComment", "\"New\"", column: "new_id", primary_key: "newsId", name: "MComment_new_id_fkey"
   add_foreign_key "MComment", "\"User\"", column: "user_id", primary_key: "userID", name: "MComment_user_id_fkey"
+  add_foreign_key "Review", "\"Issue\"", column: "issue_id", primary_key: "issueID", name: "Review_issue_id_fkey"
+  add_foreign_key "Review", "\"Series\"", column: "series_id", primary_key: "seriesID", name: "Review_series_id_fkey"
+  add_foreign_key "Review", "\"User\"", column: "user_id", primary_key: "userID", name: "Review_user_id_fkey"
+  add_foreign_key "Review", "\"Volume\"", column: "volume_id", primary_key: "volumeID", name: "Review_volume_id_fkey"
   add_foreign_key "Series", "\"Franchise\"", column: "franchise_id", primary_key: "franchiseID", name: "Series_franchise_id_fkey"
   add_foreign_key "Volume", "\"Series\"", column: "series_id", primary_key: "seriesID", name: "Volume_series_id_fkey"
 end
