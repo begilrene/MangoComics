@@ -13,7 +13,7 @@ class IssuesController < ApplicationController
   if params[:search]
     @iss = Issue.search(params[:search])
   else
-    @iss = Issue.all.order("created_at DESC")
+    @iss = Issue.all
   end
   end
 

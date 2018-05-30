@@ -1,19 +1,50 @@
+<!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/heroic-features.css" rel="stylesheet">
+
 <% provide(:title, @iss.issuename) %>
 
 <%= render 'layouts/navbar' %>
-
-<div class="container alert-warning modal-content">
- <div class="card">
-   <img src=<%=@iss.cover%>>
-   </div>
-<h1>
-  <%= @iss.issuename %> : <br>
-</h1>
-<h3>
-    <%= @iss.summary%>
-</h3>
+<br>
+<div class = container>
+    <div class="row">
+        <div class = "col-sm-4">
+         <img src= "<%=@iss.cover%>" class="img-fluid" alt="Responsive image" >
+        </div>
+        <div class = "col-sm-8">
+            <div class="shadow-lg p-4 mb-4 bg-white">
+                <h1>
+                    <%= @iss.issuename %> : <br>
+                </h1>
+                    <p>
+                    <b> Author: </b> <%= @iss.author %> <br>
+                    <b> Artist: </b> <%= @iss.artist %> <br>
+                    <b> Editor: </b> <%= @iss.editor %> <br>
+                    <b> Summary: </b> <%= @iss.summary %> <br>
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
-<%= render 'reviews/iform' %>
+<div class = container>
+    <div class="row">
+        <div class="shadow-lg p-4 mb-4 bg-white">
+        <b>Summary: </b> <br>
+        <%= @iss.summary%>
+        </div>
+    </div>
+</div>
+
+<div class = container>
+    <div class = "row">
+    <p>
+    Characters: <%= @iss.characters %> <br>
+    </p>
+    </div>
+</div>
+
 <%= render 'i_comments/form' %>
 <%= render 'layouts/issueComments' %>
 </body>
