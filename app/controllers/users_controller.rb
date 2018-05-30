@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    
     @icomments = @user.IComments 
+    store_location
   end
   
   def index

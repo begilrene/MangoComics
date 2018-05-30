@@ -15,7 +15,10 @@ Rails.application.routes.draw do
       get:search
     end
   end
-  resources:users
+  resources:users do
+    resources:flists
+  end
+  
   resources:news do
       resources:m_comments
   end

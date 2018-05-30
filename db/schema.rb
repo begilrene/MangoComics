@@ -42,13 +42,13 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.string "cover", limit: 400
     t.text "synopsis"
     t.text "summary"
-    t.string "tags", limit: 100, array: true
-    t.string "characters", limit: 100, array: true
     t.json "data"
     t.integer "volume_id"
     t.string "artist", limit: 200
     t.string "author", limit: 500
     t.string "editor", limit: 500
+    t.text "characters"
+    t.string "tags"
   end
 
   create_table "MComment", primary_key: "commentId", id: :integer, default: -> { "nextval('\"SComments_commentId_seq\"'::regclass)" }, force: :cascade do |t|
@@ -132,8 +132,9 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.integer "series_id"
   end
 
-  create_table "flist", primary_key: "userid", id: :integer, default: nil, force: :cascade do |t|
+  create_table "flist", id: :serial, force: :cascade do |t|
     t.integer "followid", null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -155,4 +156,5 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   add_foreign_key "Review", "\"Volume\"", column: "volume_id", primary_key: "volumeID", name: "Review_volume_id_fkey"
   add_foreign_key "Series", "\"Franchise\"", column: "franchise_id", primary_key: "franchiseID", name: "Series_franchise_id_fkey"
   add_foreign_key "Volume", "\"Series\"", column: "series_id", primary_key: "seriesID", name: "Volume_series_id_fkey"
+  add_foreign_key "flist", "\"User\"", column: "followid", primary_key: "userID", name: "flist_followid_fkey"
 end
