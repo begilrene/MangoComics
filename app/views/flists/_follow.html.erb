@@ -1,3 +1,4 @@
+<% if logged_in? %>
 <% if Flist.where("user_id = ? AND followid = ?",@user.userID ,current_user.userID ).blank? %>
   <% if logged_in? %>
       
@@ -11,4 +12,5 @@
   <%= @user.flists.where("user_id = ? AND followid = ?",@user.userID ,current_user.userID).each do |follow| %>
     <%= link_to 'Unfollow',user_flist_path(@user, follow), method: :delete %>
   <% end %>
+<% end %>
 <% end %>
