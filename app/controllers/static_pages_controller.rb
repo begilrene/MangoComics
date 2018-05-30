@@ -10,7 +10,7 @@ class StaticPagesController < ApplicationController
  
   def comiclist
     @users = User.all
-    @comics = Issue.all
+    @iss = Issue.all
     #render html: "layouts/parti#partial: 'layouts/front',layouts: 'layouts/front'
   end
   def help

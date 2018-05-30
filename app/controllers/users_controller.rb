@@ -4,10 +4,14 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    
+    @icomments = @user.IComments 
   end
+  
   def index
     @users = User.all
   end
+  
   def new
     @user = User.new
   end
@@ -53,6 +57,17 @@ class UsersController < ApplicationController
   
   def destroy
   end
+  
+  def icomments
+    @user = User.find(params[:id])
+    @icomments = @user.IComments
+  end
+  
+  def get_icomm
+    @user = User.find(params[:id])
+    render 'icomments'
+  end
+    
   
    private
 

@@ -12,9 +12,11 @@
    <div class = 'container'>
     <ul class="users">
     <% @users.each do |user| %>
+      <%# .each do |yeet| %>
       <li>
         <img src=<%=user.profilePic%> width="80" height="80" alt="">
         <%= link_to user.displayName, user %>
+        <%#end%>
       </li>
     <% end %>
     </ul>
@@ -22,6 +24,4 @@
   </div>
 
     <%=render 'layouts/footer' %>
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>

@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   resources:schema
-  resources:volume
-resources:series
-resources:publisher
-resources:franchise
+  resources:volume do
+    resources:vreviews
+  end
+  resources:series do
+    resources:sreviews
+  end
+  resources:publisher
+  resources:franchise
   resources:issues do
     resources:i_comments
+    resources:reviews
     collection do
       get:search
     end
@@ -16,7 +21,7 @@ resources:franchise
   end
   
   
-
+  get 'users/:id/icomments' => 'users#icomments', :as => :user_icomments
 
   get 'new/new'
   get 'issues/new'

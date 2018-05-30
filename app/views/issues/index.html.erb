@@ -1,15 +1,8 @@
-<%= form_tag issues_path, :method => 'get', :class => "search-form" do %>
-  <p>
-    <%= text_field_tag :search, params[:search], placeholder: "Search for Issues", class: "form-control" %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-  
-  <% @iss.each do |i| %>
-  <%=i.issueName%>
-  <%=i.summary%>
-<% end %>
-<% end %>
-
+<%= render 'layouts/front' %>
 <% if @iss.blank? %>
-  <h4>There are no issues containing the term <%= params[:search] %>.</h4>
+  <h4>
+      <div class = "container fixed-middle">
+      There are no issues containing the term <%= params[:search] %>.
+      </div>
+</h4>
 <% end %>
