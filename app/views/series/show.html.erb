@@ -5,7 +5,7 @@
     <!-- Custom styles for this template -->
     <link href="css/heroic-features.css" rel="stylesheet">
 
-<% provide(:title, @ser.seriesName) %>
+<% provide(:title, @ser.seriesname) %>
 
 <%= render 'layouts/navbar' %>
 <br>
@@ -17,10 +17,14 @@
         <div class = "col-sm-8">
             <div class="shadow-lg p-4 mb-4 bg-white">
                 <h1>
-                    <%= @ser.seriesName %> : <br>
+                    <%= @ser.seriesname %> : <br>
                 </h1>
                     <p>
-                    
+                    <a href="/franchise/<%= @ser.franchise.franchiseID %>" class="btn btn-primary">Franchise:<%=@ser.franchise.franchisename%></a>
+                    <a href="/publisher/<%= @ser.franchise.publisher.publisherID %>" class="btn btn-primary">Publisher:<%=@ser.franchise.publisher.publisherName%></a>
+                    <% @ser.volume.reorder('volumename').each do |volume| %>
+                        <a href="/volume/<%= volume.volumeID %>" class="btn btn-primary">Volume:<%=volume.volumename%></a>
+                    <% end %>
                 </p>
             </div>
         </div>

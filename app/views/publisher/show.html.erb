@@ -20,7 +20,9 @@
                     <%= @pub.publisherName %> : <br>
                 </h1>
                     <p>
-                    
+                    <% @pub.franchise.reorder('franchisename').each do |franchise| %>
+                        <a href="/franchise/<%= franchise.franchiseID %>" class="btn btn-primary">Franchise:<%=franchise.franchisename%></a>
+                    <% end %>
                 </p>
             </div>
         </div>

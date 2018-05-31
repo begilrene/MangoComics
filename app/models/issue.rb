@@ -8,4 +8,6 @@ class Issue < ActiveRecord::Base
     end
     has_many :IComments
     has_many :reviews, dependent: :destroy
+    
+    belongs_to :volume
 end
