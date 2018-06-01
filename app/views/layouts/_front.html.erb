@@ -32,7 +32,9 @@
 
       <!-- Jumbotron Header -->
       </br>
-      
+       <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
 
       <!-- Page Features -->
       <div class="row text-center">
