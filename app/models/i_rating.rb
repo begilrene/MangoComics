@@ -1,5 +1,5 @@
 class IRating < ActiveRecord::Base
-    self.table_name = 'IRating'
+    self.table_name = 'rating'
     self.primary_key = :ratingID
     belongs_to :user
     belongs_to :issue

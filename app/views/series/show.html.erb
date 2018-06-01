@@ -1,4 +1,4 @@
-<% provide(:title, @ser.seriesName) %>
+<% provide(:title, @ser.seriesname) %>
 
 <%= render 'layouts/navbar' %>
 
@@ -12,13 +12,14 @@
    </div>
    </div>
 <h1>
-  <%= @ser.seriesName %>
+  <%= @ser.seriesname %>
 </h1>
 <h3>
   <!--description goes here-->
 </h3>
 
 </div>
+  <%= render 'ratings/sform' %>
   <%= render 'reviews/sform' %>
 </div>
 

@@ -3,6 +3,7 @@ class SeriesController < ApplicationController
   end
   def show
     @ser = Series.find(params[:id])
+    @rating = @ser.SRatings.star(params[:id])
     store_location
   end
 end
