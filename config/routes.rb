@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   resources:schema
   resources:volume do
+    resources:v_ratings
     resources:vreviews
   end
   resources:series do
+    resources:s_ratings
     resources:sreviews
   end
   resources:publisher
@@ -27,24 +29,12 @@ Rails.application.routes.draw do
   
   get 'users/:id/icomments' => 'users#icomments', :as => :user_icomments
 
-  get 'new/new'
-  get 'issues/new'
-  get 'users/new'
   get 'sessions/new'
   get 'franchise/show'
-  get 'issues/search'
-
   get 'static_pages/comiclist'
   get 'static_pages/home'
-  get 'static_pages/about'
-  get 'static_pages/contact'
-  get 'static_pages/issues'
-  get 'static_pages/news1'
-  get 'static_pages/news2'
-  get 'static_pages/news3'
 
-  get    '/index',   to: 'issues#search'
-  get    '/search',  to: 'issues#search'
+
   get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'
   get    '/logout',  to: 'sessions#destroy'
