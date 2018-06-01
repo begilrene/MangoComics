@@ -7,6 +7,10 @@
   <% (5-@rating.to_i).times do %>
    <img class ="mx-auto rounded-circle"src="/Empty_Star.svg" width="20" height="20" alt="">
   <% end %>
+    <a>Total Votes:</a>
+    <%= @iss.IRatings.count %>
+    
+    
   <% if logged_in? %>
   <% if @iss.IRatings.where("user_id = ?",current_user.userID).blank? %>
     <%= form_for ([@iss,@iss.IRatings.build]) do |f| %>
@@ -30,4 +34,5 @@
     <% end %>
   <% end %>
   <% end %>
+  
 </div>
