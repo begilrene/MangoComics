@@ -1,11 +1,12 @@
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <div class = "container">
+  <a>Total Rating</a>
   <% @rating.to_i.times do  %>
-     <span class="glyphicon glyphicon-star"></span>
+     <img class ="mx-auto rounded-circle"src="/Yellow_Star.svg" width="20" height="20" alt="">
   <% end %>
-  <% @rating.to_i.times do %>
-   <span class="glyphicon glyphicon-star-empty"></span>
+  <% (5-@rating.to_i).times do %>
+   <img class ="mx-auto rounded-circle"src="/Empty_Star.svg" width="20" height="20" alt="">
   <% end %>
-    <a>Rating: <%= @rating %></a>
   <% if logged_in? %>
   <% if @iss.IRatings.where("user_id = ?",current_user.userID).blank? %>
     <%= form_for ([@iss,@iss.IRatings.build]) do |f| %>
@@ -21,7 +22,7 @@
     <%= form_for [@iss,@iss.IRatings.where("user_id = ?",current_user.userID).first] do |f| %>
           <%= render 'shared/error_messages' %>
 
-          <%= f.label :rating, "Current Rating" %>
+          <%= f.label :rating, "Your Current Rating" %>
           <%= f.select :rating, options_for_select([@iss.IRatings.where("user_id = ?",current_user.userID).first.rating.to_i, "1", "2", "3", "4", "5"]), :class => 'genForm_dropBox' %>
           
 
