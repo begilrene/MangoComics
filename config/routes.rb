@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources:publisher
   resources:franchise
   resources:issues do
+    resources:i_ratings
     resources:i_comments
     resources:reviews
     collection do

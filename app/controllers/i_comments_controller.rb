@@ -21,11 +21,6 @@ class ICommentsController < ApplicationController
     end
   end
   
-  def issue
-    @iss = Issue.find(params[:issue_id])
-    @comm = Issue.find(@iss.issueID).IComments
-  end
-  
   def destroy
     @comm.destroy
     redirect_to @iss

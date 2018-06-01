@@ -1,0 +1,32 @@
+<div class = "container">
+  <% @rating.to_i.times do  %>
+     <span class="glyphicon glyphicon-star"></span>
+  <% end %>
+  <% @rating.to_i.times do %>
+   <span class="glyphicon glyphicon-star-empty"></span>
+  <% end %>
+    <a>Rating: <%= @rating %></a>
+  <% if logged_in? %>
+  <% if @iss.IRatings.where("user_id = ?",current_user.userID).blank? %>
+    <%= form_for ([@iss,@iss.IRatings.build]) do |f| %>
+          <%= render 'shared/error_messages' %>
+
+          <%= f.label :rating, "Rate" %>
+          <%= f.select :rating, options_for_select([["Select One", ""], "1", "2", "3", "4", "5"]), :class => 'genForm_dropBox' %>
+          
+
+          <%= f.submit "Rate", class: "btn btn-small btn-primary" %>
+    <% end %>
+  <% else %>
+    <%= form_for [@iss,@iss.IRatings.where("user_id = ?",current_user.userID).first] do |f| %>
+          <%= render 'shared/error_messages' %>
+
+          <%= f.label :rating, "Current Rating" %>
+          <%= f.select :rating, options_for_select([@iss.IRatings.where("user_id = ?",current_user.userID).first.rating.to_i, "1", "2", "3", "4", "5"]), :class => 'genForm_dropBox' %>
+          
+
+          <%= f.submit "Rate", class: "btn btn-small btn-primary" %>
+    <% end %>
+  <% end %>
+  <% end %>
+</div>
