@@ -1,4 +1,5 @@
 class FlistsController < ApplicationController
+  before_action :is_owner, only: [:destroy]
   def create
     @user = User.find(params[:user_id])
     @add = @user.flists.new(list_params)
@@ -19,11 +20,9 @@ class FlistsController < ApplicationController
   def list_params
     params.permit(:userid,:followid)
   end
-  def check
+  def is_owner
     @user = User.find(params[:user_id])
     @relation = flists.where(userid: current_suserID,followid: @user.userID).first()
-  end
-  def is_owner
     unless current_user.id == @relation.userid
     end
   end

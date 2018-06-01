@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
     has_many :reviews, dependent: :destroy
     has_many :sreviews, dependent: :destroy
     has_many :vreviews, dependent: :destroy
-    has_many:flists
+    has_many :flists, dependent: :destroy
+    has_many :IRatings, dependent: :destroy
     before_save { self.email = email.downcase }
     self.table_name = 'User'
     self.primary_key = :userID

@@ -4,6 +4,7 @@ class IssuesController < ApplicationController
   
   def show
     @iss = Issue.find(params[:id])
+    @rating = @iss.IRatings.star(params[:id])
     store_location
     @comment = @comm
   end

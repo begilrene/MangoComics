@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   enable_extension "plpgsql"
 
   create_table "Franchise", primary_key: "franchiseID", id: :serial, force: :cascade do |t|
-    t.string "franchiseName", limit: 100
+    t.string "franchisename", limit: 100
     t.text "description"
     t.string "picture", limit: 300
     t.integer "publisher_id"
@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   end
 
   create_table "IRating", primary_key: "ratingID", id: :serial, force: :cascade do |t|
-    t.integer "overallRating"
-    t.integer "individualRating"
-    t.integer "issueID"
+    t.integer "rating"
+    t.integer "issue_id"
+    t.integer "user_id"
   end
 
   create_table "Issue", primary_key: "issueID", id: :serial, force: :cascade do |t|
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   end
 
   create_table "Series", primary_key: "seriesID", id: :serial, force: :cascade do |t|
-    t.string "seriesName", limit: 100
+    t.string "seriesname", limit: 100
     t.string "picture", limit: 300
     t.integer "franchise_id"
   end
@@ -128,8 +128,8 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   end
 
   create_table "Volume", primary_key: "volumeID", id: :serial, force: :cascade do |t|
-    t.string "volumeName", limit: 100
     t.integer "series_id"
+    t.text "volumename", comment: "Stores the name of the volume"
   end
 
   create_table "flist", id: :serial, force: :cascade do |t|
@@ -147,6 +147,8 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   add_foreign_key "Franchise", "\"Publisher\"", column: "publisher_id", primary_key: "publisherID", name: "Franchise_publisher_id_fkey"
   add_foreign_key "IComments", "\"Issue\"", column: "issue_id", primary_key: "issueID", name: "IComments_location_fkey"
   add_foreign_key "IComments", "\"User\"", column: "user_id", primary_key: "userID", name: "IComments_commenter_fkey"
+  add_foreign_key "IRating", "\"Issue\"", column: "issue_id", primary_key: "issueID", name: "IRating_issue_id_fkey"
+  add_foreign_key "IRating", "\"User\"", column: "user_id", primary_key: "userID", name: "IRating_user_id_fkey"
   add_foreign_key "Issue", "\"Volume\"", column: "volume_id", primary_key: "volumeID", name: "Issue_volume_id_fkey"
   add_foreign_key "MComment", "\"New\"", column: "new_id", primary_key: "newsId", name: "MComment_new_id_fkey"
   add_foreign_key "MComment", "\"User\"", column: "user_id", primary_key: "userID", name: "MComment_user_id_fkey"
