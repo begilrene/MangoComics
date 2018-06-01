@@ -1,0 +1,2 @@
+module VRatingsHelper
+end
