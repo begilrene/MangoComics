@@ -1,4 +1,6 @@
-<div class = "container">   
+<div class = container>
+    <div class="row">
+        <div class = "col-sm-6">
       <% if logged_in? %>
       
         <%= form_for ([@iss,@iss.IComments.build]) do |f| %>
@@ -11,4 +13,6 @@
           <%= f.submit "Post", class: "btn btn-small btn-primary" %>
         <% end %>
       <% end %>
+    </div>
+  </div>
 </div>
