@@ -22,8 +22,8 @@ class FlistsController < ApplicationController
   end
   def is_owner
     @user = User.find(params[:user_id])
-    @relation = flists.where(userid: current_suserID,followid: @user.userID).first()
-    unless current_user.id == @relation.userid
+    @relation = @user.flists.where(user_id: @user.userID,followid: current_user.userID).first()
+    unless current_user.id == @relation.user_id
     end
   end
 end
