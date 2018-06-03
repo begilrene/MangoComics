@@ -10,20 +10,23 @@
    </div>
 <h1>
   <%= @vol.volumename %>
+<<<<<<< HEAD
   <a href="/series/<%= @vol.series.seriesID %>" class="btn btn-primary">Series:<%=@vol.series.seriesname%></a>
   <a href="/franchise/<%= @vol.series.franchise.franchiseID %>" class="btn btn-primary">Franchise:<%=@vol.series.franchise.franchisename%></a>
   <a href="/publisher/<%= @vol.series.franchise.publisher.publisherID %>" class="btn btn-primary">Publisher:<%=@vol.series.franchise.publisher.publisherName%></a>
   <% @vol.issues.reorder('issuename').each do |issue| %>
       <a href="/issues/<%= issue.issueID %>" class="btn btn-primary">Issue:<%=issue.issuename%></a>
   <% end %>
+=======
+>>>>>>> db34f8585543fce07edee0943f4c84c928170619
 </h1>
 <h3>
   <!--description goes here-->
 </h3>
   <%= render 'ratings/vform' %>
   <%= render 'reviews/vform'%>
-  <%= render 's_comments/form' %>
-  <%= render 's_comments/comment' %>
+  <%= render 'v_comments/form' %>
+  <%= render 'v_comments/comment' %>
 </div>
 </div>
 
