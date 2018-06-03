@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
     has_many :IComments, dependent: :destroy
     has_many :MComments, dependent: :destroy
     has_many :UComments, dependent: :destroy
+    has_many :VComments, dependent: :destroy
+    has_many :SComments, dependent: :destroy
     has_many :reviews, dependent: :destroy
     has_many :sreviews, dependent: :destroy
     has_many :vreviews, dependent: :destroy

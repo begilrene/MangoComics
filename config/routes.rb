@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   resources:volume do
     resources:v_ratings
     resources:vreviews
+    resources:v_comments
   end
   resources:series do
     resources:s_ratings
     resources:sreviews
+    resources:s_comments
   end
   resources:publisher
   resources:franchise

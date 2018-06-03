@@ -1,0 +1,23 @@
+
+    <div class = "container">
+      <div class = "row">
+        <div id: "comments">
+          <div class="col-sm-12">
+            <% @comm.order(created_at: :desc).each do |comment| %>
+              
+                  <p>
+                    <img src = <%=comment.user.profilePic%> width="80" height = "80" alt"">  <%=comment.user.displayName%>
+                  </p>
+                
+
+            <p>  Date: <%=comment.created_at%> <% if logged_in? && @current_user.userID == comment.user_id %>
+                <%= link_to "Delete", [comment.volume, comment], method: :delete %>
+                <%= link_to "Edit", edit_volume_v_comment_path(comment.volume, comment) %>
+              <% end %><br /></p>
+            <p id = "comments"> <%=comment.body%></p>
+            
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
