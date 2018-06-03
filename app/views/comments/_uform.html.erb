@@ -4,7 +4,7 @@
         <%= form_for ([@user,@user.UComments.build]) do |f| %>
           <%= render 'shared/error_messages' %>
 
-          <%= f.label :body, "Comment" %>
+          <%= f.label :body, "Post to Wall" %>
           <%= f.text_area :body %>
           
 
