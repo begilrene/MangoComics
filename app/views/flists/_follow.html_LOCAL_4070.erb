@@ -15,8 +15,8 @@
   <% else %>
     <%= @user.flists.where("user_id = ? AND followid = ?",@user.userID ,current_user.userID).each do |follow| %>
     <button id = "button">
-      <% else %>
-    <%= link_to 'Unfollow',user_flist_path(@user, @user.flists.where("user_id = ? AND followid = ?",@user.userID ,current_user.userID).first), method: :delete %>
+      <%= link_to 'Unfollow',user_flist_path(@user, follow), method: :delete %>
     </button>
+    <% end %>
   <% end %>
-<% end %>
+  <% end %>

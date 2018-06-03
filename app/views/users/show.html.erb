@@ -10,7 +10,7 @@
         <h1 class="display-3">User Info</h1>
         <p class="lead"></font></p>
     </header>
-        <%= render 'flists/follow' %>
+    
     <div class = "container" id=news>
       <div class = text-center>
       <h1>
@@ -39,6 +39,11 @@
       <% if logged_in? && @current_user.displayName == @user.displayName %>
         <%= link_to 'Edit', edit_user_path(@user) %>
       <% end %>
+
+      </div>
+      
+      <div class= "text-center">
+          <%= render 'flists/follow' %>
       </div>
       <%= render 'comments/uform' %>
       <%= render 'comments/comment' %>
