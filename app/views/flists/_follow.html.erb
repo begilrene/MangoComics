@@ -1,20 +1,18 @@
-
-
+<% if logged_in? %>
+<% if Flist.where("user_id = ? AND followid = ?",@user.userID ,current_user.userID ).blank? %>
   <% if logged_in? %>
-  <% if Flist.where("user_id = ? AND followid = ?",@user.userID ,current_user.userID ).blank? %>
-    <% if logged_in? %>
-        
-      <%= form_for ([@user,@user.flists.build]) do |f|  %>
-        <%= render 'shared/error_messages' %>
-        <button id = "button">
-          <%= f.submit "Follow", class: "btn" %>
-        </button>
-      <% end %>
+
+    <%= form_for ([@user,@user.flists.build]) do |f|  %>
+      <%= render 'shared/error_messages' %>
+       <button id = "button">
+      <%= f.submit "Follow", class: "btn" %>
+       </button>
     <% end %>
-    
-  <% else %>
+  <% end %>
+
+<% else %>
     <button id = "button">
     <%= link_to 'Unfollow',user_flist_path(@user, @user.flists.where("user_id = ? AND followid = ?",@user.userID ,current_user.userID).first), method: :delete %>
     </button>
-  <% end %>
+<% end %>
 <% end %>

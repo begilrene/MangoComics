@@ -10,7 +10,8 @@
     <a>Total Votes:</a>
     <%= @vol.VRatings.count %>
     
-    
+  <div class = "row"> 
+  <div class = "col-sm-3">
   <% if logged_in? %>
   <% if @vol.VRatings.where("user_id = ?",current_user.userID).blank? %>
     <%= form_for ([@vol,@vol.VRatings.build]) do |f| %>
@@ -34,5 +35,6 @@
     <% end %>
   <% end %>
   <% end %>
-  
+  </div>
+  </div>
 </div>
