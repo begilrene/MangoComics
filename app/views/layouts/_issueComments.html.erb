@@ -4,7 +4,7 @@
       <div class = "row">
         <div id: "comments">
           <div class="col-sm-12">
-            <% @iss.IComments.order(date: :desc).each do |iComments| %>
+            <% @iss.IComments.order(created_at: :desc).each do |iComments| %>
               
                   <p>
                     <img src = <%=iComments.user.profilePic%> width="80" height = "80" alt"">  <%=iComments.user.displayName%>

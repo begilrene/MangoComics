@@ -4,7 +4,7 @@
       <div class = "row">
         <div id: "comments">
           <div class="col-sm-12">
-            <% @newpage.MComments.each do |mComments| %>
+            <% @newpage.MComments.order(created_at: :desc).each do |mComments| %>
                   <p>
                     <img src = <%=mComments.user.profilePic%> width="80" height = "80" alt"">  <%=mComments.user.displayName%>
                   </p>

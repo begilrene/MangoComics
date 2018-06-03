@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @comm = @user.UComments
-    @icomments = @user.IComments 
+    @comm = Comment.where('wall_id' => @user.userID )
+    @icomments = @user.IComments.where.not('issue_id' => nil )
     store_location
   end
   

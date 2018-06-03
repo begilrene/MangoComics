@@ -5,12 +5,12 @@
       <img class="mx-auto rounded-circle" src=<%=@user.profilePic%> width="125" height="125" alt=""> </img>
     </p>
     <p>
-      <a href="/issues/<%=yett.issue.issueID%>"><img class="mx-auto rounded-circle" src=<%=yett.issue.cover%> width="95" height="95" position= 105px alt=""></a>
+      <a href="/issues/<%=yett.issue.issueID%>"><img class="mx-auto rounded-circle" src="<%=yett.issue.cover%>" width="95" height="95" position= 105px alt=""></a>
     </p>
     <p>
   </div>
   <div class = container>
-     Date: <%=yett.created_at%> <br>
+     Date: <%=yett.date%> <br>
   </p>
   <p id = "comments">
     <%=yett.body%>
