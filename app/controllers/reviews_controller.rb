@@ -9,14 +9,22 @@ class ReviewsController < ApplicationController
       redirect_to @iss
     end
   end
+  
+  def show
+    @iss = Issue.find(params[:issue_id])
+    @review = Review.find(params[:id])
+  end
+  
   def edit
   end
+  
   def update
     if @irev.update_attributes(review_params)
       redirect_to @iss
    
     end
   end
+  
   def destroy
     if @irev.destroy
       redirect_to @iss
