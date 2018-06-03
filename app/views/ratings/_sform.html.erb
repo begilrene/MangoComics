@@ -1,5 +1,5 @@
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<div class = "container" width="20" height="20">
+  <div class = "container">
   <a>Total Rating</a>
   <% @rating.to_i.times do  %>
      <img class ="mx-auto rounded-circle"src="/Yellow_Star.svg" width="20" height="20" alt="">
@@ -10,7 +10,8 @@
     <a>Total Votes:</a>
     <%= @ser.SRatings.count %>
     
-    
+  <div class = "row"> 
+  <div class = "col-sm-3">
   <% if logged_in? %>
   <% if @ser.SRatings.where("user_id = ?",current_user.userID).blank? %>
     <%= form_for ([@ser,@ser.SRatings.build]) do |f| %>
@@ -34,5 +35,6 @@
     <% end %>
   <% end %>
   <% end %>
-  
+  </div>
+  </div>
 </div>
