@@ -23,7 +23,7 @@
                     <a href="/franchise/<%= @ser.franchise.franchiseID %>" class="btn btn-primary">Franchise:<%=@ser.franchise.franchisename%></a>
                     <a href="/publisher/<%= @ser.franchise.publisher.publisherID %>" class="btn btn-primary">Publisher:<%=@ser.franchise.publisher.publisherName%></a>
                     <% @ser.volume.reorder('volumename').each do |volume| %>
-                        <a href="/volume/<%= volume.volumeID %>" class="btn btn-primary">Volume:<%=volume.volumename%></a>
+                        <a href="/volumes/<%= volume.volumeID %>" class="btn btn-primary">Volume:<%=volume.volumename%></a>
                     <% end %>
                 </p>
             </div>

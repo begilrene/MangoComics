@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@vol) do |f| %>
+      <%= f.label :volumename, "Volume Title" %>
+      <%= f.text_field :volumename, class: 'form-control' %>
+      
+      <%= f.label :series_id, "Series (if series not shown please add volume first)" %>
+      <%= f.select :series_id, options_from_collection_for_select(Series.all, :seriesID, :seriesname) %>
+
+
+      <%= f.submit "Edit volume", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+</div>
+<footer> 
+<%=render 'layouts/footer' %>
+</footer>
+  </body>
+<html lang="en">

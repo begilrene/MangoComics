@@ -1,6 +1,4 @@
-
- 
-  <div class="container">
+<div class="container">
   <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@iss) do |f| %>
@@ -35,7 +33,7 @@
       <%= f.select :volume_id, options_from_collection_for_select(Volume.all, :volumeID, :volumename) %>
 
 
-      <%= f.submit "Add new issue", class: "btn btn-primary" %>
+      <%= f.submit "Edit issue", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
