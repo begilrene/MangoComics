@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @comm = @user.UComments
     @icomments = @user.IComments 
     store_location
   end

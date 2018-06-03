@@ -22,15 +22,6 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.integer "publisher_id"
   end
 
-  create_table "IComments", primary_key: "commentId", id: :serial, force: :cascade do |t|
-    t.text "body"
-    t.date "date", default: -> { "('now'::text)::date" }, null: false
-    t.integer "userid"
-    t.integer "issueID"
-    t.integer "user_id"
-    t.integer "issue_id"
-  end
-
   create_table "Issue", primary_key: "issueID", id: :serial, force: :cascade do |t|
     t.string "issuename", limit: 100
     t.string "cover", limit: 400
@@ -103,15 +94,23 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.string "password_digest", limit: 300
   end
 
-  create_table "VComments", primary_key: "commentId", id: :serial, force: :cascade do |t|
-    t.string "displayName", limit: 100
-    t.text "body"
-    t.date "date", default: -> { "('now'::text)::date" }, null: false
-  end
-
   create_table "Volume", primary_key: "volumeID", id: :serial, force: :cascade do |t|
     t.integer "series_id"
     t.text "volumename", comment: "Stores the name of the volume"
+  end
+
+  create_table "comments", primary_key: "commentId", id: :integer, default: -> { "nextval('\"IComments_commentId_seq\"'::regclass)" }, force: :cascade do |t|
+    t.text "body"
+    t.date "date", default: -> { "('now'::text)::date" }, null: false
+    t.integer "userid"
+    t.integer "issueID"
+    t.integer "user_id"
+    t.integer "issue_id"
+    t.integer "wall_id"
+    t.integer "volume_id"
+    t.integer "series_id"
+    t.datetime "created_at", default: -> { "timezone('utc'::text, now())" }
+    t.integer "new_id"
   end
 
   create_table "flist", id: :serial, force: :cascade do |t|
@@ -136,8 +135,6 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   end
 
   add_foreign_key "Franchise", "\"Publisher\"", column: "publisher_id", primary_key: "publisherID", name: "Franchise_publisher_id_fkey"
-  add_foreign_key "IComments", "\"Issue\"", column: "issue_id", primary_key: "issueID", name: "IComments_location_fkey"
-  add_foreign_key "IComments", "\"User\"", column: "user_id", primary_key: "userID", name: "IComments_commenter_fkey"
   add_foreign_key "Issue", "\"Volume\"", column: "volume_id", primary_key: "volumeID", name: "Issue_volume_id_fkey"
   add_foreign_key "MComment", "\"New\"", column: "new_id", primary_key: "newsId", name: "MComment_new_id_fkey"
   add_foreign_key "MComment", "\"User\"", column: "user_id", primary_key: "userID", name: "MComment_user_id_fkey"
@@ -147,6 +144,12 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   add_foreign_key "Review", "\"Volume\"", column: "volume_id", primary_key: "volumeID", name: "Review_volume_id_fkey"
   add_foreign_key "Series", "\"Franchise\"", column: "franchise_id", primary_key: "franchiseID", name: "Series_franchise_id_fkey"
   add_foreign_key "Volume", "\"Series\"", column: "series_id", primary_key: "seriesID", name: "Volume_series_id_fkey"
+  add_foreign_key "comments", "\"Issue\"", column: "issue_id", primary_key: "issueID", name: "IComments_location_fkey"
+  add_foreign_key "comments", "\"New\"", column: "new_id", primary_key: "newsId", name: "comments_new_id_fkey"
+  add_foreign_key "comments", "\"Series\"", column: "series_id", primary_key: "seriesID", name: "comments_series_id_fkey"
+  add_foreign_key "comments", "\"User\"", column: "user_id", primary_key: "userID", name: "IComments_commenter_fkey"
+  add_foreign_key "comments", "\"User\"", column: "wall_id", primary_key: "userID", name: "comments_wall_id_fkey"
+  add_foreign_key "comments", "\"Volume\"", column: "volume_id", primary_key: "volumeID", name: "comments_volume_id_fkey"
   add_foreign_key "flist", "\"User\"", column: "followid", primary_key: "userID", name: "flist_followid_fkey"
   add_foreign_key "rating", "\"Issue\"", column: "issue_id", primary_key: "issueID", name: "IRating_issue_id_fkey"
   add_foreign_key "rating", "\"Series\"", column: "series_id", primary_key: "seriesID", name: "rating_series_id_fkey"

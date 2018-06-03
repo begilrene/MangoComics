@@ -6,7 +6,7 @@ class IssuesController < ApplicationController
     @iss = Issue.find(params[:id])
     @rating = @iss.IRatings.star(params[:id])
     store_location
-    @comment = @comm
+    @comm = @iss.IComments
   end
   
   def index

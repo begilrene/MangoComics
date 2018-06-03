@@ -1,7 +1,7 @@
 <div class = "container">   
       <% if logged_in? %>
       
-        <%= form_for ([@iss,@iss.IComments.build]) do |f| %>
+        <%= form_for ([@iss,@comm.build]) do |f| %>
           <%= render 'shared/error_messages' %>
 
           <%= f.label :body, "Comment" %>

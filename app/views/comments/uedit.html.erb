@@ -1,0 +1,12 @@
+      <% if logged_in? %>
+      
+        <%= form_for ([@user, @comm]) do |f| %>
+          <%= render 'shared/error_messages' %>
+
+          <%= f.label :body, "Comment" %>
+          <%= f.text_area :body %>
+          
+
+          <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+        <% end %>
+      <% end %>

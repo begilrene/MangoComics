@@ -63,10 +63,10 @@
         <div class = "row">
           <div id: "comments">
             <div class="col-sm-12">
-              <% MComment.where(pageIndex: '1').each do |mComment| %>
+              <% @newpage.MComments.each do |mComment| %>
               <p> 
               <div class = "shadowboxN">
-                <%=mComment.displayName%> Date: <%=mComment.date%>
+                <%=mComment.user_id%> Date: <%=mComment.created_at%>
                 <br />
               </p>
               </div>

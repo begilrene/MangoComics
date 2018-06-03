@@ -5,15 +5,13 @@
         <div id: "comments">
           <div class="col-sm-12">
             <% @iss.IComments.order(date: :desc).each do |iComments| %>
-              <% User.all.each do |user| %>
-               <% if(user.userID == iComments.user_id)%>
+              
                   <p>
-                    <img src = <%=user.profilePic%> width="80" height = "80" alt"">  <%=user.displayName%>
+                    <img src = <%=iComments.user.profilePic%> width="80" height = "80" alt"">  <%=iComments.user.displayName%>
                   </p>
-                  <%end%>
-                <%end%>
+                
 
-            <p>  Date: <%=iComments.date%> <% if logged_in? && @current_user.userID == iComments.user_id %>
+            <p>  Date: <%=iComments.created_at%> <% if logged_in? && @current_user.userID == iComments.user_id %>
                 <%= link_to "Delete", [iComments.issue, iComments], method: :delete %>
                 <%= link_to "Edit", edit_issue_i_comment_path(iComments.issue, iComments) %>
               <% end %><br /></p>

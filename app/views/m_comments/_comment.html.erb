@@ -5,13 +5,9 @@
         <div id: "comments">
           <div class="col-sm-12">
             <% @newpage.MComments.each do |mComments| %>
-              <% User.all.each do |user| %>
-               <% if(user.userID == mComments.user_id)%>
                   <p>
-                    <img src = <%=user.profilePic%> width="80" height = "80" alt"">  <%=user.displayName%>
+                    <img src = <%=mComments.user.profilePic%> width="80" height = "80" alt"">  <%=mComments.user.displayName%>
                   </p>
-                  <%end%>
-                <%end%>
             
             <p>  Date: <%=mComments.date%>
             <% if logged_in? && @current_user.userID == mComments.user_id %>

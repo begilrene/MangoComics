@@ -42,11 +42,11 @@
     <p>
     Characters: <%= @iss.characters %> <br>
     </p>
-    </div>
+    </div>ADD FOREIGN KEY (volume_id) REFERENCES "Volume"("volumeID");
 </div>
 <%= render 'ratings/iform' %>
 <%= render 'reviews/iform' %>
-<%= render 'i_comments/form' %>
+<%= render 'comments/form' %>
 <%= render 'layouts/issueComments' %>
 </body>
 <%= render 'layouts/footer'%>
