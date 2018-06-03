@@ -1,0 +1,18 @@
+<body>
+   <div class = 'container'>
+    <ul class="users">
+    <% @review.each do |user| %>
+      <%# .each do |yeet| %>
+      <li>
+        <!--img src=<%#=user.profilePic%> width="80" height="80" alt=""-->
+        <%=user.inspect %>
+        <%#= link_to user.displayName, user %>
+        <%#end%>
+      </li>
+    <% end %>
+    </ul>
+  
+  </div>
+
+    <%=render 'layouts/footer' %>
+  </body>

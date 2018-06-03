@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
   resources:publisher
   resources:franchise
+  resources:reviews
   resources:issues do
     resources:i_ratings
     resources:i_comments
