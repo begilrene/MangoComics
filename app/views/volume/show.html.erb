@@ -1,4 +1,4 @@
-<% provide(:title, @vol.volumeName) %>
+<% provide(:title, @vol.volumename) %>
 
 <%= render 'layouts/navbar' %>
 
@@ -9,15 +9,15 @@
    </div>
    </div>
 <h1>
-  <%= @vol.volumeName %>
+  <%= @vol.volumename %>
 </h1>
 <h3>
   <!--description goes here-->
 </h3>
   <%= render 'ratings/vform' %>
   <%= render 'reviews/vform'%>
-  <%= render 's_comments/form' %>
-  <%= render 's_comments/comment' %>
+  <%= render 'v_comments/form' %>
+  <%= render 'v_comments/comment' %>
 </div>
 </div>
 
