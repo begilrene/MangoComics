@@ -1,10 +1,17 @@
+<<<<<<< HEAD
 <% provide(:title, @ser.seriesname) %>
 
 <%= render 'layouts/navbar' %>
+=======
+>>>>>>> updatedissuepages
 
+<!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<%= render 'layouts/navbar' %>
+    <!-- Custom styles for this template -->
+    <link href="css/heroic-features.css" rel="stylesheet">
 
+<<<<<<< HEAD
 <div class="container alert-warning modal-content">
  <div class="card">
    <div align="center">
@@ -17,12 +24,49 @@
 <h3>
   <!--description goes here-->
 </h3>
+=======
+<% provide(:title, @ser.seriesname) %>
+>>>>>>> updatedissuepages
 
+<%= render 'layouts/navbar' %>
+<br>
+<div class = container>
+    <div class="row">
+        <div class = "col-sm-4">
+         <img src= "<%=@ser.picture%>" class="img-fluid" alt="Responsive image" >
+        </div>
+        <div class = "col-sm-8">
+            <div class="shadow-lg p-4 mb-4 bg-white">
+                <h1>
+                    <%= @ser.seriesname %> : <br>
+                </h1>
+                    <p>
+                    <a href="/franchise/<%= @ser.franchise.franchiseID %>" class="btn btn-primary">Franchise:<%=@ser.franchise.franchisename%></a>
+                    <a href="/publisher/<%= @ser.franchise.publisher.publisherID %>" class="btn btn-primary">Publisher:<%=@ser.franchise.publisher.publisherName%></a>
+                    <% @ser.volume.reorder('volumename').each do |volume| %>
+                        <a href="/volume/<%= volume.volumeID %>" class="btn btn-primary">Volume:<%=volume.volumename%></a>
+                    <% end %>
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
+<<<<<<< HEAD
   <%= render 'ratings/sform' %>
   <%= render 'reviews/sform' %>
   <%= render 's_comments/form' %>
   <%= render 's_comments/comment' %>
+=======
+<div class = container>
+    <div class="row">
+        <div class="shadow-lg p-4 mb-4 bg-white">
+        <b>Summary: </b> <br>
+        
+        </div>
+    </div>
+>>>>>>> updatedissuepages
 </div>
 
+
+</body>
 <%= render 'layouts/footer'%>

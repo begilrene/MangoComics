@@ -1,20 +1,42 @@
+
+<!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/heroic-features.css" rel="stylesheet">
+
 <% provide(:title, @pub.publisherName) %>
+
 <%= render 'layouts/navbar' %>
-
-<div class="container alert-warning modal-content">
- <div class="card">
-   <div align="center">
-   <img class="card-img card-scale" src=<%=@pub.picture%> style="">
-   </div>
-   </div>
-<h1>
-  <%= @pub.publisherName %>
-</h1>
-<h3>
-  <%= @pub.description %>
-</h3>
-
+<br>
+<div class = container>
+    <div class="row">
+        <div class = "col-sm-4">
+         <img src= "<%=@pub.picture%>" class="img-fluid" alt="Responsive image" >
+        </div>
+        <div class = "col-sm-8">
+            <div class="shadow-lg p-4 mb-4 bg-white">
+                <h1>
+                    <%= @pub.publisherName %> : <br>
+                </h1>
+                    <p>
+                    <% @pub.franchise.reorder('franchisename').each do |franchise| %>
+                        <a href="/franchise/<%= franchise.franchiseID %>" class="btn btn-primary">Franchise:<%=franchise.franchisename%></a>
+                    <% end %>
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
+<div class = container>
+    <div class="row">
+        <div class="shadow-lg p-4 mb-4 bg-white">
+        <b>Summary: </b> <br>
+        <%= @pub.description%>
+        </div>
+    </div>
 </div>
 
+
+</body>
 <%= render 'layouts/footer'%>

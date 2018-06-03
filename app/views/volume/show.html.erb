@@ -1,4 +1,4 @@
-<% provide(:title, @vol.volumeName) %>
+<% provide(:title, @vol.volumename) %>
 
 <%= render 'layouts/navbar' %>
 
@@ -9,7 +9,13 @@
    </div>
    </div>
 <h1>
-  <%= @vol.volumeName %>
+  <%= @vol.volumename %>
+  <a href="/series/<%= @vol.series.seriesID %>" class="btn btn-primary">Series:<%=@vol.series.seriesname%></a>
+  <a href="/franchise/<%= @vol.series.franchise.franchiseID %>" class="btn btn-primary">Franchise:<%=@vol.series.franchise.franchisename%></a>
+  <a href="/publisher/<%= @vol.series.franchise.publisher.publisherID %>" class="btn btn-primary">Publisher:<%=@vol.series.franchise.publisher.publisherName%></a>
+  <% @vol.issues.reorder('issuename').each do |issue| %>
+      <a href="/issues/<%= issue.issueID %>" class="btn btn-primary">Issue:<%=issue.issuename%></a>
+  <% end %>
 </h1>
 <h3>
   <!--description goes here-->
