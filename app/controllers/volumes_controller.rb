@@ -14,6 +14,14 @@ class VolumesController < ApplicationController
   def edit
     @vol = Volume.find(params[:id])
   end
+  def update
+    @vol = Volume.find(params[:id])
+    if @vol.update_attributes(volume_params)
+      redirect_to @vol
+    else
+      render 'edit'
+    end
+  end
   def show
     @vol = Volume.find(params[:id])
     @rating = @vol.VRatings.star(params[:id])

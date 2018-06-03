@@ -14,6 +14,14 @@ class SeriesController < ApplicationController
   def edit
     @ser = Series.find(params[:id])
   end
+  def update
+    @ser = Series.find(params[:id])
+    if @ser.update_attributes(series_params)
+      redirect_to @ser
+    else
+      render 'edit'
+    end
+  end
   def show
     @ser = Series.find(params[:id])
     @rating = @ser.SRatings.star(params[:id])
