@@ -22,7 +22,7 @@
                     <b> Author: </b> <%= @iss.author %> <br>
                     <b> Artist: </b> <%= @iss.artist %> <br>
                     <b> Editor: </b> <%= @iss.editor %> <br>
-                    <b> Summary: </b> <%= @iss.summary %> <br>
+                    <b> Summary: </b> <%= @iss.Summary %> <br> <br>
                     <a href="/volumes/<%= @iss.volume.volumeID %>" class="btn btn-primary">Volume: <%=@iss.volume.volumename%></a><br> <br>
                     <a href="/series/<%= @iss.volume.series.seriesID %>" class="btn btn-primary">Series: <%=@iss.volume.series.seriesname%></a><br><br>
                     <a href="/franchise/<%= @iss.volume.series.franchise.franchiseID %>" class="btn btn-primary">Franchise: <%=@iss.volume.series.franchise.franchisename%></a><br><br>
@@ -40,8 +40,8 @@
 <div class = container>
     <div class="row">
         <div class="shadow-lg p-4 mb-4 bg-white">
-        <b>Summary: </b> <br>
-        <%= @iss.summary%>
+        <b>Synopsis: </b> <br>
+        <%= @iss.synopsis%>
         </div>
     </div>
 </div>
