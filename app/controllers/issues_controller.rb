@@ -1,4 +1,5 @@
 class IssuesController < ApplicationController
+  before_action :editorpermission, only: [:new,:create,:edit,:update]
   def new
     @iss = Issue.new
   end

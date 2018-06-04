@@ -1,4 +1,5 @@
 class SeriesController < ApplicationController
+  before_action :editorpermission, only: [:new,:create,:edit,:update]
   def new
     @ser = Series.new
   end

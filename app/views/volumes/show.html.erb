@@ -9,13 +9,18 @@
    </div>
    </div>
 <h1>
-  <%= @vol.volumename %>
-  <a href="/series/<%= @vol.series.seriesID %>" class="btn btn-primary">Series:<%=@vol.series.seriesname%></a>
-  <a href="/franchise/<%= @vol.series.franchise.franchiseID %>" class="btn btn-primary">Franchise:<%=@vol.series.franchise.franchisename%></a>
-  <a href="/publisher/<%= @vol.series.franchise.publisher.publisherID %>" class="btn btn-primary">Publisher:<%=@vol.series.franchise.publisher.publisherName%></a>
+  <%= @vol.volumename %><br>
+  <p>
+  <a href="/series/<%= @vol.series.seriesID %>" class="btn btn-primary">Series:<%=@vol.series.seriesname%></a><br>
+  <a href="/franchise/<%= @vol.series.franchise.franchiseID %>" class="btn btn-primary">Franchise:<%=@vol.series.franchise.franchisename%></a><br>
+  <a href="/publisher/<%= @vol.series.franchise.publisher.publisherID %>" class="btn btn-primary">Publisher:<%=@vol.series.franchise.publisher.publisherName%></a><br>
   <% @vol.issues.reorder('issuename').each do |issue| %>
       <a href="/issues/<%= issue.issueID %>" class="btn btn-primary">Issue:<%=issue.issuename%></a>
   <% end %>
+  <% if logged_in? && (current_user.permission > 0) %>
+  <br><a><%= link_to "Edit",edit_volume_path %></a>
+  <% end %>
+  </p>
 </h1>
 <h3>
   <!--description goes here-->

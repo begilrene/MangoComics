@@ -4039,6 +4039,7 @@ tbody.collapse.show {
   align-items: center;
 }
 
+
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
@@ -4075,6 +4076,7 @@ tbody.collapse.show {
 }
 
 @media (min-width: 576px) {
+  
   .navbar-expand-sm {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -4340,6 +4342,9 @@ tbody.collapse.show {
   -ms-flex-preferred-size: auto;
   flex-basis: auto;
 }
+.navbar-collapse.collapse:not(.in) {
+    display: none !important;
+  }
 
 .navbar-expand .navbar-toggler {
   display: none;

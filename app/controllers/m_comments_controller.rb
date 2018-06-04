@@ -30,7 +30,7 @@ class MCommentsController < ApplicationController
     @comm = New.find(@news.newsId).MComments.find(params[:id])
   end
   def is_owner
-    unless current_user.id == @comm.user_id
+    unless current_user.id == @comm.user_id || current_user.permission > 1
     redirect_to @new
     end
   end
