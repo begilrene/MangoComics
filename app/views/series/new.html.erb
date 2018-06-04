@@ -1,0 +1,26 @@
+<%= render 'layouts/navbar' %>
+<div class="container">
+  <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1 class="display-3">Add Series</h1>
+    <%= form_for(@ser) do |f| %>
+      <%= f.label :seriesname, "Series Title" %>
+      <%= f.text_field :seriesname, class: 'form-control' %>
+      
+      <%= f.label :picture, "Cover URL" %>
+      <%= f.text_field :picture, class: 'form-control' %>
+      
+      <%= f.label :franchise_id, "Franchise (if franchise not shown please add volume first)" %>
+      <%= f.select :franchise_id, options_from_collection_for_select(Franchise.all, :franchiseID, :franchisename) %>
+
+
+      <%= f.submit "Add new series", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+</div>
+<footer> 
+<%=render 'layouts/footer' %>
+</footer>
+  </body>
+<html lang="en">

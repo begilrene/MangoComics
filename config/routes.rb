@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources:schema
-  resources:volume do
+  resources:volumes do
     resources:v_ratings
     resources:vreviews
     resources:v_comments
