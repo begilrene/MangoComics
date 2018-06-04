@@ -10,9 +10,11 @@ Rails.application.routes.draw do
     resources:sreviews
     resources:s_comments
   end
+  
   resources:publisher
   resources:franchise
   resources:reviews
+
   resources:issues do
     resources:i_ratings
     resources:i_comments

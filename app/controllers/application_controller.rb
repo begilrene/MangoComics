@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     @comiclist = Issue.all
   end
   def editorpermission
-    unless current_user.privilege.to_i > 0
+    unless current_user.permission.to_i > 0
     redirect_back_or root_url
     end
   end

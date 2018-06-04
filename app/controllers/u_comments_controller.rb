@@ -14,6 +14,8 @@ class UCommentsController < ApplicationController
   end
   
   def edit
+    @user = User.find(params[:user_id])
+    @comm = @user.UComments.find(params[:id])
   end
   
   def update

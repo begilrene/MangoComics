@@ -1,5 +1,5 @@
       <% if logged_in? %>
-        <%= form_for ([@user, @user.UComments.find(comment.Id)]) do |f| %>
+        <%= form_for ([@user, @comm]) do |f| %>
           <%= render 'shared/error_messages' %>
           <%= f.label :body, "Comment" %>
           <div class = container>
