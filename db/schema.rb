@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.string "passwordConfirm", limit: 100
     t.string "email", limit: 150
     t.string "password_digest", limit: 300
+    t.integer "permission", default: 0
   end
 
   create_table "Volume", primary_key: "volumeID", id: :serial, force: :cascade do |t|
