@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     end
   end
   def superpermission
-    unless is_owner || current_user.permission > 1
+    unless is_owner || current_user.permission.to_i > 1
     redirect_back_or root_url
     end
   end
