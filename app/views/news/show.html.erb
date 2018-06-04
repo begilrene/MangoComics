@@ -23,11 +23,13 @@
 
     <!-- Navigation -->
     <%= render 'layouts/navbar' %>
-    </br>
-    </br>
+
     
     <title>Mango Comics</title>
 
+     <div class="container">
+
+   
        <div class="container">
            <img id = "headerimage" src="<%=@newpage.image %>">   
            </div>
@@ -48,7 +50,15 @@
         </div>
     </div>
     <%= render 'm_comments/comment'%>
-    <%= render 'm_comments/form' %>
+    <div class = "container">
+      <div class = "row">
+      <div class="col-sm-8">
+          <%= render 'm_comments/form' %>
+    </div>
+    </div>
+    </div>
+    
+    
 <!--
     <div class = "container">
         <div class = "row">
