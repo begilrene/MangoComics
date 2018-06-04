@@ -38,7 +38,7 @@ class SCommentsController < ApplicationController
   end
   
   def is_owner
-    unless current_user.id == @comm.user_id || current_user.permission > 1
+    unless current_user.id == @comm.user_id || superpermission
     redirect_to @ser
     end
   end

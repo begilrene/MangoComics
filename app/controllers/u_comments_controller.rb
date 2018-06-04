@@ -40,7 +40,7 @@ class UCommentsController < ApplicationController
   end
   
   def is_owner
-    unless current_user.id == @comm.user_id
+    unless current_user.id == @comm.user_id || superpermission
     redirect_to @wall
     end
   end

@@ -38,7 +38,7 @@ class VCommentsController < ApplicationController
   end
   
   def is_owner
-    unless current_user.id == @comm.user_id
+    unless current_user.id == @comm.user_id || superpermission
     redirect_to @vol
     end
   end
