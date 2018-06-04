@@ -1,12 +1,22 @@
 <div class = "container">
       <div class = "row">
-
           <div class="col-sm-12">
             <% @comm.order(created_at: :desc).each do |comment| %>
                   <p>
                     <img src = <%=User.find(comment.user_id).profilePic%> width="80" height = "80" alt"">  <%=User.find(comment.user_id).displayName%>
                   </p>
-            
+                  <% if User.find(comment.user_id).privilege == '2'%>
+                  <p style="color: red;">
+                   Admin
+                    <img class = "mx-auto rounded-circle" src=<%= asset_path '/crown_bronze.png' %>>
+                    </p>
+                  <%end%>
+                  <% if User.find(comment.user_id).privilege == '1'%>
+                  <p style="color: green;">
+                    Editor
+                    <img class = "mx-auto rounded-circle" src=<%= asset_path '/wrench_orange.png' %>>
+                  </p>
+                  <%end%>
             <p>  Date: <%=comment.date%>
             <% if logged_in? && @current_user.userID == comment.user_id %>
                 <%= link_to "Delete", [current_user, current_user.UComments.find(comment.commentId)], method: :delete %>
@@ -15,7 +25,6 @@
             <br />
             </p>
             <p id = "comments"> <%=comment.body%></p>
-            
             <% end %>
           </div>
         </div>
