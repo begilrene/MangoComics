@@ -27,13 +27,12 @@
         <a class="nav-link" href="/login", login_path %>Log In</a>
       </li>
       <% end %>
-      <form class="form-inline my-2 my-lg-0">
+      
         <%= form_tag(issues_url, :method => "get", class: "form-inline my-2 my-lg-0", id: "search-form") do %>
 
         <%= text_field_tag :search, params[:search], class: "mr-sm-2 form-control", placeholder: "Search Issues" %>
         <button class="btn btn-outline-success my-2 my-sm-0t" type="submit"><i class="fa fa-search"></i></button>
         <% end %>
-        </form>
     </ul>
   </div>
 </nav>

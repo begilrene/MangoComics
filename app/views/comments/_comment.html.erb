@@ -5,13 +5,13 @@
                   <p>
                     <img src = <%=User.find(comment.user_id).profilePic%> width="80" height = "80" alt"">  <%=User.find(comment.user_id).displayName%>
                   </p>
-                  <% if User.find(comment.user_id).privilege == '2'%>
+                  <% if User.find(comment.user_id).permission.to_i == 2%>
                   <p style="color: red;">
                    Admin
                     <img class = "mx-auto rounded-circle" src=<%= asset_path '/crown_bronze.png' %>>
                     </p>
                   <%end%>
-                  <% if User.find(comment.user_id).privilege == '1'%>
+                  <% if User.find(comment.user_id).permission.to_i == 1%>
                   <p style="color: green;">
                     Editor
                     <img class = "mx-auto rounded-circle" src=<%= asset_path '/wrench_orange.png' %>>
