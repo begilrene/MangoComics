@@ -1,6 +1,6 @@
 <div class = "container">
       <div class = "row">
-        <div id: "comments">
+
           <div class="col-sm-12">
             <% @comm.order(created_at: :desc).each do |comment| %>
                   <p>
@@ -20,4 +20,3 @@
           </div>
         </div>
       </div>
-    </div>

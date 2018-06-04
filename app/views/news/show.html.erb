@@ -23,20 +23,11 @@
 
     <!-- Navigation -->
     <%= render 'layouts/navbar' %>
-
+    </br>
+    </br>
     
     <title>Mango Comics</title>
 
-     <div class="container">
-
-      <!-- Jumbotron Header -->
-      <header class="jumbotron my-4">
-        <h1 class="display-3">Welcome<% if logged_in? %>, <%=@current_user.displayName%><% end %> ! <!-- calls userID--> </h1>
-        <!--<a href="#" class="btn btn-primary btn-lg">Call to action!</a>-->
-      </header>
-
-    <body>
-   
        <div class="container">
            <img id = "headerimage" src="<%=@newpage.image %>">   
            </div>
