@@ -16,7 +16,7 @@
                     <img class = "mx-auto rounded-circle" src=<%= asset_path '/crown_bronze.png' %>>
                     <%end%>
                   </p>
-            <p>  Date: <%=iComments.created_at%> <% if logged_in? && (@current_user.userID == iComments.user_id || @current_user.permission.to_i > 1) %>
+            <p>  Date: <%=iComments.created_at%> <% if logged_in? && @current_user.permission.to_i > 1 %>
                 <%= link_to "Delete", [iComments.issue, iComments], method: :delete %>
                 <%= link_to "Edit", edit_issue_i_comment_path(iComments.issue, iComments) %>
               <% end %><br /></p>
