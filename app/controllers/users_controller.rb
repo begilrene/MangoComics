@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @hasperm = @user.privilege
     @comm = Comment.where('wall_id' => @user.userID )
     @icomments = @user.IComments.where.not('issue_id' => nil )
     store_location
