@@ -18,6 +18,13 @@
         <img class = "mx-auto rounded-circle" src=<%= asset_path '/crown_bronze.png' %>>
       </p>
       <%end%>
+      <% if @user.permission.to_i == 1%>
+      <p>
+        Editor Account
+        <img class = "mx-auto rounded-circle" src=<%= asset_path '/wrench_orange.png' %>>
+        </p>
+        <%end%>
+      </p>
       <p>
         </div>
         <strong>First Name:</strong>

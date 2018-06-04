@@ -18,15 +18,35 @@
                   </p>
                   <%end%>
             <p>  Date: <%=comment.date%>
-
+                  
             <% if logged_in? && (@current_user.userID == comment.user_id || @current_user.permission.to_i > 0)%>
                 <%= link_to "Delete", [User.find(comment.user_id), User.find(comment.user_id).UComments.find(comment.commentId)], method: :delete %>
                 <%= link_to "Edit", edit_user_u_comment_path(User.find(comment.user_id), User.find(comment.user_id).UComments.find(comment.commentId)) %>
 
             <% end %>
+            
             <br />
             </p>
             <p id = "comments"> <%=comment.body%></p>
+            <% end %>
+            <% Review.all.each do |rev|%>
+              <%if (@user.userID == rev.user_id)%>
+                  <br>
+     <div class = container id = "comments" style="color:black;">
+     <br>
+      <img class="mx-auto" src=<%=rev.user.profilePic%> width="80" height="80" position="" alt=""></img>
+      <%= rev.user.displayName %> <a href="/issues/<%=rev.issue_id%>"><img class=mx-auto src="<%=rev.issue.cover%>" width="80" height="80"></img></a> <br>
+        <% if rev.user.permission.to_i > 1%>
+        <p style="color:red;">
+          Admin Account 
+        <img class = "mx-auto rounded-circle" src=<%= asset_path '/crown_bronze.png' %>> 
+        </p>
+        <%end%> 
+      <%=rev.created_at%> <br>
+      <%=rev.body %>
+     <br>
+     </div>
+              <%end%>
             <% end %>
           </div>
         </div>

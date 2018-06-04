@@ -55,6 +55,7 @@
   -->
 
   <% New.all.each do |new| %>
+  <a href="/news/<%=new.newsId%>">
     <div class="container">
       <div class="span12" style="border: 2px solid black">  
         <div class="row">
@@ -62,12 +63,13 @@
           <img src="<%= new.image %>" class="img-fluid" alt="Responsive image" >
           </div>
           <div class="col-sm-6">
-          <h2><%= new.title %></h2>
-          <p><a href="/news/<%= new.newsId %>">Click here to read more </a></p>
+          <h2 style="color:black;"><%= new.title %></h2>
+          <p></p>
           </div>
         </div>
       </div>
     </div>
+    </a>
     </br>
   <% end %>
   <!--

@@ -5,12 +5,24 @@
         <div id: "comments">
           <div class="col-sm-12">
             <% @newpage.MComments.order(created_at: :desc).each do |mComments| %>
+            
                   <p>
                     <img src = <%=mComments.user.profilePic%> width="80" height = "80" alt"">  <%=mComments.user.displayName%>
                   </p>
-            
+            <% if mComments.user.permission.to_i == 2%>
+              <p style="color:red;">
+                Admin  
+              <img class = "mx-auto rounded-circle" src=<%= asset_path '/crown_bronze.png' %>>
+              </p>
+            <%end%>
+            <% if mComments.user.permission.to_i == 1%>
+             <p style ="color:green;">
+               Editor
+               <img class = "mx-auto rounded-circle" src=<%= asset_path '/wrench_orange.png' %>>
+             </p>
+             <%end%>
             <p>  Date: <%=mComments.date%>
-            <% if logged_in? && @current_user.userID == mComments.user_id %>
+            <% if logged_in? && (@current_user.userID == mComments.user_id || @current_user.permission.to_i > 1) %>
                 <%= link_to "Delete", [mComments.new, mComments], method: :delete %>
                 <%= link_to "Edit", edit_news_m_comment_path(mComments.new, mComments) %>
             <% end %>

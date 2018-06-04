@@ -31,6 +31,7 @@
                     <% if logged_in? && (current_user.permission.to_i > 0) %>
                     <%= link_to "Edit", edit_issue_path %>
                     <% end %>
+                    <a href="/issues/<%=@iss.issueID%>/reviews/"><b> List of Reviews...</b></a>
                 </p>
             </div>
         </div>
@@ -53,7 +54,7 @@
     </div>
 </div>
 <%= render 'ratings/iform' %>
-<%= render 'reviews/iform' %>
+<%#= render 'reviews/iform' %>
 <%= render 'comments/form' %>
 <%= render 'layouts/issueComments' %>
 </body>

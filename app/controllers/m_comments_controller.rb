@@ -19,7 +19,7 @@ class MCommentsController < ApplicationController
   end
   def destroy
     @comm.destroy
-    redirect_to @iss
+    redirect_to @news
   end
   private
   def comment_params

@@ -1,14 +1,49 @@
+<%= render 'layouts/navbar'%>
 <body>
-   <div class = 'container'>
-    <ul class="users">
-    <% @review.each do |user| %>
+   <div class = 'container' style="padding-top:10%;">
+     <div class = row >
+     <div class = "col-sm-5" >
     
-      <%=user.inspect %>
+    <% @review.each do |rev| %>
+    <% if rev.volume_id != nil %>
+      <%= @vol.cover%>
+      <%end%>
+      
+      <%# if rev.issue_id != nil %>
+      <!--img class="mx-auto" src="<%#= @iss.cover%>" width=160 height=160></img-->
+      <%#end%>
+      
+      <% if rev.series_id != nil %>
+      <%= @ser.cover%>
+      <%end%>
+      
+     <br>
+     <div class = container id = "comments" style="color:black;">
+     <br>
+      <img class="mx-auto" src=<%=rev.user.profilePic%> width="80" height="80" position="" alt=""></img>
+      <%= rev.user.displayName %> <br>
+        <% if rev.user.permission.to_i > 1%>
+        <p style="color:red;">
+          Admin Account 
+        <img class = "mx-auto rounded-circle" src=<%= asset_path '/crown_bronze.png' %>>
+        </p>
+        <%end%> 
+      <%=rev.created_at%> <br>
+      <%=rev.body %>
+     <br>
+     </div>
+     
+      
+    <%end%>
+    </div>
+    </div>
+    </div>
         <%#= link_to user.displayName, user %>
         <%#end%>
-    <% end %>
+  <div class = container>
+    <%= render 'reviews/iform'%>
+    </div>
     </ul>
-  
   </div>
 
     <%=render 'layouts/footer' %>
