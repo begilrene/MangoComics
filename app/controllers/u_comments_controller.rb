@@ -25,8 +25,9 @@ class UCommentsController < ApplicationController
   end
   
   def destroy
+    store_location
     @comm.destroy
-    redirect_to @wall
+    redirect_back_or root_url
   end
   
   private
@@ -36,7 +37,8 @@ class UCommentsController < ApplicationController
   
   def get_issue_and_comment
     @wall = User.find(params[:user_id])
-    @comm = User.find(@wall.userID).UComments.find(params[:id])
+    @com = Comment.find(params[:id])
+    @comm = User.find(@com.user_id).UComments.find(params[:id])
   end
   
   def is_owner
