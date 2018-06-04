@@ -1,57 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class = "container">
+    <a class="navbar-brand" href="/">MangoComics</a>
 
-   <div class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="/">MangoComics</a>
-        
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">
-          </span>
-        </button>
-        <div class ="row" id="i-comments">
-          
-        <div class="index_search">
-        <%= form_tag(issues_url, :method => "get", class: "navbar-form", id: "search-form") do %>
-        </div>
-        <div class="input-append">
-        <%= text_field_tag :search, params[:search], class: "span2  form-control", placeholder: "Search Issues" %>
-        </div>
-        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+    <ul class = "nav navbar-nav navbar-right">
+    <li class="nav-item active">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/issues">Comic List</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/users">User List</a>
+      </li>
+      <% if logged_in? %>
+      <li class="nav-item active">
+        <a class="nav-link" href="/users/<%=@current_user.userID %>">Account</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" rel="nofollow" data-method="delete" href="/logout">Log out</a>
+      </li>
+      <% else %>
+      <li class="nav-item active">
+        <a class="nav-link" href="/login", login_path %>Log In</a>
+      </li>
+      <% end %>
+      <form class="form-inline my-2 my-lg-0">
+        <%= form_tag(issues_url, :method => "get", class: "form-inline my-2 my-lg-0", id: "search-form") do %>
+
+        <%= text_field_tag :search, params[:search], class: "mr-sm-2 form-control", placeholder: "Search Issues" %>
+        <button class="btn btn-outline-success my-2 my-sm-0t" type="submit"><i class="fa fa-search"></i></button>
         <% end %>
-        </div></br>
-        </div>   
-        </div> 
-        <div>
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            </br>
-            <li class="nav-item">
-              <a class="nav-link" href="/issues">Comic List</a>
-            </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/users">User List</a>
-              </li>
-              </br>
-              <% if logged_in? %>
-              <li class="nav-item">
-                <a class="nav-link" href="/users/<%=@current_user.userID %>">Account</a>
-              </li>
-              </br>
-              <li class="nav-item">
-                <a class="nav-link" rel="nofollow" data-method="delete" href="/logout">Log out</a>
-              </li>
-              </br>
-              <% else %>
-                  <li class="nav-item">
-                <a class="nav-link" href="/login", login_path %>Log In</a>
-              </li>
-              </br>
-            <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+        </form>
+    </ul>
+  </div>
+</nav>

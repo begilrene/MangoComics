@@ -1,6 +1,7 @@
 class VCommentsController < ApplicationController
   before_action :get_volume_and_comment, only: [:destroy, :edit, :update, :is_owner]
-  before_action :is_owner, only: [:destroy, :edit, :update]
+  before_action :is_owner, only: [:edit, :update, :superpermission]
+  before_action :superpermission, only: [:destroy]
   
   def create
     @vol = Volume.find(params[:volume_id])

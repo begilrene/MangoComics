@@ -1,6 +1,7 @@
 class SCommentsController < ApplicationController
   before_action :get_series_and_comment, only: [:destroy, :edit, :update, :is_owner]
-  before_action :is_owner, only: [:destroy, :edit, :update]
+  before_action :is_owner, only: [:edit, :update, :superpermission]
+  before_action :superpermission, only: [:destroy]
   
   def create
     @ser = Series.find(params[:series_id])
@@ -37,7 +38,7 @@ class SCommentsController < ApplicationController
   end
   
   def is_owner
-    unless current_user.id == @comm.user_id
+    unless current_user.id == @comm.user_id || current_user.permission > 1
     redirect_to @ser
     end
   end

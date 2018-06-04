@@ -1,4 +1,5 @@
 class VolumesController < ApplicationController
+   before_action :editorpermission, only: [:new,:create,:edit,:update]
   def new
     @vol = Volume.new
   end

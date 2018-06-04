@@ -25,7 +25,11 @@
                     <% @ser.volume.reorder('volumename').each do |volume| %>
                         <a href="/volumes/<%= volume.volumeID %>" class="btn btn-primary">Volume:<%=volume.volumename%></a>
                     <% end %>
-                </p>
+                    <br>
+                    <% if logged_in? && (current_user.permission > 0) %>
+                    <a><%= link_to "Edit",edit_series_path %></a>
+                    <% end %>
+                    </p>
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 class ICommentsController < ApplicationController
   before_action :get_issue_and_comment, only: [:destroy, :edit, :update, :is_owner]
-  before_action :is_owner, only: [:destroy, :edit, :update]
+  before_action :is_owner, only: [:edit, :update, :superpermission]
+  before_action :superpermission, only: [:destroy]
   
   def create
     @iss = Issue.find(params[:issue_id])
