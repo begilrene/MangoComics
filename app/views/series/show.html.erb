@@ -20,12 +20,13 @@
                     <%= @ser.seriesname %> : <br>
                 </h1>
                     <p>
-                    <a href="/franchise/<%= @ser.franchise.franchiseID %>" class="btn btn-primary">Franchise:<%=@ser.franchise.franchisename%></a>
-                    <a href="/publisher/<%= @ser.franchise.publisher.publisherID %>" class="btn btn-primary">Publisher:<%=@ser.franchise.publisher.publisherName%></a>
+                    <a href="/franchise/<%= @ser.franchise.franchiseID %>" class="btn btn-primary">Franchise:<%=@ser.franchise.franchisename%></a><br><br>
+                    <a href="/publisher/<%= @ser.franchise.publisher.publisherID %>" class="btn btn-primary">Publisher:<%=@ser.franchise.publisher.publisherName%></a><br><br>
                     <% @ser.volume.reorder('volumename').each do |volume| %>
                         <a href="/volumes/<%= volume.volumeID %>" class="btn btn-primary">Volume:<%=volume.volumename%></a>
                     <% end %>
-                    <br>
+                    <br><br>
+                    <a href="/series/<%=@ser.seriesID%>/reviews/" class="btn btn-primary" style="background-color:green;"> List of Reviews...</a> <br><br>
                     <% if logged_in? && (current_user.permission > 0) %>
                     <a><%= link_to "Edit",edit_series_path %></a>
                     <% end %>

@@ -28,26 +28,50 @@
             <br />
             </p>
             <p id = "comments"> <%=comment.body%></p>
+             
             <% end %>
-            <% Review.all.each do |rev|%>
-              <%if (@user.userID == rev.user_id)%>
-                  <br>
-     <div class = container id = "comments" style="color:black;">
-     <br>
-      <img class="mx-auto" src=<%=rev.user.profilePic%> width="80" height="80" position="" alt=""></img>
-      <%= rev.user.displayName %> &nbsp; @ &nbsp; <a href="/issues/<%=rev.issue_id%>"><img class=mx-auto src="<%=rev.issue.cover%>" width="80" height="80"></img></a> <br>
-        <% if rev.user.permission.to_i > 1%>
-        <p style="color:red;">
-          Admin Account 
-        <img class = "mx-auto rounded-circle" src=<%= asset_path '/crown_bronze.png' %>> 
-        </p>
-        <%end%> 
-      <%=rev.created_at%> <br>
-      <%=rev.body %>
-     <br>
-     </div>
-              <%end%>
-            <% end %>
-          </div>
+            </div>
         </div>
       </div>
+      <div class = container>
+            <% Review.all.each do |rev|%>
+              <%if (@user.userID == rev.user_id)%>
+              <% if rev.volume_id != nil %>
+                <%= @vol.cover%>
+              <%end%>
+      
+              <% if rev.issue_id != nil %>
+              <div class= container id="comments">
+                 <img class=mx-auto width=80 height=80 src="<%= rev.user.profilePic%>"></img>
+                  <%= rev.user.displayName%> <a href="/issues/<%=rev.issue_id%>"><img class = mx-auto src="<%=rev.issue.cover%>" width=80 height=80></img></a><br>
+                  <% if rev.user.permission.to_i > 1%>
+                    <p style="color:red;">
+                      Admin Account
+                      <img class="mx-auto rounded-circle" src=<%=asset_path '/crown_bronze.png'%>>
+                    </p> 
+                    
+              <%=rev.created_at%> <br><br>
+              <%=rev.body %>
+                  <%end%>
+                </div>
+              <%end%>
+      
+              <% if rev.series_id != nil %>
+                <div class= container id="comments">
+                  <img class=mx-auto width=80 height=80 src="<%= rev.user.profilePic%>"></img>
+                  <%= rev.user.displayName%> <a href="/series/<%=Series.find(rev.series_id).seriesID%>"><img class = mx-auto src="<%=Series.find(rev.series_id).picture%>" width=80 height=80></img></a><br>
+                  <% if rev.user.permission.to_i > 1%>
+                    <p style="color:red;">
+                      Admin Account
+                      <img class="mx-auto rounded-circle" src=<%=asset_path '/crown_bronze.png'%>>
+                    </p> 
+                    
+              <%=rev.created_at%> <br><br>
+              <%=rev.body %>
+                  <%end%>
+                </div>
+              <%end%> 
+            <%end%>
+            <%end%>
+            </div>
+            

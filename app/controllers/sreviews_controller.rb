@@ -14,8 +14,13 @@ class SreviewsController < ApplicationController
   def update
     if @review.update_attributes(review_params)
       redirect_to @ser
-   
     end
+  end
+  
+  def index
+    @ser = Series.find(params[:series_id])
+    @review= Series.find(@ser.seriesID).sreviews.all
+    #@vreview= Volume.find(@vol.volumeID).reviews.all
   end
   def destroy
     if @review.destroy

@@ -1,0 +1,45 @@
+<%= render 'layouts/navbar'%>
+   <div class = 'container' style="padding-top:10%;">
+     <div class = row >
+     <div class = "col-sm-5" >
+    
+    <% @review.each do |rev| %>
+    <% if rev.volume_id != nil %>
+      <%#= @vol.cover%>
+      <%end%>
+      
+      <%# if rev.issue_id != nil %>
+      <!--img class="mx-auto" src="<%#= @iss.cover%>" width=160 height=160></img-->
+      <%#end%>
+      
+      <% if rev.series_id != nil %>
+      <%#= @ser.picture%>
+      <%end%>
+      
+     <br>
+     <div class = container id = "comments" style="color:black;">
+     <br>
+      <a href="/users/<%=rev.user.userID%>">
+        <img class="mx-auto" src=<%=rev.user.profilePic%> width="80" height="80" position="" alt=""></img>
+       </a><%= rev.user.displayName %> <br>
+        <% if rev.user.permission.to_i > 1%>
+        <p style="color:red;">
+          Admin Account 
+        <img class = "mx-auto rounded-circle" src=<%= asset_path '/crown_bronze.png' %>>
+        </p>
+        <%end%> 
+      <%=rev.created_at%> <br>
+      <%=rev.body %>
+     <br>
+     </div>
+     
+      
+    <%end%>
+    </div>
+    </div>
+    </div>
+        <%#= link_to user.displayName, user %>
+        <%#end%>
+  <div class = container>
+    <%= render 'reviews/sform'%>
+    </div>
