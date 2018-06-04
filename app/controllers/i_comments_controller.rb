@@ -38,7 +38,7 @@ class ICommentsController < ApplicationController
   end
   
   def is_owner
-    unless current_user.id == @comm.user_id || current_user.permission.to_i > 0
+    unless current_user.id == @comm.user_id || superpermission
     redirect_to @iss
     end
   end

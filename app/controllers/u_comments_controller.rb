@@ -25,8 +25,9 @@ class UCommentsController < ApplicationController
   end
   
   def destroy
+    store_location
     @comm.destroy
-    redirect_to @wall
+    redirect_back_or root_url
   end
   
   private
@@ -36,11 +37,16 @@ class UCommentsController < ApplicationController
   
   def get_issue_and_comment
     @wall = User.find(params[:user_id])
-    @comm = User.find(@wall.userID).UComments.find(params[:id])
+    @com = Comment.find(params[:id])
+    @comm = User.find(@com.user_id).UComments.find(params[:id])
   end
   
   def is_owner
+<<<<<<< HEAD
     unless current_user.id == @comm.user_id || current_user.permission.to_i > 0
+=======
+    unless current_user.id == @comm.user_id || superpermission
+>>>>>>> 7d6dc28ebd807408572ca300ab751a6b0ecb58b2
     redirect_to @wall
     end
   end
