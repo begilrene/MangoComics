@@ -12,7 +12,7 @@
         <img class ="mx-auto rounded-circle"src=<%=@user.profilePic%> width="80" height="80" alt="">
         <%= @user.displayName %>
       </h1>
-      <% if @user.privilege == '2'%>
+      <% if @user.permission.to_i == 2%>
       <p>
         Admin Account 
         <img class = "mx-auto rounded-circle" src=<%= asset_path '/crown_bronze.png' %>>
