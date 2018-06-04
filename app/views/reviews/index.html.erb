@@ -20,8 +20,9 @@
      <br>
      <div class = container id = "comments" style="color:black;">
      <br>
-      <img class="mx-auto" src=<%=rev.user.profilePic%> width="80" height="80" position="" alt=""></img>
-      <%= rev.user.displayName %> <br>
+      <a href="/users/<%=rev.user.userID%>">
+        <img class="mx-auto" src=<%=rev.user.profilePic%> width="80" height="80" position="" alt=""></img>
+       </a><%= rev.user.displayName %> <br>
         <% if rev.user.permission.to_i > 1%>
         <p style="color:red;">
           Admin Account 

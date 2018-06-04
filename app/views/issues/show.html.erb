@@ -23,15 +23,15 @@
                     <b> Artist: </b> <%= @iss.artist %> <br>
                     <b> Editor: </b> <%= @iss.editor %> <br>
                     <b> Summary: </b> <%= @iss.summary %> <br>
-                    <a href="/volumes/<%= @iss.volume.volumeID %>" class="btn btn-primary">Volume:<%=@iss.volume.volumename%></a><br>
-                    <a href="/series/<%= @iss.volume.series.seriesID %>" class="btn btn-primary">Series:<%=@iss.volume.series.seriesname%></a><br>
-                    <a href="/franchise/<%= @iss.volume.series.franchise.franchiseID %>" class="btn btn-primary">Franchise:<%=@iss.volume.series.franchise.franchisename%></a><br>
-                    <a href="/publisher/<%= @iss.volume.series.franchise.publisher.publisherID %>" class="btn btn-primary">Publisher:<%=@iss.volume.series.franchise.publisher.publisherName%></a>
+                    <a href="/volumes/<%= @iss.volume.volumeID %>" class="btn btn-primary">Volume: <%=@iss.volume.volumename%></a><br> <br>
+                    <a href="/series/<%= @iss.volume.series.seriesID %>" class="btn btn-primary">Series: <%=@iss.volume.series.seriesname%></a><br><br>
+                    <a href="/franchise/<%= @iss.volume.series.franchise.franchiseID %>" class="btn btn-primary">Franchise: <%=@iss.volume.series.franchise.franchisename%></a><br><br>
+                    <a href="/publisher/<%= @iss.volume.series.franchise.publisher.publisherID %>" class="btn btn-primary">Publisher: <%=@iss.volume.series.franchise.publisher.publisherName%></a> <br><br>
+                    <a href="/issues/<%=@iss.issueID%>/reviews/" class="btn btn-primary" style="background-color:green;"> List of Reviews...</a> <br><br>
                     <br>
                     <% if logged_in? && (current_user.permission.to_i > 0) %>
                     <%= link_to "Edit", edit_issue_path %>
                     <% end %>
-                    <a href="/issues/<%=@iss.issueID%>/reviews/"><b> List of Reviews...</b></a>
                 </p>
             </div>
         </div>

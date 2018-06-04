@@ -35,7 +35,7 @@
      <div class = container id = "comments" style="color:black;">
      <br>
       <img class="mx-auto" src=<%=rev.user.profilePic%> width="80" height="80" position="" alt=""></img>
-      <%= rev.user.displayName %> <a href="/issues/<%=rev.issue_id%>"><img class=mx-auto src="<%=rev.issue.cover%>" width="80" height="80"></img></a> <br>
+      <%= rev.user.displayName %> &nbsp; @ &nbsp; <a href="/issues/<%=rev.issue_id%>"><img class=mx-auto src="<%=rev.issue.cover%>" width="80" height="80"></img></a> <br>
         <% if rev.user.permission.to_i > 1%>
         <p style="color:red;">
           Admin Account 

@@ -56,14 +56,14 @@
 
   <% New.all.each do |new| %>
   <a href="/news/<%=new.newsId%>">
-    <div class="container">
-      <div class="span12" style="border: 2px solid black">  
+    <div class="container shadow-lg p-4 mb-4" style="background-color:#576881; padding:-40%; border:15px solid black" >
+      <div class="" style=" text-alignt:center; border: 0px solid black">  
         <div class="row">
          <div class="col-sm-4">
           <img src="<%= new.image %>" class="img-fluid" alt="Responsive image" >
           </div>
           <div class="col-sm-6">
-          <h2 style="color:black;"><%= new.title %></h2>
+          <h2 style="color:#E5E5E5;"><%= new.title %></h2>
           <p></p>
           </div>
         </div>
