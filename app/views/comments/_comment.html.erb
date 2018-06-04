@@ -18,7 +18,8 @@
                   </p>
                   <%end%>
             <p>  Date: <%=comment.date%>
-            <% if logged_in? && (@current_user.userID == comment.user_id || @current_user.permission.to_i > 0)%>
+          <!-- if logged_in? && (@current_user.userID == iComments.user_id || @current_user.permission.to_i > 1)-->
+            <% if logged_in? && (@current_user.userID == comment.user_id || @current_user.permission.to_i > 1)%>
                 <%= link_to "Delete", [current_user, current_user.UComments.find(comment.commentId)], method: :delete %>
                 <%= link_to "Edit", edit_user_u_comment_path(current_user, current_user.UComments.find(comment.commentId)) %>
             <% end %>
