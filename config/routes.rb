@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   get 'static_pages/comiclist'
   get 'static_pages/home'
 
+  #delete  'issues/:id/i_comments/:id'
 
   get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'

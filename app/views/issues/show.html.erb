@@ -28,7 +28,7 @@
                     <a href="/franchise/<%= @iss.volume.series.franchise.franchiseID %>" class="btn btn-primary">Franchise:<%=@iss.volume.series.franchise.franchisename%></a><br>
                     <a href="/publisher/<%= @iss.volume.series.franchise.publisher.publisherID %>" class="btn btn-primary">Publisher:<%=@iss.volume.series.franchise.publisher.publisherName%></a>
                     <br>
-                    <% if logged_in? && (current_user.privilege > '0') %>
+                    <% if logged_in? && (current_user.permission.to_i > 0) %>
                     <%= link_to "Edit", edit_issue_path %>
                     <% end %>
                 </p>
