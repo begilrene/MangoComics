@@ -13,8 +13,7 @@
   <% end %>
 
 <% else %>
-    <button id = "button">
-    <%= link_to 'Unfollow',user_flist_path(@user, current_user.flists), method: :delete %>
-    </button>
+
+    <%= button_to 'Unfollow',user_flist_path(@user, current_user.flists), method: :delete, class: "btn" %>
 <% end %>
 <% end %>
