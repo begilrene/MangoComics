@@ -15,7 +15,6 @@
 //= require bootstrap.min
 //= require jquery
 //= require jquery.min
-//= require jquery_ujs
 //= require twitter/bootstrap
 //= require jquery.easing
 //= require jqBootstrapValidation

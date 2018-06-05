@@ -31,13 +31,13 @@
                     <img src = <%=iComments.user.profilePic%> width="80" height = "80" alt"">  <%=iComments.user.displayName%>
                     </p>
                     <p style="color: red;">
-                    <% if iComments.user.privilege == '2'  %>
+                    <% if iComments.user.permission == '2'  %>
                     Admin
                     <img class = "mx-auto rounded-circle" src=<%= asset_path '/crown_bronze.png' %>>
                     <%end%>
                   </p>
             <p>  Date: <%=iComments.created_at%> <% if logged_in? && (@current_user.userID == iComments.user_id || @current_user.permission.to_i > 1) %>
-                <%= link_to "Delete", issue_i_comment_path(@iss, iComments),method: :delete %>
+                <%= link_to "Delete", issue_i_comment_path(@iss, iComments),method %>
                 <%= link_to "Edit", edit_issue_i_comment_path(iComments.issue, iComments) %>
               <% end %><br /></p>
             <p id = "comments"> <%=iComments.body%></p>
