@@ -20,8 +20,8 @@
             <p>  Date: <%=comment.date%>
                   
             <% if logged_in? && (@current_user.userID == comment.user_id || @current_user.permission.to_i > 0)%>
-                <%= link_to "Delete", [User.find(comment.user_id), User.find(comment.user_id).UComments.find(comment.commentId)], method: :delete %>
-                <%= link_to "Edit", edit_user_u_comment_path(User.find(comment.user_id), User.find(comment.user_id).UComments.find(comment.commentId)) %>
+                <%= button_to "Delete", [User.find(comment.user_id), User.find(comment.user_id).UComments.find(comment.commentId)], method: :delete %>
+                <%= button_to "Edit", edit_user_u_comment_path(User.find(comment.user_id), User.find(comment.user_id).UComments.find(comment.commentId)) %>
 
             <% end %>
             
