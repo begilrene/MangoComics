@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
     redirect_back_or root_url
     end
   end
-  def superpermission
-    unless current_user.permission > 1
+  def can_delete
+    unless current_user.permission > 1 || Comment.find(params[:id]).user_id = current_user.userID
     redirect_back_or root_url
     end
   end

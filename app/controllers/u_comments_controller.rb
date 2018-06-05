@@ -1,7 +1,7 @@
 class UCommentsController < ApplicationController
   before_action :get_issue_and_comment, only: [:destroy, :edit, :update, :is_owner]
-  before_action :is_owner, only: [:edit, :update, :superpermission]
-  before_action :superpermission, only: [:destroy]
+  before_action :is_owner, only: [:edit, :update]
+  before_action :can_delete, only: [:destroy]
   def create
     @wall = User.find(params[:user_id])
     @comm = User.find(@wall.userID).UComments.new(comment_params)
@@ -42,7 +42,7 @@ class UCommentsController < ApplicationController
   end
   
   def is_owner
-    unless current_user.id == @comm.user_id || superpermission
+    unless current_user.id == @comm.user_id
     redirect_to @wall
     end
   end

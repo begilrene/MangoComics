@@ -1,7 +1,7 @@
 class VCommentsController < ApplicationController
   before_action :get_volume_and_comment, only: [:destroy, :edit, :update, :is_owner]
-  before_action :is_owner, only: [:edit, :update, :superpermission]
-  before_action :superpermission, only: [:destroy]
+  before_action :is_owner, only: [:edit, :update]
+  before_action :can_delete, only: [:destroy]
   
   def create
     @vol = Volume.find(params[:volume_id])
@@ -38,7 +38,7 @@ class VCommentsController < ApplicationController
   end
   
   def is_owner
-    unless current_user.id == @comm.user_id || superpermission
+    unless current_user.id == @comm.user_id
     redirect_to @vol
     end
   end
