@@ -32,7 +32,7 @@ class VCommentsController < ApplicationController
     params.require(:v_comment).permit(:body, :user_id, :date)
   end
   
-  def get_issue_and_comment
+  def get_volume_and_comment
     @vol = Volume.find(params[:volume_id])
     @comm = Volume.find(@vol.volumeID).VComments.find(params[:id])
   end

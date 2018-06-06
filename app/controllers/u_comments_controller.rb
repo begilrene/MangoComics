@@ -1,5 +1,5 @@
 class UCommentsController < ApplicationController
-  before_action :get_issue_and_comment, only: [:destroy, :edit, :update, :is_owner]
+  before_action :get_user_and_comment, only: [:destroy, :edit, :update, :is_owner]
   before_action :is_owner, only: [:edit, :update]
   before_action :can_delete, only: [:destroy]
   def create
@@ -35,7 +35,7 @@ class UCommentsController < ApplicationController
     params.require(:u_comment).permit(:body)
   end
   
-  def get_issue_and_comment
+  def get_user_and_comment
     @wall = User.find(params[:user_id])
     @com = Comment.find(params[:id])
     @comm = User.find(@com.user_id).UComments.find(params[:id])

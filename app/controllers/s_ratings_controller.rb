@@ -1,6 +1,6 @@
 class SRatingsController < ApplicationController
-  before_action :get_series_and_rating, only: [:destroy, :edit, :update, :is_owner]
-  before_action :is_owner, only: [:destroy ,:update]
+  before_action :get_series_and_rating, only: [:update, :is_owner]
+  before_action :is_owner, only: [:update]
   def create
     @ser = Series.find(params[:series_id])
     @rate = Series.find(@ser.seriesID).SRatings.new(rating_params)

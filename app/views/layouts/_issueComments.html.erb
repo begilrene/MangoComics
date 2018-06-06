@@ -37,7 +37,7 @@
                     <%end%>
                   </p>
             <p>  Date: <%=iComments.created_at%> <% if logged_in? && (@current_user.userID == iComments.user_id || @current_user.permission.to_i > 1) %>
-                <%= button_to "Delete", issue_i_comment_path(@iss, iComments),method %>
+                <%= button_to "Delete", issue_i_comment_path(@iss, iComments),method: :delete %>
                 <%= button_to "Edit", edit_issue_i_comment_path(iComments.issue, iComments) %>
               <% end %><br /></p>
             <p id = "comments"> <%=iComments.body%></p>

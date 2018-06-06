@@ -1,6 +1,6 @@
 class VRatingsController < ApplicationController
-  before_action :get_volume_and_rating, only: [:destroy, :edit, :update, :is_owner]
-  before_action :is_owner, only: [:destroy ,:update]
+  before_action :get_volume_and_rating, only: [:update, :is_owner]
+  before_action :is_owner, only: [:update]
   def create
     @volume = Volume.find(params[:volume_id])
     @rate = Volume.find(@volume.volumeID).VRatings.new(rating_params)
@@ -27,7 +27,7 @@ class VRatingsController < ApplicationController
   end
   
   def get_volume_and_rating
-    @volume = Volume.find(params[:series_id])
+    @volume = Volume.find(params[:volume_id])
     @rate = Volume.find(@volume.volumeID).VRatings.find(params[:id])
   end
   
