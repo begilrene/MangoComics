@@ -17,6 +17,11 @@ class VreviewsController < ApplicationController
    
     end
   end
+  def index
+    @vol = Volume.find(params[:volume_id])
+    @review= Volume.find(@vol.volumeID).vreviews.all
+    #@vreview= Volume.find(@vol.volumeID).reviews.all
+  end
   def destroy
     if @review.destroy
       redirect_to @volume

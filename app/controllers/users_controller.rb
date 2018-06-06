@@ -57,9 +57,6 @@ class UsersController < ApplicationController
       redirect_to(root_url) unless current_user?(@user)
   end
   
-  def destroy
-  end
-  
   def icomments
     @user = User.find(params[:id])
     @icomments = @user.IComments
