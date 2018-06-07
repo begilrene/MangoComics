@@ -6,5 +6,4 @@ class Volume < ActiveRecord::Base
     has_many :VComments, dependent: :destroy
     has_many :issues
     belongs_to :series
-    
 end

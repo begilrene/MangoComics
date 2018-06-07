@@ -1,14 +1,14 @@
 <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-
  <metadata id="metadata7">image/svg+xml</metadata>
+
  <g>
   <title>background</title>
-  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+  <rect x="-1" y="-1" width="66" height="66" id="canvas_background" fill="none"/>
  </g>
  <g>
   <title>Layer 1</title>
   <g id="layer1">
-   <path fill="#FFFA8D" stroke="#7f7f7f" stroke-width="2" stroke-miterlimit="4" d="m46.15919,54.98835l-14.190969,-9.780967l-14.224216,9.727487l4.466875,-17.205188l-13.199245,-11.209977l16.951645,-0.852426l6.06664,-16.65563l6.009817,16.678362l16.948625,0.916225l-13.237368,11.16022l4.408196,17.221895z" id="path3651"/>
+   <path id="path3651" d="m46.15919,54.98835l-14.19097,-9.78097l-14.22421,9.72749l4.46687,-17.20519l-13.19924,-11.20998l16.95164,-0.85242l6.06664,-16.65563l6.00982,16.67836l16.94862,0.91623l-13.23737,11.16022l4.4082,17.22189z" stroke-miterlimit="4" stroke-width="2" stroke="#7f7f7f" fill="#f40c2f"/>
   </g>
  </g>
 </svg>

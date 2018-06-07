@@ -10,7 +10,7 @@ class IRating < ActiveRecord::Base
         total += rate.rating.to_i
         count += 1
         end
-        if(count!=0)
+        if(count > 0)
             total/count
         else
             count

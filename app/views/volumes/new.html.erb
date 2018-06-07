@@ -6,7 +6,8 @@
     <%= form_for(@vol) do |f| %>
       <%= f.label :volumename, "Series Title" %>
       <%= f.text_field :volumename, class: 'form-control' %>
-      
+      <%= f.label :picture, "IMAGE URL (leave blank if none)" %>
+      <%= f.text_field :picture, class: 'form-control' %>
       <%= f.label :series_id, "Franchise (if franchise not shown please add volume first)" %>
       <%= f.select :series_id, options_from_collection_for_select(Series.all, :seriesID, :seriesname) %>
 

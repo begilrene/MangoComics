@@ -31,6 +31,6 @@ class VolumesController < ApplicationController
   end
   private
   def volume_params
-     params.require(:volume).permit(:volumename,:series_id)
+     params.require(:volume).permit(:volumename,:series_id,:picture)
   end
 end
