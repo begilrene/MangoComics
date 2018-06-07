@@ -6,7 +6,4 @@ class Series < ActiveRecord::Base
     belongs_to :franchise
     has_many :SRatings, dependent: :destroy
     has_many :SComments, dependent: :destroy
-    def self.cover
-        picture
-    end
 end
