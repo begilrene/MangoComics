@@ -1,6 +1,6 @@
 class IRatingsController < ApplicationController
-  before_action :get_issue_and_rating, only: [:destroy, :edit, :update, :is_owner]
-  before_action :is_owner, only: [:destroy ,:update]
+  before_action :get_issue_and_rating, only: [:update, :is_owner]
+  before_action :is_owner, only: [:update]
   def create
     @iss = Issue.find(params[:issue_id])
     @rate = Issue.find(@iss.issueID).IRatings.new(rating_params)
@@ -14,11 +14,6 @@ class IRatingsController < ApplicationController
     if @rate.update_attributes(rating_params)
       redirect_to @iss
     end
-  end
-  
-  def destroy
-    @rate.destroy
-    redirect_to @iss
   end
   
   private

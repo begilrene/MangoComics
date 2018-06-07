@@ -37,7 +37,6 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
   get 'franchise/show'
-  get 'static_pages/comiclist'
   get 'static_pages/home'
 
   #delete  'issues/:id/i_comments/:id'

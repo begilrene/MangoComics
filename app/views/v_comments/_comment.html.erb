@@ -11,8 +11,8 @@
                 
 
             <p>  Date: <%=comment.created_at%> <% if logged_in? && (@current_user.userID == comment.user_id || current_user.permission > 1)%>
-                <%= link_to "Delete", [comment.volume, comment], method: :delete %>
-                <%= link_to "Edit", edit_volume_v_comment_path(comment.volume, comment) %>
+                <%= button_to "Delete", [comment.volume, comment], method: :delete %>
+                <%= button_to "Edit", edit_volume_v_comment_path(comment.volume, comment) %>
               <% end %><br /></p>
             <p id = "comments"> <%=comment.body%></p>
             

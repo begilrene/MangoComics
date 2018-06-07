@@ -20,8 +20,8 @@
             <p>  Date: <%=comment.date%>
                   
             <% if logged_in? && (@current_user.userID == comment.user_id || @current_user.permission.to_i > 0)%>
-                <%= link_to "Delete", [User.find(comment.user_id), User.find(comment.user_id).UComments.find(comment.commentId)], method: :delete %>
-                <%= link_to "Edit", edit_user_u_comment_path(User.find(comment.user_id), User.find(comment.user_id).UComments.find(comment.commentId)) %>
+                <%= button_to "Delete", [User.find(comment.user_id), User.find(comment.user_id).UComments.find(comment.commentId)], method: :delete %>
+                <%= button_to "Edit", edit_user_u_comment_path(User.find(comment.user_id), User.find(comment.user_id).UComments.find(comment.commentId)) %>
 
             <% end %>
             
@@ -39,7 +39,7 @@
               <% if rev.volume_id != nil %>
                <div class= container id="comments">
                   <img class=mx-auto width=80 height=80 src="<%= rev.user.profilePic%>"></img>
-                  <%= rev.user.displayName%> <a href="/series/<%=Volume.find(rev.volume_id).volumeID%>"><img class = mx-auto src="<%=Volume.find(rev.volume_id).picture%>" width=80 height=80></img></a><br>
+                  <%= rev.user.displayName%> <a href="/volumes/<%=Volume.find(rev.volume_id).volumeID%>"><img class = mx-auto src="<%=Volume.find(rev.volume_id).picture%>" width=80 height=80></img></a><br>
                   <% if rev.user.permission.to_i > 1%>
                     <p style="color:red;">
                       Admin Account

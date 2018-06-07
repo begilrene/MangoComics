@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   create_table "Volume", primary_key: "volumeID", id: :serial, force: :cascade do |t|
     t.integer "series_id"
     t.text "volumename", comment: "Stores the name of the volume"
+    t.text "picture"
   end
 
   create_table "comments", primary_key: "commentId", id: :integer, default: -> { "nextval('\"IComments_commentId_seq\"'::regclass)" }, force: :cascade do |t|
