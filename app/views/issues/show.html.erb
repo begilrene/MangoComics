@@ -32,7 +32,10 @@
     <div class="row">
         <div class="shadow-lg p-4 mb-4 bg-white">
         <b>Summary: </b> <br>
+        <div id="spoiler" style="display:none"> 
         <%= @iss.summary%>
+        </div> 
+        <button title="Show Spoilers" type="button" onclick="if(document.getElementById('spoiler') .style.display=='none') {document.getElementById('spoiler') .style.display=''}else{document.getElementById('spoiler') .style.display='none'}">Hide Spoilers</button>
         </div>
     </div>
 </div>
