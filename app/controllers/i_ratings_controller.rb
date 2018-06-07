@@ -27,7 +27,7 @@ class IRatingsController < ApplicationController
   end
   
   def is_owner
-    unless current_user.id == @rate.user_id || current_user.permission > 0
+    unless current_user.id == @rate.user_id
     redirect_to @iss
     end
   end
