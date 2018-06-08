@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
     @review = Issue.find(@iss.issueID).reviews.new(review_params)
     @review.user_id = current_user.userID
     if @review.save
-      redirect_to @iss
+      redirect_to action: 'index'
     end
   end
   
@@ -21,18 +21,18 @@ class ReviewsController < ApplicationController
   end
   
   def edit
+    
   end
   
   def update
     if @irev.update_attributes(review_params)
-      redirect_to @iss
+      redirect_to action: 'index'
     end
   end
   
   def destroy
     if @irev.destroy
-      redirect_to @iss
-   
+      redirect_to action: 'index'
     end
   end
   

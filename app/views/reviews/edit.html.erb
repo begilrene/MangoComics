@@ -1,0 +1,14 @@
+      <div class = containerm style="padding-top:10%;">
+      <% if logged_in? %>
+      
+        <%= form_for ([@iss,@irev]) do |f|  %>
+          <%= render 'shared/error_messages' %>
+
+          <%= f.label :body, "Leave a new review.." %>
+          <%= f.text_area :body %>
+          
+
+          <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+        <% end %>
+      <% end %>
+      </div>

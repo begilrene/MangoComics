@@ -3,6 +3,9 @@
    <div class = 'container' style="padding-top:10%;">
      <div class = row >
      <div class = "col-sm-5" >
+         
+     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     
     <% @review.each do |rev| %>
     <% if rev.volume_id != nil %>
@@ -29,6 +32,10 @@
         <img class = "mx-auto rounded-circle" src=<%= asset_path '/crown_bronze.png' %>>
         </p>
         <%end%> 
+        <% if logged_in? && (@current_user.userID == rev.user.userID || @current_user.permission.to_i > 1) %>
+                <%= button_to "Delete",  issue_review_path(@iss, rev),method: :delete %>
+                <%= link_to "Edit", edit_issue_review_path(@iss, rev) %>
+                <%end%>
       <%=rev.created_at%> <br>
       <%=rev.body %>
      <br>

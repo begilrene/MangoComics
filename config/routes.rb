@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   
   resources:publisher
   resources:franchise
-  resources:reviews
+  resources:reviews do
+    resources:issues
+    resources:users
+  end
 
   resources:issues do
     resources:i_ratings
