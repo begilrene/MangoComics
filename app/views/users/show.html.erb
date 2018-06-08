@@ -45,10 +45,12 @@
       </p>
             
       <% if logged_in? && @current_user.displayName == @user.displayName %>
+      <button>
         <%= link_to 'Edit', edit_user_path(@user) %>
+        </button>
       <% end %>
       
-      Following Users: <br>
+     <br><strong> Following Users: </strong><br>
       <% @user.flists.each do |ufl| %>
         <% User.all.each do |user|%>
           <% if user.userID == ufl.followid %>
