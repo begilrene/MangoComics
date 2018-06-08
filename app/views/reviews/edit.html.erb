@@ -1,4 +1,7 @@
-      <div class = containerm style="padding-top:10%;">
+      <%= render 'layouts/navbar' %>
+ 
+  <div class="container">
+      <div class = container style="padding-top:10%;">
       <% if logged_in? %>
       
         <%= form_for ([@iss,@irev]) do |f|  %>
@@ -12,3 +15,6 @@
         <% end %>
       <% end %>
       </div>
+      </div>
+      
+      <%= render 'layouts/footer' %>
