@@ -3,8 +3,8 @@ class MCommentsController < ApplicationController
   before_action :is_owner, only: [:edit, :update]
   before_action :can_delete, only: [:destroy]
   def create
-    @news = New.find(params[:news_id])
-    @comm = New.find(@news.newsId).MComments.new(comment_params)
+    @news = News.find(params[:news_id])
+    @comm = News.find(@news.newsId).MComments.new(comment_params)
     @comm.user_id = current_user.userID
     if @comm.save
       redirect_to @news
@@ -27,8 +27,8 @@ class MCommentsController < ApplicationController
     params.require(:m_comment).permit(:body, :user_id)
   end
   def get_news_and_comment
-    @news = New.find(params[:news_id])
-    @comm = New.find(@news.newsId).MComments.find(params[:id])
+    @news = News.find(params[:news_id])
+    @comm = News.find(@news.newsId).MComments.find(params[:id])
   end
   def is_owner
     unless current_user.id == @comm.user_id

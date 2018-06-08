@@ -33,7 +33,9 @@
         </p>
         <%end%> 
         <% if logged_in? && (@current_user.userID == rev.user.userID || @current_user.permission.to_i > 1) %>
+                <button>
                 <%= button_to "Delete",  issue_review_path(@iss, rev),method: :delete %>
+                </button>
                 <button id="button">
                 <%= link_to "Edit", edit_issue_review_path(@iss, rev) %>
                 </button>
