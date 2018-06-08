@@ -72,7 +72,7 @@
       </a>
        <% end %>
   
-  <% New.all.each do |new| %>
+  <% News.all.order(created_at: :desc).each do |new| %>
   <a href="/news/<%=new.newsId%>">
     <div class="container shadow-lg p-4 mb-4" style="background-color:#576881; padding:-40%; border:15px solid black" >
       <div class="" style=" text-alignt:center; border: 0px solid black">  

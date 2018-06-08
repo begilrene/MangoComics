@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   create_table "Volume", primary_key: "volumeID", id: :serial, force: :cascade do |t|
     t.integer "series_id"
     t.text "volumename", comment: "Stores the name of the volume"
-    t.text "picture"
+    t.text "picture", default: "https://upload.wikimedia.org/wikipedia/commons/b/b9/No_Cover.jpg"
   end
 
   create_table "comments", primary_key: "commentId", id: :integer, default: -> { "nextval('\"IComments_commentId_seq\"'::regclass)" }, force: :cascade do |t|
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 20180508181229) do
     t.integer "volume_id"
     t.integer "series_id"
     t.datetime "created_at", default: -> { "timezone('utc'::text, now())" }
-    t.integer "new_id"
+    t.integer "news_id"
   end
 
   create_table "flist", id: :serial, force: :cascade do |t|
@@ -147,7 +147,7 @@ ActiveRecord::Schema.define(version: 20180508181229) do
   add_foreign_key "Series", "\"Franchise\"", column: "franchise_id", primary_key: "franchiseID", name: "Series_franchise_id_fkey"
   add_foreign_key "Volume", "\"Series\"", column: "series_id", primary_key: "seriesID", name: "Volume_series_id_fkey"
   add_foreign_key "comments", "\"Issue\"", column: "issue_id", primary_key: "issueID", name: "IComments_location_fkey"
-  add_foreign_key "comments", "\"New\"", column: "new_id", primary_key: "newsId", name: "comments_new_id_fkey"
+  add_foreign_key "comments", "\"New\"", column: "news_id", primary_key: "newsId", name: "comments_new_id_fkey"
   add_foreign_key "comments", "\"Series\"", column: "series_id", primary_key: "seriesID", name: "comments_series_id_fkey"
   add_foreign_key "comments", "\"User\"", column: "user_id", primary_key: "userID", name: "IComments_commenter_fkey"
   add_foreign_key "comments", "\"User\"", column: "wall_id", primary_key: "userID", name: "comments_wall_id_fkey"

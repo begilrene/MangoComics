@@ -23,8 +23,8 @@
              <%end%>
             <p>  Date: <%=mComments.date%>
             <% if logged_in? && (@current_user.userID == mComments.user_id || @current_user.permission.to_i > 1) %>
-                <%= button_to "Delete", [mComments.new, mComments], method: :delete %>
-                <%= button_to "Edit", edit_news_m_comment_path(mComments.new, mComments) %>
+                <%= button_to "Delete", [mComments.news, mComments], method: :delete %>
+                <%= button_to "Edit", edit_news_m_comment_path(mComments.news, mComments) %>
             <% end %>
             <br />
             </p>
