@@ -47,7 +47,15 @@
       <% if logged_in? && @current_user.displayName == @user.displayName %>
         <%= link_to 'Edit', edit_user_path(@user) %>
       <% end %>
-
+      
+      Following Users: <br>
+      <% @user.flists.each do |ufl| %>
+        <% User.all.each do |user|%>
+          <% if user.userID == ufl.followid %>
+          <a href="/users/<%=ufl.followid%>"><img src="<%=user.profilePic%>" width=25 height=25></img></a><a href="/users/<%=ufl.followid%>"><%=user.displayName%></a> <br>
+          <%end%>
+          <%end%>
+        <%end%>
       </div>
       
       <div class= "text-center">

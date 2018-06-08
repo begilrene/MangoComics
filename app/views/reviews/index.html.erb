@@ -34,7 +34,9 @@
         <%end%> 
         <% if logged_in? && (@current_user.userID == rev.user.userID || @current_user.permission.to_i > 1) %>
                 <%= button_to "Delete",  issue_review_path(@iss, rev),method: :delete %>
+                <button id="button">
                 <%= link_to "Edit", edit_issue_review_path(@iss, rev) %>
+                </button>
                 <%end%>
       <%=rev.created_at%> <br>
       <%=rev.body %>

@@ -3,7 +3,7 @@
           <div class="col-sm-12">
             <% @comm.order(created_at: :desc).each do |comment| %>
                   <p>
-                    <img src = <%=User.find(comment.user_id).profilePic%> width="80" height = "80" alt"">  <%=User.find(comment.user_id).displayName%>
+                   <a href="/users/<%=comment.user_id%>"><img src = <%=User.find(comment.user_id).profilePic%> width="80" height = "80" alt""></img></a>  <%=User.find(comment.user_id).displayName%>
                   </p>
                   <% if User.find(comment.user_id).permission.to_i == 2%>
                   <p style="color: red;">
@@ -38,7 +38,7 @@
               <%if (@user.userID == rev.user_id)%>
               <% if rev.volume_id != nil %>
                <div class= container id="comments">
-                  <img class=mx-auto width=80 height=80 src="<%= rev.user.profilePic%>"></img>
+                 <a href="/users/<%=rev.user.userID%>"><img class=mx-auto width=80 height=80 src="<%= rev.user.profilePic%>"></img></a>
                   <%= rev.user.displayName%> <a href="/volumes/<%=Volume.find(rev.volume_id).volumeID%>"><img class = mx-auto src="<%=Volume.find(rev.volume_id).picture%>" width=80 height=80></img></a><br>
                   <% if rev.user.permission.to_i > 1%>
                     <p style="color:red;">
@@ -53,7 +53,7 @@
       
               <% if rev.issue_id != nil %>
               <div class= container id="comments">
-                 <img class=mx-auto width=80 height=80 src="<%= rev.user.profilePic%>"></img>
+                  <a href="/users/<%=rev.user.userID%>"><img class=mx-auto width=80 height=80 src="<%= rev.user.profilePic%>"></img></a>
                   <%= rev.user.displayName%> @ &nbsp;<a href="/issues/<%=rev.issue_id%>"><img class = mx-auto src="<%=rev.issue.cover%>" width=80 height=80></img></a><b> &nbsp; REVIEW</b><br>
                   <% if rev.user.permission.to_i > 1%>
                     <p style="color:red;">
@@ -69,7 +69,7 @@
       
               <% if rev.series_id != nil %>
                 <div class= container id="comments">
-                  <img class=mx-auto width=80 height=80 src="<%= rev.user.profilePic%>"></img>
+                 <a href="/users/<%=rev.user.userID%>"><img class=mx-auto width=80 height=80 src="<%= rev.user.profilePic%>"></img></a>
                   <%= rev.user.displayName%> @ &nbsp;<a href="/series/<%=Series.find(rev.series_id).seriesID%>"><img class = mx-auto src="<%=Series.find(rev.series_id).picture%>" width=80 height=80></img></a><b> &nbsp; REVIEW</b><br>
                   <% if rev.user.permission.to_i > 1%>
                     <p style="color:red;">
