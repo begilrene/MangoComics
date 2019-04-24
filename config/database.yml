@@ -18,9 +18,9 @@ default: &default
   adapter: postgresql
   timeout: 5000
   database: mangoDB
-  username: mangoadmin
-  password: mangopassword
-  host: mangodb.chz3lyjccdyc.us-east-2.rds.amazonaws.com
+  username: dbusernamehere
+  password: dbpasswordhere
+  host: host.domain.goes.here
   port: 5432
 
 development:
@@ -28,9 +28,9 @@ development:
   adapter: postgresql
   timeout: 5000
   database: mangoDB
-  username: mangoadmin
-  password: mangopassword
-  host: mangodb.chz3lyjccdyc.us-east-2.rds.amazonaws.com
+  username: dbusernamehere
+  password: dbpasswordhere
+  host: host.domain.goes.here
   port: 5432
   
    # The specified database role being used to connect to postgres.
@@ -66,9 +66,9 @@ test:
   timeout: 5000
   adapter: postgresql
   database: mangoDB
-  username: mangoadmin
-  password: mangopassword
-  host: mangodb.chz3lyjccdyc.us-east-2.rds.amazonaws.com
+  username: dbusernamehere
+  password: dbpasswordhere
+  host: host.domain.goes.here
   port: 5432
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -95,8 +95,8 @@ production:
   timeout: 5000
   adapter: postgresql
   database: mangoDB
-  username: mangoadmin
-  url: postgres://mangoadmin:mangopassword@mangodb.chz3lyjccdyc.us-east-2.rds.amazonaws.com/mangoDB
-  password: mangopassword
-  host: mangodb.chz3lyjccdyc.us-east-2.rds.amazonaws.com
+  username: dbusernamehere
+  url: postgres://dbusernamehere:dbpasswordhere@host.domain.goes.here/mangoDB
+  password: dbpasswordhere
+  host: host.domain.goes.here
   port: 5432
